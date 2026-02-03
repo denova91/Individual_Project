@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнительный анализ медных и оптических линий связи</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <h2 class="sidebar-title">Сравнительный анализ</h2>
+            <p class="sidebar-tagline">Медь vs Оптика</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-links">
+                <li><a href="#introduction"><i class="fas fa-home"></i> Введение</a></li>
+                <li><a href="#copper-lines"><i class="fas fa-bolt"></i> Медные линии</a></li>
+                <li><a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптические линии</a></li>
+                <li><a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнительный анализ</a></li>
+                <li><a href="#economic-analysis"><i class="fas fa-chart-line"></i> Экономический анализ</a></li>
+                <li><a href="#conclusion"><i class="fas fa-flag-checkered"></i> Заключение</a></li>
+                <li><a href="#sources"><i class="fas fa-book"></i> Источники</a></li>
+            </ul>
+        </nav>
+        
+        <div class="theme-toggle-container">
+            <button id="theme-toggle" class="theme-toggle">
+                <span>Темная тема</span>
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </aside>
+    
+    <!-- Кнопка мобильного меню -->
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Основное содержимое -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Введение -->
+            <section id="introduction">
+                <h2><i class="fas fa-home"></i> Введение в технологии</h2>
+                <p>Эволюция проводных сетей привела к формированию двух фундаментально различных, но взаимодополняющих технологий передачи данных, основанных либо на движении электронов в металле, либо на движении фотонов в стекле.</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card copper-card">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Медные линии</h3>
+                        <p>Технология передачи электрических сигналов по металлическим проводникам. Основана на изменении напряжения или тока для кодирования информации.</p>
+                        <h4>Ключевые особенности:</h4>
+                        <ul>
+                            <li>Исторически первая</li>
+                            <li>Ограничение 100 м</li>
+                            <li>Экономичная</li>
+                        </ul>
+                        <div class="badge badge-copper">Популярно</div>
+                    </div>
+                    
+                    <div class="comparison-card fiber-card">
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Оптические линии</h3>
+                        <p>Технология передачи световых импульсов по стеклянным или пластиковым волокнам. Использует модуляцию интенсивности света для передачи данных.</p>
+                        <h4>Ключевые особенности:</h4>
+                        <ul>
+                            <li>Высокая скорость</li>
+                            <li>Большая дальность</li>
+                            <li>Защита от помех</li>
+                        </ul>
+                        <div class="badge badge-fiber">Перспективно</div>
+                    </div>
+                </div>
+                
+                <p><strong>Цель исследования:</strong> Предоставить комплексное представление о принципах работы, преимуществах, ограничениях и оптимальных сферах применения медных и оптических линий связи, давая инженерам и специалистам по сетям инструменты для принятия обоснованных технических решений на основе сравнительных характеристик, экономических расчетов и практического опыта.</p>
+            </section>
+            
+            <!-- Медные линии связи -->
+            <section id="copper-lines">
+                <h2><i class="fas fa-bolt"></i> Медные линии связи: Физика электронов в упряжке</h2>
+                
+                <h3>Физический принцип и конструкция</h3>
+                <p>Передача данных осуществляется посредством изменения <span class="highlight">напряжения или силы тока</span> в металлическом проводнике (обычно медном) во времени. Цифровая информация кодируется в этих изменениях с помощью сложных схем модуляции, таких как PAM-16 (амплитудная модуляция с 16 уровнями импульсов), используемая в стандарте 10GBASE-T.</p>
+                
+                <h3>Скручивание пар (Twisted Pair)</h3>
+                <p>Фундаментальный прием борьбы с электромагнитными помехами. Внешняя помеха наводит идентичный шум в обоих проводах пары, который затем вычитается дифференциальным усилителем на приемном конце.</p>
+                
+                <h4>Типы кабелей:</h4>
+                <ul>
+                    <li><strong>UTP</strong> — неэкранированная витая пара</li>
+                    <li><strong>FTP</strong> — с общим экраном из фольги</li>
+                    <li><strong>SFTP</strong> — с индивидуальным экранированием</li>
+                </ul>
+                
+                <h4>Категории и скорости:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Категория</th>
+                            <th>Скорость передачи</th>
+                            <th>Максимальная частота</th>
+                            <th>Особенности</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cat5e</strong></td>
+                            <td>до 1 Гбит/с</td>
+                            <td>100 МГц</td>
+                            <td>Базовый стандарт для гигабитных сетей</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cat6</strong></td>
+                            <td>до 10 Гбит/с на 55 м</td>
+                            <td>250 МГц</td>
+                            <td>Улучшенная защита от помех</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cat6A</strong></td>
+                            <td>до 10 Гбит/с на 100 м</td>
+                            <td>500 МГц</td>
+                            <td>Полноценная поддержка 10 Гбит/с</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cat8</strong></td>
+                            <td>до 40 Гбит/с на 30 м</td>
+                            <td>2000 МГц</td>
+                            <td>Для центров обработки данных</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="analogy">
+                    <h4>Простая аналогия:</h4>
+                    <p>Представьте попытку вести разговор через две длинные металлические трубки в шумном промышленном цеху. Полезный голос (сигнал) ослабевает с расстоянием, а гул станков (электромагнитные помехи) проникает в трубки. Чем быстрее и сложнее речь (выше скорость передачи), тем труднее разобрать слова на другом конце. Скручивание трубок помогает уменьшить влияние внешнего шума.</p>
+                </div>
+                
+                <h3>Фундаментальное ограничение: скин-эффект</h3>
+                <p>С ростом частоты передаваемого сигнала электрический ток перестает равномерно распределяться по сечению проводника и вытесняется к его поверхности. Это приводит к эффективному уменьшению площади поперечного сечения, доступной для тока, что резко увеличивает сопротивление и, как следствие, затухание сигнала. Именно скин-эффект является главным барьером, ограничивающим максимальную частоту, а значит и скорость передачи данных, а также дистанцию для медных кабелей.</p>
+            </section>
+            
+            <!-- Оптические линии связи -->
+            <section id="fiber-lines">
+                <h2><i class="fas fa-lightbulb"></i> Оптические линии связи: Свет в невидимом русле</h2>
+                
+                <h3>Физический принцип: полное внутреннее отражение</h3>
+                <p>В основе лежит управление светом на границе двух сред. Оптическое волокно состоит из сердцевины (core) из сверхчистого кварцевого стекла с высоким показателем преломления, окруженной оболочкой (cladding) с более низким показателем преломления.</p>
+                
+                <h4>Структура оптического волокна:</h4>
+                <ol>
+                    <li><strong>Сердцевина</strong> — 9-50 мкм, высокий показатель преломления</li>
+                    <li><strong>Оболочка</strong> — 125 мкм, низкий показатель преломления</li>
+                    <li><strong>Защитное покрытие</strong> — 250 мкм, механическая защита</li>
+                </ol>
+                
+                <p>Свет, введенный в сердцевину, полностью отражается от границы с оболочкой благодаря явлению полного внутреннего отражения, что позволяет передавать сигнал на огромные расстояния с минимальными потерями.</p>
+                
+                <h3>Типы оптических волокон</h3>
+                
+                <h4>Многомодовое волокно (MMF):</h4>
+                <ul>
+                    <li>Диаметр сердцевины: 50 или 62.5 микрона</li>
+                    <li>Принцип: Множество световых лучей (мод) распространяются по разным траекториям</li>
+                    <li>Ограничение: Межмодовая дисперсия ограничивает дальность (~550 м для 10 Гбит/с)</li>
+                    <li>Применение: Короткие дистанции внутри зданий, ЦОД</li>
+                </ul>
+                
+                <h4>Одномодовое волокно (SMF):</h4>
+                <ul>
+                    <li>Диаметр сердцевины: 9 микрон</li>
+                    <li>Принцип: Распространяется только одна, фундаментальная мода</li>
+                    <li>Преимущество: Отсутствие межмодовой дисперсии, дальность сотни км</li>
+                    <li>Применение: Магистральные линии, междугородная связь</li>
+                </ul>
+                
+                <h3>Окна прозрачности: почему свет не гаснет</h3>
+                <p>Диапазоны длин волн инфракрасного света, в которых затухание сигнала при прохождении через кварцевое стекло минимально. Современное «сухое» волокно имеет единое сверхширокое окно прозрачности (1260–1675 нм).</p>
+                
+                <h4>Основные окна прозрачности:</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Диапазон</th>
+                            <th>Длины волн</th>
+                            <th>Затухание</th>
+                            <th>Ключевая особенность</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>O-band</strong></td>
+                            <td>1260–1360 нм</td>
+                            <td>~0.4 дБ/км</td>
+                            <td>Original, нулевая дисперсия на 1310 нм</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C-band</strong></td>
+                            <td>1530–1565 нм</td>
+                            <td>~0.18-0.25 дБ/км</td>
+                            <td>Conventional, минимальное затухание + EDFA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L-band</strong></td>
+                            <td>1565–1625 нм</td>
+                            <td>~0.22-0.3 дБ/км</td>
+                            <td>Long, расширение для DWDM систем</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="analogy">
+                    <h4>Простая аналогия:</h4>
+                    <p>Представьте абсолютно прямую, темную и идеально зеркальную внутри трубу, протянутую на многие километры. Луч фонарика, запущенный в один ее конец, достигнет другого с минимальными потерями. Выбор окон прозрачности — это выбор цвета фонарика (инфракрасного, невидимого глазу), который будет испытывать наименьшее сопротивление внутри материала этой трубы.</p>
+                </div>
+            </section>
+            
+            <!-- Сравнительный анализ -->
+            <section id="comparison">
+                <h2><i class="fas fa-balance-scale"></i> Сравнительный анализ: Технические и экономические аспекты</h2>
+                <p>Медные и оптические линии связи существенно различаются по своим физическим принципам, что определяет их технические характеристики, области применения и экономическую эффективность.</p>
+                
+                <h3>Технические характеристики</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Медь (Cat6A/Cat8)</th>
+                            <th>Оптика (SMF)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Принцип передачи</strong></td>
+                            <td>Электрический сигнал (изменение напряжения)</td>
+                            <td>Световой импульс (модуляция интенсивности)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Скорость передачи</strong></td>
+                            <td>До 40 Гбит/с (Cat8, до 30 м)</td>
+                            <td>От 1 Гбит/с до 100+ Гбит/с на канал, терабиты с DWDM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Максимальная дальность</strong></td>
+                            <td>Жестко ограничена (100 м для Ethernet)</td>
+                            <td>Сотни километров без регенерации</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Затухание сигнала</strong></td>
+                            <td>Высокое, растет с частотой</td>
+                            <td>Крайне низкое (минимально в C/L-диапазонах)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Иммунитет к помехам</strong></td>
+                            <td>Низкий, требует экранирования</td>
+                            <td>Абсолютный, не подвержен ЭМ-воздействию</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Безопасность данных</strong></td>
+                            <td>Подвержены пассивному перехвату</td>
+                            <td>Высокая, перехват требует физического вмешательства</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Энергопотребление</strong></td>
+                            <td>Относительно высокое</td>
+                            <td>Существенно ниже на больших дистанциях</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Экономические аспекты</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Аспект</th>
+                            <th>Медь</th>
+                            <th>Оптика</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Стоимость кабеля (за метр)</strong></td>
+                            <td>Низкая ($0.5-2)</td>
+                            <td>Высокая ($2-10)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Стоимость активного оборудования</strong></td>
+                            <td>Низкая (встроенные порты)</td>
+                            <td>Высокая (оптические трансиверы, коммутаторы)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Стоимость монтажа и обслуживания</strong></td>
+                            <td>Низкая (простой обжим, легкий ремонт)</td>
+                            <td>Высокая (дорогое оборудование, квалификация)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>"Будущезащищенность"</strong></td>
+                            <td>Ограничена (нужна замена кабеля)</td>
+                            <td>Высокая (замена оконечного оборудования)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Совокупная стоимость владения (5 лет)</strong></td>
+                            <td>$100-200 на точку</td>
+                            <td>$150-300 на точку</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Энергопотребление (10 Гбит/с порт)</strong></td>
+                            <td>3-6 Вт</td>
+                            <td>1-1.5 Вт</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Области применения</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Область применения</th>
+                            <th>Медь</th>
+                            <th>Оптика</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Горизонтальная разводка в офисах</strong></td>
+                            <td>Оптимально</td>
+                            <td>Избыточно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Магистральные сети</strong></td>
+                            <td>Невозможно</td>
+                            <td>Идеально</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Центры обработки данных</strong></td>
+                            <td>Для коротких соединений</td>
+                            <td>Для высокоскоростных соединений</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Промышленные сети</strong></td>
+                            <td>Требует экранирования</td>
+                            <td>Идеально (иммунитет к помехам)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Подключение конечных устройств</strong></td>
+                            <td>Идеально (простота, PoE)</td>
+                            <td>Сложно и дорого</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Межздательные соединения</strong></td>
+                            <td>Невозможно</td>
+                            <td>Единственный вариант</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Сравнение стоимости реализации</h3>
+                <div class="cost-comparison">
+                    <div class="cost-item">
+                        <h4><i class="fas fa-bolt"></i> Медь Cat6A (100 точек)</h4>
+                        <div class="cost-value">$15,000</div>
+                        <ul>
+                            <li>Кабель: $2,500</li>
+                            <li>Оборудование: $10,000</li>
+                            <li>Монтаж: $2,500</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cost-item">
+                        <h4><i class="fas fa-lightbulb"></i> Оптика SMF (100 точек)</h4>
+                        <div class="cost-value">$25,000</div>
+                        <ul>
+                            <li>Кабель: $5,000</li>
+                            <li>Оборудование: $15,000</li>
+                            <li>Монтаж: $5,000</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Экономический анализ с калькулятором ROI -->
+            <section id="economic-analysis">
+                <h2><i class="fas fa-chart-line"></i> Экономический анализ: Стоимость владения и окупаемость</h2>
+                <p>Выбор между медью и оптикой — это не только техническое, но и экономическое решение. Рассмотрим полную стоимость владения (TCO) и рентабельность инвестиций.</p>
+                
+                <h3>Капитальные затраты (CAPEX)</h3>
+                <ul>
+                    <li><strong>Медь:</strong> Низкая стоимость кабеля, но дороже для высоких категорий (Cat8)</li>
+                    <li><strong>Оптика:</strong> Высокая стоимость активного оборудования, но снижение цен на компоненты</li>
+                    <li><strong>Тренд:</strong> Стоимость оптики снижается на 15-20% ежегодно</li>
+                </ul>
+                
+                <h3>Операционные расходы (OPEX)</h3>
+                <ul>
+                    <li><strong>Медь:</strong> Высокое энергопотребление, частые замены при апгрейде</li>
+                    <li><strong>Оптика:</strong> Низкие энергозатраты, долгий срок службы инфраструктуры</li>
+                    <li><strong>Экономия:</strong> Оптика может снизить OPEX на 30-40%</li>
+                </ul>
+                
+                <h3>Срок окупаемости</h3>
+                <ul>
+                    <li><strong>Медь:</strong> 1-2 года для офисных сетей</li>
+                    <li><strong>Оптика:</strong> 3-5 лет для магистралей, но с большим запасом на будущее</li>
+                    <li><strong>ROI:</strong> Оптика дает лучшую отдачу в долгосрочной перспективе</li>
+                </ul>
+                
+                <h3>Полная стоимость владения (TCO) за 10 лет</h3>
+                <p>С учетом всех факторов: закупка, монтаж, энергопотребление, обслуживание, апгрейд</p>
+                
+                <div class="cost-comparison">
+                    <div class="cost-item">
+                        <h4>Медь Cat6A</h4>
+                        <div class="cost-value" id="copper-tco">$45,000</div>
+                        <p>+2 замены кабеля</p>
+                    </div>
+                    
+                    <div class="cost-item">
+                        <h4>Оптика SMF</h4>
+                        <div class="cost-value" id="fiber-tco">$38,000</div>
+                        <p>только замена оборудования</p>
+                    </div>
+                </div>
+                
+                <p><strong>Экономия:</strong> <span class="highlight">15% в пользу оптики</span></p>
+                
+                <!-- Интерактивный калькулятор ROI -->
+                <div class="roi-calculator">
+                    <h3><i class="fas fa-calculator"></i> Калькулятор ROI</h3>
+                    <p>Рассчитайте возврат инвестиций для вашего проекта:</p>
+                    
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label for="project-type"><i class="fas fa-building"></i> Тип проекта</label>
+                            <select id="project-type" class="form-control">
+                                <option value="office">Офисное здание</option>
+                                <option value="datacenter">Центр обработки данных</option>
+                                <option value="campus">Кампусная сеть</option>
+                                <option value="provider">Провайдерская сеть</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="connections"><i class="fas fa-plug"></i> Количество подключений</label>
+                            <input type="range" id="connections" class="form-control-range" min="10" max="10000" value="100" step="10">
+                            <input type="number" id="connections-input" class="form-control" min="10" max="10000" value="100">
+                            <span class="range-value" id="connections-value">100</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cable-length"><i class="fas fa-ruler"></i> Средняя длина линии (м)</label>
+                            <input type="range" id="cable-length" class="form-control-range" min="1" max="1000" value="50" step="1">
+                            <input type="number" id="cable-length-input" class="form-control" min="1" max="1000" value="50">
+                            <span class="range-value" id="cable-length-value">50 м</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="speed-requirement"><i class="fas fa-tachometer-alt"></i> Требуемая скорость (Гбит/с)</label>
+                            <select id="speed-requirement" class="form-control">
+                                <option value="1">1 Гбит/с</option>
+                                <option value="10" selected>10 Гбит/с</option>
+                                <option value="40">40 Гбит/с</option>
+                                <option value="100">100 Гбит/с</option>
+                            </select>
+                        </div>
+                        
+                        <button id="calculate-roi" class="calculate-btn">
+                            <i class="fas fa-calculator"></i> Рассчитать ROI
+                        </button>
+                    </div>
+                    
+                    <div class="calculator-results" id="roi-results" style="display: none;">
+                        <h4>Результаты расчета:</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-label">Рекомендуемая технология</div>
+                                <div class="result-value" id="recommended-tech">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Срок окупаемости</div>
+                                <div class="result-value" id="payback-period">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Экономия за 5 лет</div>
+                                <div class="result-value" id="savings-5y">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">ROI за 3 года</div>
+                                <div class="result-value" id="roi-3y">-</div>
+                            </div>
+                        </div>
+                        
+                        <div class="recommendation" id="recommendation-text">
+                            <!-- Текст рекомендации будет здесь -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Загрузчик цен с внешнего сайта -->
+                <div class="price-loader">
+                    <h4><i class="fas fa-sync-alt"></i> Загрузка актуальных цен</h4>
+                    <p>Для получения актуальных цен на оборудование используйте Демо-данные или введите URL для симуляции:</p>
+                    
+                    <!-- Информационное сообщение об ограничениях -->
+                    <div class="info-message warning-box">
+                        <h5><i class="fas fa-exclamation-triangle"></i> Технические ограничения</h5>
+                        <p>В браузерной версии сайта <strong>невозможно загрузить данные напрямую с других сайтов</strong> из-за:</p>
+                        <ul class="info-list">
+                            <li><strong>CORS политики безопасности</strong> - браузеры блокируют кросс-доменные запросы</li>
+                            <li><strong>Отсутствия прокси-сервера</strong> - для обхода CORS нужен серверный компонент</li>
+                            <li><strong>Защиты от парсинга</strong> - многие сайты блокируют автоматические запросы</li>
+                        </ul>
+                        <p><strong>Альтернатива:</strong> Используйте Демо-данные или установите серверную версию с прокси.</p>
+                    </div>
+                    
+                    <div class="price-controls" style="margin-top: 1.5rem;">
+                        <input type="text" id="price-url" class="price-input" placeholder="URL для симуляции (например, https://example.com/prices)">
+                        <button id="load-prices" class="load-prices-btn">
+                            <i class="fas fa-download"></i> Симулировать загрузку
+                        </button>
+                        <button id="demo-prices" class="load-prices-btn" style="background: var(--gradient-accent);">
+                            <i class="fas fa-play-circle"></i> Демо-данные
+                        </button>
+                        <button id="reset-prices" class="load-prices-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-undo"></i> Сбросить к ценам по умолчанию
+                        </button>
+                    </div>
+                    
+                    <div class="price-status" id="price-status"></div>
+                    
+                    <!-- Блок с информацией о реальной реализации -->
+                    <div class="api-details">
+                        <p><i class="fas fa-code"></i> <strong>Для реальной интеграции потребуется:</strong></p>
+                        <ol style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Серверное приложение с функциями парсинга</li>
+                            <li>Настройка CORS прокси или использование готовых API</li>
+                            <li>Согласование с владельцами сайтов на парсинг данных</li>
+                        </ol>
+                    </div>
+                    
+                    <div id="loaded-prices" style="display: none; margin-top: 1rem;">
+                        <h5>Текущие цены:</h5>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-label">Медь Cat6A (метр)</div>
+                                <div class="result-value" id="price-copper">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Оптика SMF (метр)</div>
+                                <div class="result-value" id="price-fiber">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Медный порт 10G</div>
+                                <div class="result-value" id="price-copper-port">-</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-label">Оптический порт 10G</div>
+                                <div class="result-value" id="price-fiber-port">-</div>
+                            </div>
+                        </div>
+                        <button id="update-calculator" class="calculate-btn" style="margin-top: 1rem; padding: 0.8rem 1.5rem; font-size: 1rem;">
+                            <i class="fas fa-sync"></i> Обновить калькулятор
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Заключение -->
+            <section id="conclusion">
+                <h2><i class="fas fa-flag-checkered"></i> Заключение и рекомендации</h2>
+                
+                <h3>Основные выводы</h3>
+                
+                <h4>Медь — оптимальна для "последних метров"</h4>
+                <p>Идеально подходит для горизонтальной разводки в офисах, подключения рабочих мест и устройств с PoE. Экономически выгодна при длинах до 100 м и скоростях до 10 Гбит/с.</p>
+                
+                <h4>Оптика — безальтернативна для магистралей</h4>
+                <p>Единственный вариант для магистральных сетей, межздательных соединений и высокоскоростных каналов. Обеспечивает неограниченную масштабируемость и будущезащищенность.</p>
+                
+                <h4>Гибридные решения — современный стандарт</h4>
+                <p>Современные сети строятся по иерархической модели: оптическое ядро и распределение + медный доступ. Это обеспечивает оптимальное соотношение цены и производительности.</p>
+                
+                <h3>Матрица принятия решений</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сценарий</th>
+                            <th>Рекомендуемая технология</th>
+                            <th>Причина выбора</th>
+                            <th>Ориентировочная стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Офисное здание (до 100 рабочих мест)</strong></td>
+                            <td>Медь Cat6A</td>
+                            <td>Экономичность, простота монтажа, поддержка PoE</td>
+                            <td>$150-200 на точку</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Центр обработки данных</strong></td>
+                            <td>Оптика SMF</td>
+                            <td>Высокая скорость, низкая задержка, энергоэффективность</td>
+                            <td>$300-500 на порт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Кампусная сеть (несколько зданий)</strong></td>
+                            <td>Гибридное решение</td>
+                            <td>Оптика между зданиями + медь внутри зданий</td>
+                            <td>$200-350 на точку</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Промышленное предприятие</strong></td>
+                            <td>Оптика MMF/SMF</td>
+                            <td>Иммунитет к электромагнитным помехам</td>
+                            <td>$250-400 на точку</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Провайдерская сеть (FTTH)</strong></td>
+                            <td>Оптика PON</td>
+                            <td>Дальность, пропускная способность, масштабируемость</td>
+                            <td>$100-200 на абонента</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Перспективы развития</h3>
+                <h4>Рост скоростей</h4>
+                <p>К 2025 году 25/100 Гбит/с станут стандартом для ЦОД, к 2030 — 400/800 Гбит/с</p>
+                
+                <h4>Энергоэффективность</h4>
+                <p>Фокус на снижении энергопотребления: новые стандарты оптики потребляют на 70% меньше</p>
+                
+                <h4>Автоматизация</h4>
+                <p>AI-driven сети с автонастройкой параметров и самодиагностикой</p>
+                
+                <h4>Снижение стоимости</h4>
+                <p>Ежегодное снижение стоимости оптических компонентов на 15-20%</p>
+                
+                <h3>Ключевая рекомендация</h3>
+                <p>При проектировании новой сети всегда закладывайте оптическую магистраль, даже если начинаете с медного доступа. Это обеспечит масштабируемость и защитит инвестиции на 10-15 лет вперед. Для существующих сетей рассматривайте постепенную миграцию на оптику по мере роста потребностей в скорости или при плановых модернизациях.</p>
+            </section>
+            
+            <!-- Источники -->
+            <section id="sources">
+                <h2><i class="fas fa-book"></i> Источники</h2>
+                <ol>
+                    <li>Олифер В.Г., Олифер Н.А. "Компьютерные сети"</li>
+                    <li>Семенов Ю.А. "Волоконно-оптические подсистемы"</li>
+                    <li>ANSI/TIA-568.2-D стандарты</li>
+                    <li>ITU-T G.652 рекомендации</li>
+                    <li>Генрих К. "Оптические кабели связи: конструкции, характеристики, применение"</li>
+                    <li>Статьи и технические white papers компании Cisco Systems</li>
+                    <li>Независимые тесты и измерения с YouTube-каналов: Gamers Nexus, Crosstalk Solutions, Jeff Geerling</li>
+                </ol>
+            </section>
+        </div>
+        
+        <!-- Подвал -->
+        <footer>
+            <div class="container footer-content">
+                <p><i class="fas fa-network-wired"></i> © 2025 Сравнительный анализ медных и оптических линий связи</p>
+                <p>Информационный ресурс для инженеров ,специалистов по сетевым технологиям и обучающихся</p>
+                
+                <div class="footer-links">
+                    <a href="#introduction"><i class="fas fa-home"></i> Введение</a>
+                    <a href="#copper-lines"><i class="fas fa-bolt"></i> Медь</a>
+                    <a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптика</a>
+                    <a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнение</a>
+                    <a href="#conclusion"><i class="fas fa-flag-checkered"></i> Заключение</a>
+                </div>
+                
+                <div class="sources">
+                    <p>Материалы предоставлены в учебных целях | Последнее обновление: Декабрь 2025</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- Кнопка быстрого подъема -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
