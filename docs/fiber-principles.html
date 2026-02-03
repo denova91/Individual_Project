@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Принципы действия оптического волокна | Медь vs Оптика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Боковое меню -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <h2 class="sidebar-title">Принципы ОВ</h2>
+            <p class="sidebar-tagline">Физика света</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> На главную</a></li>
+                <li><a href="#reflection"><i class="fas fa-sync-alt"></i> Отражение</a></li>
+                <li><a href="#modes"><i class="fas fa-project-diagram"></i> Моды</a></li>
+                <li><a href="#dispersion"><i class="fas fa-running"></i> Дисперсия</a></li>
+                <li><a href="#attenuation"><i class="fas fa-columns"></i> Затухание</a></li>
+                <li><a href="#nonlinear"><i class="fas fa-bolt"></i> Нелинейные эффекты</a></li>
+                <li><a href="#components"><i class="fas fa-cogs"></i> Компоненты</a></li>
+                <li><a href="#amplifiers"><i class="fas fa-broadcast-tower"></i> Усилители</a></li>
+                <li><a href="#technologies"><i class="fas fa-rocket"></i> Технологии</a></li>
+                <li><a href="#measurements"><i class="fas fa-ruler"></i> Измерения</a></li>
+                <li><a href="copper-principles.html"><i class="fas fa-bolt"></i> Принципы ВП</a></li>
+            </ul>
+        </nav>
+        
+        <div class="theme-toggle-container">
+            <button id="theme-toggle" class="theme-toggle">
+                <span>Темная тема</span>
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </aside>
+    
+    <!-- Кнопка мобильного меню -->
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Основное содержимое -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Полное внутреннее отражение -->
+            <section id="reflection">
+                <h2><i class="fas fa-sync-alt"></i> Физика света в волноводе</h2>
+                
+                <div class="analogy">
+                    <h4>Простая аналогия:</h4>
+                    <p>Представьте аквариум с водой. Если светить фонариком из-под воды под острым углом, луч не выйдет наружу, а полностью отразится от поверхности. Это и есть полное внутреннее отражение — основа работы оптоволокна.</p>
+                </div>
+                
+                <h3>Полное внутреннее отражение</h3>
+                <p>Свет распространяется в сердцевине благодаря разности показателей преломления:</p>
+                <ul>
+                    <li><strong>Сердцевина:</strong> n₁ = 1.46-1.48</li>
+                    <li><strong>Оболочка:</strong> n₂ ≈ 1.45</li>
+                    <li><strong>Δ = (n₁² - n₂²)/(2n₁²) ≈ 0.3-1%</strong></li>
+                </ul>
+                
+                <div class="analogy success-box">
+                    <h4>Закон Снеллиуса:</h4>
+                    <p>n₁·sin(θ₁) = n₂·sin(θ₂)</p>
+                    <p><strong>Критический угол:</strong> θᶜ = arcsin(n₂/n₁)</p>
+                    <p>При θ > θᶜ происходит полное внутреннее отражение</p>
+                </div>
+                
+                <h3>Числовая апертура (NA)</h3>
+                <p>NA = √(n₁² - n₂²) = sin(θₘₐₓ)</p>
+                <p>где θₘₐₓ - максимальный угол ввода света</p>
+                
+                <h3>Профили показателя преломления</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип</th>
+                            <th>Профиль</th>
+                            <th>Преимущества</th>
+                            <th>Недостатки</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ступенчатый</strong></td>
+                            <td>Резкий переход n₁→n₂</td>
+                            <td>Простота изготовления</td>
+                            <td>Сильная межмодовая дисперсия</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Градиентный</strong></td>
+                            <td>Плавное изменение n от центра</td>
+                            <td>Уменьшение дисперсии</td>
+                            <td>Сложнее в производстве</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Моды распространения -->
+            <section id="modes">
+                <h2><i class="fas fa-project-diagram"></i> Моды распространения</h2>
+                
+                <div class="analogy">
+                    <h4>Уравнение волновода:</h4>
+                    <p>∇²E + k₀²n²(r)E = 0</p>
+                    <p>где k₀ = 2π/λ</p>
+                </div>
+                
+                <h3>V-число (нормированная частота)</h3>
+                <p>V = (2πa/λ)·NA</p>
+                <p>где a - радиус сердцевины</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <h3>Многомодовое волокно (MMF)</h3>
+                        <p>Диаметр сердцевины: 50/62.5 мкм</p>
+                        <h4>Характеристики:</h4>
+                        <ul>
+                            <li>Много путей распространения</li>
+                            <li>NA = 0.2-0.3</li>
+                            <li>V > 2.405</li>
+                            <li>Число мод: N ≈ V²/2</li>
+                            <li>Дальность: до 550 м (10 Гбит/с)</li>
+                            <li>Применение: ЛВС, ЦОД</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-user"></i></div>
+                        <h3>Одномодовое волокно (SMF)</h3>
+                        <p>Диаметр сердцевины: 8-10 мкм</p>
+                        <h4>Характеристики:</h4>
+                        <ul>
+                            <li>Только одна мода LP₀₁</li>
+                            <li>NA = 0.1-0.14</li>
+                            <li>V < 2.405</li>
+                            <li>Поле: J₀(ur/a) для r ≤ a</li>
+                            <li>Дальность: сотни км</li>
+                            <li>Применение: магистрали</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Типы одномодовых волокон</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип</th>
+                            <th>ITU-T</th>
+                            <th>Особенности</th>
+                            <th>Применение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Стандартное</strong></td>
+                            <td>G.652</td>
+                            <td>Нулевая дисперсия при 1310 нм</td>
+                            <td>Общего назначения</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Смещенной дисперсии</strong></td>
+                            <td>G.653</td>
+                            <td>Нулевая дисперсия при 1550 нм</td>
+                            <td>Магистрали</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ненулевой смещенной дисперсии</strong></td>
+                            <td>G.655</td>
+                            <td>Малая дисперсия в C/L-band</td>
+                            <td>DWDM системы</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Широкополосное</strong></td>
+                            <td>G.656</td>
+                            <td>Низкая дисперсия в S+C+L-band</td>
+                            <td>Широкополосные системы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Дисперсия -->
+            <section id="dispersion">
+                <h2><i class="fas fa-running"></i> Дисперсия: враг скорости</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-people-arrows"></i></div>
+                        <h3>Межмодовая дисперсия</h3>
+                        <p>Только для MMF</p>
+                        <p>Δτ = L·(n₁/c)·Δ</p>
+                        <p>где Δ = (n₁ - n₂)/n₁</p>
+                        <p>Для градиентного профиля уменьшается в 100-1000 раз</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Материальная дисперсия</h3>
+                        <p>Зависимость n от длины волны</p>
+                        <p>Dₘ = (-λ/c)·(d²n/dλ²)</p>
+                        <p>Нулевая точка: 1310 нм для SMF G.652</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-road"></i></div>
+                        <h3>Волноводная дисперсия</h3>
+                        <p>Зависимость скорости моды от λ/a</p>
+                        <p>D_w = (n₂Δ/cλ)·V·(d²(Vb)/dV²)</p>
+                        <p>где b = (β/k₀ - n₂)/(n₁ - n₂)</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-compass"></i></div>
+                        <h3>Поляризационная модовая дисперсия (PMD)</h3>
+                        <p>Δτ_PMD = D_PMD·√L</p>
+                        <p>где D_PMD = 0.1-0.5 пс/√км</p>
+                        <p>Основное ограничение для скоростей >40 Гбит/с</p>
+                    </div>
+                </div>
+                
+                <h3>Полная дисперсия</h3>
+                <div class="analogy success-box">
+                    <p>D = Dₘ + D_w</p>
+                    <p>Нулевая дисперсия достигается при компенсации материальной и волноводной дисперсии</p>
+                </div>
+                
+                <h3>Причины PMD</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Причина</th>
+                            <th>Эффект</th>
+                            <th>Компенсация</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Эллиптичность сердцевины</strong></td>
+                            <td>Разная скорость для ортогональных поляризаций</td>
+                            <td>Круговое волокно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Механические напряжения</strong></td>
+                            <td>Двулучепреломление</td>
+                            <td>PMD-компенсаторы</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Температурные изменения</strong></td>
+                            <td>Изменение Δτ со временем</td>
+                            <td>Адаптивная компенсация</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Затухание -->
+            <section id="attenuation">
+                <h2><i class="fas fa-columns"></i> Затухание: окна прозрачности</h2>
+                
+                <h3>Основные причины затухания</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-water"></i></div>
+                        <h3>Рэлеевское рассеяние</h3>
+                        <p>α_R = A/λ⁴</p>
+                        <p>A = 0.7-0.9 дБ·км⁻¹·мкм⁴</p>
+                        <p>Доминирует на коротких длинах волн</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-tint"></i></div>
+                        <h3>Поглощение OH⁻</h3>
+                        <p>Пики на 950, 1240, 1383 нм</p>
+                        <p>Современное "сухое" волокно: OH⁻ < 1 ppb</p>
+                        <p>Устранено в современных волокнах</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-fire"></i></div>
+                        <h3>Поглощение в ИК-области</h3>
+                        <p>От колебаний кристаллической решетки</p>
+                        <p>Становится значимым при λ > 1600 нм</p>
+                        <p>Определяет верхнюю границу окон прозрачности</p>
+                    </div>
+                </div>
+                
+                <h3>Окна прозрачности кварца</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Окно</th>
+                            <th>Диапазон</th>
+                            <th>Затухание</th>
+                            <th>Особенности</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>O-band (Original)</strong></td>
+                            <td>1260-1360 нм</td>
+                            <td>0.35-0.4 дБ/км</td>
+                            <td>Нулевая дисперсия при 1310 нм</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-band (Extended)</strong></td>
+                            <td>1360-1460 нм</td>
+                            <td>0.25-0.3 дБ/км</td>
+                            <td>Пик поглощения OH⁻ (1383 нм)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S-band (Short)</strong></td>
+                            <td>1460-1530 нм</td>
+                            <td>0.22-0.25 дБ/км</td>
+                            <td>Малоиспользуемое</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C-band (Conventional)</strong></td>
+                            <td>1530-1565 нм</td>
+                            <td>0.18-0.2 дБ/км</td>
+                            <td>Минимальное затухание + EDFA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L-band (Long)</strong></td>
+                            <td>1565-1625 нм</td>
+                            <td>0.2-0.22 дБ/км</td>
+                            <td>Расширение для DWDM систем</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="analogy">
+                    <h4>Современное "сухое" волокно:</h4>
+                    <p>Содержание OH⁻ < 1 ppb. Имеет единое сверхширокое окно прозрачности 1260-1675 нм с затуханием < 0.35 дБ/км во всем диапазоне.</p>
+                </div>
+            </section>
+            
+            <!-- Нелинейные эффекты -->
+            <section id="nonlinear">
+                <h2><i class="fas fa-bolt"></i> Нелинейные эффекты</h2>
+                
+                <p>При высоких мощностях (>10 дБм) в оптическом волокне возникают нелинейные эффекты:</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-expand"></i></div>
+                        <h3>Эффект Керра</h3>
+                        <p>n = n₀ + n₂·I</p>
+                        <p>где n₂ = 2.6·10⁻²⁰ м²/Вт для кварца</p>
+                        <p>Приводит к самофокусировке</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                        <h3>Четырехволновое смешение (FWM)</h3>
+                        <p>Новые частоты: ω₄ = ω₁ + ω₂ - ω₃</p>
+                        <p>Опасность для DWDM систем</p>
+                        <p>Подавляется неравномерным шагом каналов</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-volume-up"></i></div>
+                        <h3>Вынужденное рассеяние Мандельштама-Бриллюэна (SBS)</h3>
+                        <p>Обратное рассеяние на акустических волнах</p>
+                        <p>Порог: P_SBS ≈ 21·A_eff/g_B·L_eff</p>
+                        <p>где g_B ≈ 5·10⁻¹¹ м/Вт</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h3>Вынужденное комбинационное рассеяние (SRS)</h3>
+                        <p>Перекачка энергии к большим длинам волн</p>
+                        <p>Порог: P_SRS ≈ 16·A_eff/g_R·L_eff</p>
+                        <p>где g_R ≈ 1·10⁻¹³ м/Вт</p>
+                    </div>
+                </div>
+                
+                <h3>Методы борьбы с нелинейными эффектами</h3>
+                <ul>
+                    <li>Ограничение мощности в волокне</li>
+                    <li>Использование волокон с большой эффективной площадью</li>
+                    <li>Применение обратной дисперсии</li>
+                    <li>Использование когерентных технологий с цифровой компенсацией</li>
+                </ul>
+            </section>
+            
+            <!-- Компоненты -->
+            <section id="components">
+                <h2><i class="fas fa-cogs"></i> Компоненты систем</h2>
+                
+                <h3>Источники света</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип</th>
+                            <th>Длина волны</th>
+                            <th>Ширина спектра</th>
+                            <th>Мощность</th>
+                            <th>Применение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>LED</strong></td>
+                            <td>850/1300 нм</td>
+                            <td>30-60 нм</td>
+                            <td>-20...-10 дБм</td>
+                            <td>MMF, короткие дистанции</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FP-Laser</strong></td>
+                            <td>1310/1550 нм</td>
+                            <td>1-3 нм</td>
+                            <td>0...+3 дБм</td>
+                            <td>SMF, средние дистанции</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DFB-Laser</strong></td>
+                            <td>1530-1625 нм</td>
+                            <td>0.1 нм</td>
+                            <td>+3...+7 дБм</td>
+                            <td>DWDM, длинные дистанции</td>
+                        </tr>
+                        <tr>
+                            <td><strong>VCSEL</strong></td>
+                            <td>850/1310 нм</td>
+                            <td>0.5-1 нм</td>
+                            <td>-3...+3 дБм</td>
+                            <td>Высокоскоростные MMF</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Фотодетекторы</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>PIN-фотодиод</h4>
+                        <ul>
+                            <li>Чувствительность: -24...-18 дБм</li>
+                            <li>Полоса: до 10 ГГц</li>
+                            <li>Простота, надежность</li>
+                            <li>Низкое напряжение питания</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>APD (Avalanche Photodiode)</h4>
+                        <ul>
+                            <li>Усиление: 10-100 раз</li>
+                            <li>Чувствительность: -34...-28 дБм</li>
+                            <li>Высокое напряжение (50-200 В)</li>
+                            <li>Высокая стоимость</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Пассивные компоненты</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                        <h4>Разветвители (Splitters)</h4>
+                        <p>1×2: потери 3.5 дБ</p>
+                        <p>1×8: потери 10.5 дБ</p>
+                        <p>1×32: потери 17.5 дБ</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-filter"></i></div>
+                        <h4>WDM мультиплексоры</h4>
+                        <p>CWDM: 20 нм шаг, 18 каналов</p>
+                        <p>DWDM: 0.8/0.4 нм шаг, 80/160 каналов</p>
+                        <p>Вносимые потери: 3-8 дБ</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="card-icon"><i class="fas fa-sliders-h"></i></div>
+                        <h4>Аттенюаторы</h4>
+                        <p>Контроль уровня мощности</p>
+                        <p>Фиксированные: 1, 3, 5, 10 дБ</p>
+                        <p>Переменные: 0-60 дБ</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Усилители -->
+            <section id="amplifiers">
+                <h2><i class="fas fa-broadcast-tower"></i> Усилители и регенераторы</h2>
+                
+                <div class="analogy">
+                    <h4>EDFA (Erbium-Doped Fiber Amplifier):</h4>
+                    <p>Оптический усилитель на основе волокна, легированного ионами эрбия. Усиливает сигнал в полосе 1530-1565 нм без преобразования в электричество.</p>
+                </div>
+                
+                <h3>Принцип действия EDFA</h3>
+                <ol>
+                    <li>Накачка лазером 980 нм или 1480 нм</li>
+                    <li>Возбуждение ионов Er³⁺</li>
+                    <li>Вынужденное излучение в диапазоне 1530-1565 нм</li>
+                    <li>Усиление сигнала без преобразования в электричество</li>
+                </ol>
+                
+                <h3>Характеристики EDFA</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Бустерный</th>
+                            <th>Линейный</th>
+                            <th>Предусилитель</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Усиление</strong></td>
+                            <td>10-15 дБ</td>
+                            <td>15-20 дБ</td>
+                            <td>20-30 дБ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Мощность выхода</strong></td>
+                            <td>+17...+20 дБм</td>
+                            <td>+10...+15 дБм</td>
+                            <td>0...+5 дБм</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Шум-фактор</strong></td>
+                            <td>5-7 дБ</td>
+                            <td>4-6 дБ</td>
+                            <td>3-5 дБ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Полоса</strong></td>
+                            <td colspan="3">35 нм (C-band)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Типы оптических усилителей</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Рамановские усилители</h4>
+                        <ul>
+                            <li>Обратное рассеяние</li>
+                            <li>Любая длина волны</li>
+                            <li>Низкий уровень шума</li>
+                            <li>Высокая стоимость накачки</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Полупроводниковые усилители (SOA)</h4>
+                        <ul>
+                            <li>Компактность</li>
+                            <li>Широкая полоса</li>
+                            <li>Высокий уровень шума</li>
+                            <li>Быстрая модуляция</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Технологии -->
+            <section id="technologies">
+                <h2><i class="fas fa-rocket"></i> Современные технологии</h2>
+                
+                <h3>Когерентная передача</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Модуляция</h4>
+                        <ul>
+                            <li>QPSK - 2 бита/символ</li>
+                            <li>16QAM - 4 бита/символ</li>
+                            <li>64QAM - 6 бита/символ</li>
+                            <li>256QAM - 8 бита/символ</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Цифровая обработка (DSP)</h4>
+                        <ul>
+                            <li>Компенсация дисперсии</li>
+                            <li>Коррекция нелинейностей</li>
+                            <li>Коррекция частотных искажений</li>
+                            <li>Демодуляция и декодирование</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Спектральное уплотнение (WDM)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Технология</th>
+                            <th>Шаг каналов</th>
+                            <th>Количество каналов</th>
+                            <th>Суммарная скорость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CWDM</strong></td>
+                            <td>20 нм</td>
+                            <td>до 18</td>
+                            <td>до 3.6 Тбит/с</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DWDM</strong></td>
+                            <td>0.8/0.4 нм</td>
+                            <td>до 80/160</td>
+                            <td>до 32 Тбит/с</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SDM</strong></td>
+                            <td>Пространственное</td>
+                            <td>7-19 жил</td>
+                            <td>до 100+ Тбит/с</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Перспективные технологии</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Фотонно-кристаллические волокна</h4>
+                        <ul>
+                            <li>Решетка из воздушных каналов</li>
+                            <li>Управляемая дисперсия</li>
+                            <li>Нелинейные эффекты по требованию</li>
+                            <li>Высокая стоимость</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Планарные волноводы</h4>
+                        <ul>
+                            <li>Интеграция компонентов на чипе</li>
+                            <li>Масштабируемость</li>
+                            <li>Низкая стоимость в массовом производстве</li>
+                            <li>Высокие потери</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Квантовые коммуникации</h4>
+                        <ul>
+                            <li>Абсолютная безопасность</li>
+                            <li>Квантовая криптография</li>
+                            <li>Ограниченная дальность</li>
+                            <li>Экспериментальная стадия</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Измерения -->
+            <section id="measurements">
+                <h2><i class="fas fa-ruler"></i> Измерения и тестирование</h2>
+                
+                <h3>Ключевые параметры для измерения</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>Затухание</h4>
+                        <p>OTDR (Optical Time Domain Reflectometer)</p>
+                        <p>Точность: ±0.05 дБ</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Дисперсия</h4>
+                        <p>Метод фазового сдвига</p>
+                        <p>Точность: ±0.1 пс/нм·км</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>PMD</h4>
+                        <p>Метод интерферометрии</p>
+                        <p>Точность: ±0.01 пс/√км</p>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>BER</h4>
+                        <p>Bit Error Rate</p>
+                        <p>Требование: <10⁻¹²</p>
+                    </div>
+                </div>
+                
+                <h3>Характеристики OTDR</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Значение</th>
+                            <th>Примечание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Длина волны</strong></td>
+                            <td>1310/1550/1625 нм</td>
+                            <td>Современные модели - все три</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Динамический диапазон</strong></td>
+                            <td>30-45 дБ</td>
+                            <td>Чем больше, тем лучше</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Мертвые зоны</strong></td>
+                            <td><10 м (событийная)<br><30 м (затухания)</td>
+                            <td>Определяет разрешающую способность</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Дальность действия</strong></td>
+                            <td>до 250 км</td>
+                            <td>Для магистральных линий</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Эксплуатационные требования</h3>
+                <ul>
+                    <li><strong>Минимальный радиус изгиба:</strong> 20×диаметр кабеля</li>
+                    <li><strong>Температурный диапазон:</strong> -40°C...+70°C</li>
+                    <li><strong>Срок службы:</strong> 25 лет</li>
+                    <li><strong>Сопротивление растяжению:</strong> ≥2000 Н</li>
+                    <li><strong>Устойчивость к ударам:</strong> 30 g, 11 мс</li>
+                </ul>
+                
+                <div class="analogy">
+                    <h4>Важность тестирования:</h4>
+                    <p>Качественное тестирование оптических линий — залог их надежной работы на протяжении всего срока службы. Современные OTDR позволяют не только измерять параметры, но и создавать цифровые паспорта линий для последующего мониторинга.</p>
+                </div>
+                
+                <a href="index.html#fiber-lines" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Вернуться к сравнению оптических линий
+                </a>
+            </section>
+        </div>
+        
+        <!-- Подвал -->
+        <footer>
+            <div class="container footer-content">
+                <p><i class="fas fa-wave-square"></i> © 2025 Принципы действия оптического волокна</p>
+                <p>Детальное описание физических основ и технологий передачи</p>
+                
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="#reflection"><i class="fas fa-sync-alt"></i> Отражение</a>
+                    <a href="#modes"><i class="fas fa-project-diagram"></i> Моды</a>
+                    <a href="#dispersion"><i class="fas fa-running"></i> Дисперсия</a>
+                    <a href="#attenuation"><i class="fas fa-columns"></i> Затухание</a>
+                    <a href="copper-principles.html"><i class="fas fa-bolt"></i> Принципы ВП</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- Кнопка быстрого подъема -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
