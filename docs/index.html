@@ -385,7 +385,7 @@
                 </div>
             </section>
             
-            <!-- Экономический анализ с калькулятором ROI -->
+            <!-- Экономический анализ (без калькулятора) -->
             <section id="economic-analysis">
                 <h2><i class="fas fa-chart-line"></i> Экономический анализ: Стоимость владения и окупаемость</h2>
                 <p>Выбор между медью и оптикой — это не только техническое, но и экономическое решение. Рассмотрим полную стоимость владения (TCO) и рентабельность инвестиций.</p>
@@ -417,158 +417,18 @@
                 <div class="cost-comparison">
                     <div class="cost-item">
                         <h4>Медь Cat6A</h4>
-                        <div class="cost-value" id="copper-tco">$45,000</div>
+                        <div class="cost-value">$45,000</div>
                         <p>+2 замены кабеля</p>
                     </div>
                     
                     <div class="cost-item">
                         <h4>Оптика SMF</h4>
-                        <div class="cost-value" id="fiber-tco">$38,000</div>
+                        <div class="cost-value">$38,000</div>
                         <p>только замена оборудования</p>
                     </div>
                 </div>
                 
                 <p><strong>Экономия:</strong> <span class="highlight">15% в пользу оптики</span></p>
-                
-                <!-- Интерактивный калькулятор ROI -->
-                <div class="roi-calculator">
-                    <h3><i class="fas fa-calculator"></i> Калькулятор ROI</h3>
-                    <p>Рассчитайте возврат инвестиций для вашего проекта:</p>
-                    
-                    <div class="calculator-form">
-                        <div class="form-group">
-                            <label for="project-type"><i class="fas fa-building"></i> Тип проекта</label>
-                            <select id="project-type" class="form-control">
-                                <option value="office">Офисное здание</option>
-                                <option value="datacenter">Центр обработки данных</option>
-                                <option value="campus">Кампусная сеть</option>
-                                <option value="provider">Провайдерская сеть</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="connections"><i class="fas fa-plug"></i> Количество подключений</label>
-                            <input type="range" id="connections" class="form-control-range" min="10" max="10000" value="100" step="10">
-                            <input type="number" id="connections-input" class="form-control" min="10" max="10000" value="100">
-                            <span class="range-value" id="connections-value">100</span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cable-length"><i class="fas fa-ruler"></i> Средняя длина линии (м)</label>
-                            <input type="range" id="cable-length" class="form-control-range" min="1" max="1000" value="50" step="1">
-                            <input type="number" id="cable-length-input" class="form-control" min="1" max="1000" value="50">
-                            <span class="range-value" id="cable-length-value">50 м</span>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="speed-requirement"><i class="fas fa-tachometer-alt"></i> Требуемая скорость (Гбит/с)</label>
-                            <select id="speed-requirement" class="form-control">
-                                <option value="1">1 Гбит/с</option>
-                                <option value="10" selected>10 Гбит/с</option>
-                                <option value="40">40 Гбит/с</option>
-                                <option value="100">100 Гбит/с</option>
-                            </select>
-                        </div>
-                        
-                        <button id="calculate-roi" class="calculate-btn">
-                            <i class="fas fa-calculator"></i> Рассчитать ROI
-                        </button>
-                    </div>
-                    
-                    <div class="calculator-results" id="roi-results" style="display: none;">
-                        <h4>Результаты расчета:</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-label">Рекомендуемая технология</div>
-                                <div class="result-value" id="recommended-tech">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">Срок окупаемости</div>
-                                <div class="result-value" id="payback-period">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">Экономия за 5 лет</div>
-                                <div class="result-value" id="savings-5y">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">ROI за 3 года</div>
-                                <div class="result-value" id="roi-3y">-</div>
-                            </div>
-                        </div>
-                        
-                        <div class="recommendation" id="recommendation-text">
-                            <!-- Текст рекомендации будет здесь -->
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Загрузчик цен с внешнего сайта -->
-                <div class="price-loader">
-                    <h4><i class="fas fa-sync-alt"></i> Загрузка актуальных цен</h4>
-                    <p>Для получения актуальных цен на оборудование используйте Демо-данные или введите URL для симуляции:</p>
-                    
-                    <!-- Информационное сообщение об ограничениях -->
-                    <div class="info-message warning-box">
-                        <h5><i class="fas fa-exclamation-triangle"></i> Технические ограничения</h5>
-                        <p>В браузерной версии сайта <strong>невозможно загрузить данные напрямую с других сайтов</strong> из-за:</p>
-                        <ul class="info-list">
-                            <li><strong>CORS политики безопасности</strong> - браузеры блокируют кросс-доменные запросы</li>
-                            <li><strong>Отсутствия прокси-сервера</strong> - для обхода CORS нужен серверный компонент</li>
-                            <li><strong>Защиты от парсинга</strong> - многие сайты блокируют автоматические запросы</li>
-                        </ul>
-                        <p><strong>Альтернатива:</strong> Используйте Демо-данные или установите серверную версию с прокси.</p>
-                    </div>
-                    
-                    <div class="price-controls" style="margin-top: 1.5rem;">
-                        <input type="text" id="price-url" class="price-input" placeholder="URL для симуляции (например, https://example.com/prices)">
-                        <button id="load-prices" class="load-prices-btn">
-                            <i class="fas fa-download"></i> Симулировать загрузку
-                        </button>
-                        <button id="demo-prices" class="load-prices-btn" style="background: var(--gradient-accent);">
-                            <i class="fas fa-play-circle"></i> Демо-данные
-                        </button>
-                        <button id="reset-prices" class="load-prices-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <i class="fas fa-undo"></i> Сбросить к ценам по умолчанию
-                        </button>
-                    </div>
-                    
-                    <div class="price-status" id="price-status"></div>
-                    
-                    <!-- Блок с информацией о реальной реализации -->
-                    <div class="api-details">
-                        <p><i class="fas fa-code"></i> <strong>Для реальной интеграции потребуется:</strong></p>
-                        <ol style="padding-left: 1.5rem; margin-top: 0.5rem;">
-                            <li>Серверное приложение с функциями парсинга</li>
-                            <li>Настройка CORS прокси или использование готовых API</li>
-                            <li>Согласование с владельцами сайтов на парсинг данных</li>
-                        </ol>
-                    </div>
-                    
-                    <div id="loaded-prices" style="display: none; margin-top: 1rem;">
-                        <h5>Текущие цены:</h5>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-label">Медь Cat6A (метр)</div>
-                                <div class="result-value" id="price-copper">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">Оптика SMF (метр)</div>
-                                <div class="result-value" id="price-fiber">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">Медный порт 10G</div>
-                                <div class="result-value" id="price-copper-port">-</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-label">Оптический порт 10G</div>
-                                <div class="result-value" id="price-fiber-port">-</div>
-                            </div>
-                        </div>
-                        <button id="update-calculator" class="calculate-btn" style="margin-top: 1rem; padding: 0.8rem 1.5rem; font-size: 1rem;">
-                            <i class="fas fa-sync"></i> Обновить калькулятор
-                        </button>
-                    </div>
-                </div>
             </section>
             
             <!-- Заключение -->
