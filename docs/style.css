@@ -197,7 +197,7 @@ body {
 
 /* =================== ИСПРАВЛЕННОЕ БОКОВОЕ МЕНЮ =================== */
 .sidebar {
-    width: 70px; /* Увеличили для лучшей видимости иконок */
+    width: 70px;
     background: var(--sidebar-bg);
     color: white;
     position: fixed;
@@ -222,38 +222,24 @@ body {
 }
 
 .sidebar-logo {
-    font-size: 2rem; /* Увеличили логотип */
+    font-size: 2rem;
     color: var(--secondary-color);
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.sidebar-logo:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.85rem;
-    white-space: nowrap;
-    z-index: 1001;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.2s ease-out;
-    pointer-events: none;
-}
-
-/* =================== НАВИГАЦИЯ - ИСПРАВЛЕННАЯ =================== */
+/* =================== НАВИГАЦИЯ - ИСПРАВЛЕННАЯ (центрированная) =================== */
 .sidebar-nav {
     width: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0.5rem;
+    justify-content: flex-start;
+    padding: 0;
 }
 
 .nav-links {
@@ -262,23 +248,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Улучшенные кнопки-иконки */
+/* Улучшенные кнопки-иконки - ЦЕНТРИРОВАННЫЕ */
 .nav-button {
-    width: 48px; /* Увеличили размер кнопок */
-    height: 48px;
+    width: 50px; /* Немного увеличим для лучшего центрирования */
+    height: 50px;
     background: transparent;
     border: none;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.4rem; /* Увеличили иконки */
+    font-size: 1.4rem;
     border-radius: 12px;
     cursor: pointer;
     display: flex;
@@ -286,7 +278,8 @@ body {
     justify-content: center;
     transition: all 0.2s ease;
     position: relative;
-    margin: 2px 0;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-button:hover {
@@ -302,7 +295,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Индикатор активной кнопки - убираем стрелочку, делаем обводку */
+/* Индикатор активной кнопки */
 .nav-button.active::before {
     content: '';
     position: absolute;
@@ -315,73 +308,21 @@ body {
     pointer-events: none;
 }
 
-/* Всплывающие подсказки */
-.nav-button[data-tooltip] {
-    position: relative;
-}
-
-.nav-button[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.7rem 1.3rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1001;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    transition: all 0.2s ease;
-    pointer-events: none;
-}
-
-.nav-button[data-tooltip]:hover::after {
-    opacity: 1;
-    visibility: visible;
-    left: 70px;
-    animation: slideIn 0.2s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50%) translateX(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50%) translateX(-5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-    }
-}
-
-/* Разделитель */
+/* Разделитель - ЦЕНТРИРОВАННЫЙ */
 .nav-divider {
-    width: 35px;
+    width: 40px;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
     margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Кнопка темы в боковом меню */
+/* Кнопка темы в боковом меню - ЦЕНТРИРОВАННАЯ */
 .sidebar-theme {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     background: transparent;
     border: none;
     color: rgba(255, 255, 255, 0.7);
@@ -394,7 +335,7 @@ body {
     transition: all 0.2s ease;
     position: relative;
     margin-top: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .sidebar-theme:hover {
@@ -404,33 +345,6 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar-theme[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    left: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.7rem 1.3rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1001;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-    transition: all 0.2s ease;
-    pointer-events: none;
-}
-
-.sidebar-theme[data-tooltip]:hover::after {
-    opacity: 1;
-    visibility: visible;
-    left: 70px;
-}
-
 /* =================== ОСНОВНОЕ СОДЕРЖИМОЕ =================== */
 .main-content {
     flex: 1;
@@ -438,6 +352,66 @@ body {
     margin-top: 60px;
     padding: 2rem;
     transition: var(--transition);
+}
+
+/* =================== АДАПТИВНОСТЬ ДЛЯ БОКОВОГО МЕНЮ =================== */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 70px;
+        top: 60px;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+    
+    .nav-button[data-tooltip]::after,
+    .sidebar-theme[data-tooltip]::after,
+    .sidebar-logo:hover::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    
+    .nav-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .sidebar-theme {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 55px;
+    }
+    
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .sidebar-theme {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
 }
 
 /* =================== ЗАГОЛОВКИ СТРАНИЦ =================== */
