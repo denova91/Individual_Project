@@ -1239,3 +1239,385 @@ section h2 i {
         justify-content: center;
     }
 }
+
+/* =================== ВЕРХНЕЕ ГОРИЗОНТАЛЬНОЕ МЕНЮ =================== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--sidebar-bg);
+    color: white;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1002;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 60px;
+}
+
+.top-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.top-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+.top-nav-logo i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.top-nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.top-nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.top-nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.top-nav-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.top-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.top-nav-theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.top-nav-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.top-nav-mobile-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.3rem;
+}
+
+/* =================== ОБНОВЛЕННОЕ БОКОВОЕ МЕНЮ (КОМПАКТНОЕ) =================== */
+.sidebar {
+    width: 70px; /* Уменьшили ширину */
+    background: var(--sidebar-bg);
+    color: white;
+    position: fixed;
+    top: 60px; /* Отступ от верхнего меню */
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.sidebar-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sidebar-tagline {
+    font-size: 0.6rem;
+    opacity: 0.7;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* Навигация в боковом меню - сверхкомпактная */
+.sidebar-nav {
+    padding: 1rem 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+    font-size: 0.75rem;
+    text-align: center;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-left-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.nav-links a i {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.nav-links a span {
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+/* Убираем текст навигации, показываем только при наведении */
+.nav-links a .link-text {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 200px; /* При наведении расширяем */
+}
+
+.sidebar:hover .nav-links a .link-text {
+    max-height: 20px;
+    opacity: 1;
+}
+
+.sidebar:hover .nav-links a {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+}
+
+.sidebar:hover .sidebar-title,
+.sidebar:hover .sidebar-tagline {
+    white-space: normal;
+    text-overflow: clip;
+}
+
+/* Кнопка смены темы в боковом меню */
+.theme-toggle-container {
+    padding: 1rem 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.6rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.theme-toggle span {
+    display: none;
+}
+
+.sidebar:hover .theme-toggle span {
+    display: inline;
+}
+
+.theme-toggle i {
+    font-size: 1rem;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* =================== ОСНОВНОЕ СОДЕРЖИМОЕ (КОРРЕКТИРОВКА) =================== */
+.main-content {
+    flex: 1;
+    margin-left: 70px; /* Уменьшили отступ */
+    margin-top: 60px; /* Добавили отступ сверху для верхнего меню */
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.sidebar:hover ~ .main-content {
+    margin-left: 200px;
+}
+
+/* =================== АДАПТИВНОСТЬ =================== */
+@media (max-width: 992px) {
+    .top-nav-links {
+        display: none;
+    }
+    
+    .top-nav-mobile-toggle {
+        display: block;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+        top: 60px;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar .nav-links a {
+        flex-direction: row;
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
+    }
+    
+    .sidebar .nav-links a .link-text {
+        max-height: 20px;
+        opacity: 1;
+    }
+    
+    .sidebar .theme-toggle span {
+        display: inline;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 1.5rem;
+    }
+    
+    .sidebar:hover ~ .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .top-nav-left {
+        gap: 1rem;
+    }
+    
+    .top-nav-logo span {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-nav {
+        padding: 0.8rem 0.5rem;
+    }
+    
+    .top-nav-theme-toggle span {
+        display: none;
+    }
+}
+
+/* =================== УБИРАЕМ СТАРОЕ МОБИЛЬНОЕ МЕНЮ =================== */
+.mobile-menu-toggle {
+    display: none !important;
+}
+
+/* =================== ОБНОВЛЯЕМ КНОПКУ "НАВЕРХ" =================== */
+.back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+
+/* =================== ОБНОВЛЯЕМ ПОДВАЛ =================== */
+footer {
+    margin-top: 3rem;
+    padding: 3rem 0 2rem;
+}

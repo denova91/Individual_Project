@@ -10,33 +10,100 @@
 </head>
 <body>
     <!-- Боковое меню -->
+    <!-- Верхнее горизонтальное меню -->
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <a href="index.html" class="top-nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Медь vs Оптика</span>
+            </a>
+            
+            <div class="top-nav-links">
+                <a href="index.html" class="top-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="copper-principles.html" class="top-nav-link">
+                    <i class="fas fa-microchip"></i>
+                    <span>Принципы ВП</span>
+                </a>
+                <a href="fiber-principles.html" class="top-nav-link">
+                    <i class="fas fa-wave-square"></i>
+                    <span>Принципы ОВ</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="top-nav-right">
+            <button class="top-nav-theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Темная</span>
+            </button>
+            <button class="top-nav-mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Боковое меню (компактное) -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
-                <i class="fas fa-network-wired"></i>
+                <i class="fas fa-balance-scale"></i>
             </div>
             <h2 class="sidebar-title">Сравнительный анализ</h2>
             <p class="sidebar-tagline">Медь vs Оптика</p>
         </div>
-
+        
         <nav class="sidebar-nav">
             <ul class="nav-links">
-        <li><a href="#introduction"><i class="fas fa-home"></i> Введение</a></li>
-        <li><a href="copper-principles.html"><i class="fas fa-microchip"></i> Принципы ВП</a></li>
-        <li><a href="#copper-lines"><i class="fas fa-bolt"></i> Медные линии</a></li>
-        <li><a href="fiber-principles.html"><i class="fas fa-wave-square"></i> Принципы ОВ</a></li>
-        <li><a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптические линии</a></li>
-        <li><a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнительный анализ</a></li>
-        <li><a href="#economic-analysis"><i class="fas fa-chart-line"></i> Экономический анализ</a></li>
-        <li><a href="#conclusion"><i class="fas fa-flag-checkered"></i> Заключение</a></li>
-        <li><a href="#sources"><i class="fas fa-book"></i> Источники</a></li>
+                <li>
+                    <a href="#introduction">
+                        <i class="fas fa-home"></i>
+                        <span class="link-text">Введение</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#copper-lines">
+                        <i class="fas fa-bolt"></i>
+                        <span class="link-text">Медные линии</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#fiber-lines">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="link-text">Оптические линии</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#comparison">
+                        <i class="fas fa-balance-scale"></i>
+                        <span class="link-text">Сравнительный анализ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#economic-analysis">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="link-text">Экономический анализ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#conclusion">
+                        <i class="fas fa-flag-checkered"></i>
+                        <span class="link-text">Заключение</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sources">
+                        <i class="fas fa-book"></i>
+                        <span class="link-text">Источники</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-
-
         
         <div class="theme-toggle-container">
-            <button id="theme-toggle" class="theme-toggle">
+            <button class="theme-toggle">
                 <span>Темная тема</span>
                 <i class="fas fa-moon"></i>
             </button>
@@ -547,7 +614,7 @@
                 <a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптика</a>
                 <a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнение</a>
             </div>
-            
+
     <!-- Кнопка быстрого подъема -->
     <button id="back-to-top" class="back-to-top">
         <i class="fas fa-arrow-up"></i>

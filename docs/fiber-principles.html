@@ -9,11 +9,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Боковое меню -->
+    <!-- Верхнее горизонтальное меню -->
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <a href="index.html" class="top-nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Медь vs Оптика</span>
+            </a>
+            
+            <div class="top-nav-links">
+                <a href="index.html" class="top-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="copper-principles.html" class="top-nav-link">
+                    <i class="fas fa-microchip"></i>
+                    <span>Принципы ВП</span>
+                </a>
+                <a href="fiber-principles.html" class="top-nav-link">
+                    <i class="fas fa-wave-square"></i>
+                    <span>Принципы ОВ</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="top-nav-right">
+            <button class="top-nav-theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Темная</span>
+            </button>
+            <button class="top-nav-mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Боковое меню (компактное) -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
-                <i class="fas fa-network-wired"></i>
+                <i class="fas fa-wave-square"></i>
             </div>
             <h2 class="sidebar-title">Принципы ОВ</h2>
             <p class="sidebar-tagline">Физика света</p>
@@ -21,30 +56,58 @@
         
         <nav class="sidebar-nav">
             <ul class="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> На главную</a></li>
-                <li><a href="#reflection"><i class="fas fa-sync-alt"></i> Отражение</a></li>
-                <li><a href="#modes"><i class="fas fa-project-diagram"></i> Моды</a></li>
-                <li><a href="#dispersion"><i class="fas fa-running"></i> Дисперсия</a></li>
-                <li><a href="#attenuation"><i class="fas fa-columns"></i> Затухание</a></li>
-                <li><a href="#nonlinear"><i class="fas fa-bolt"></i> Нелинейные эффекты</a></li>
-                <li><a href="#components"><i class="fas fa-cogs"></i> Компоненты</a></li>
-                <li><a href="#technologies"><i class="fas fa-rocket"></i> Технологии</a></li>
-                <li><a href="copper-principles.html"><i class="fas fa-microchip"></i> Принципы ВП</a></li>
+                <li>
+                    <a href="#reflection">
+                        <i class="fas fa-sync-alt"></i>
+                        <span class="link-text">Отражение</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#modes">
+                        <i class="fas fa-project-diagram"></i>
+                        <span class="link-text">Моды</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#dispersion">
+                        <i class="fas fa-running"></i>
+                        <span class="link-text">Дисперсия</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#attenuation">
+                        <i class="fas fa-columns"></i>
+                        <span class="link-text">Затухание</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#nonlinear">
+                        <i class="fas fa-bolt"></i>
+                        <span class="link-text">Нелинейные эффекты</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#components">
+                        <i class="fas fa-cogs"></i>
+                        <span class="link-text">Компоненты</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#technologies">
+                        <i class="fas fa-rocket"></i>
+                        <span class="link-text">Технологии</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         
         <div class="theme-toggle-container">
-            <button id="theme-toggle" class="theme-toggle">
+            <button class="theme-toggle">
                 <span>Темная тема</span>
                 <i class="fas fa-moon"></i>
             </button>
         </div>
     </aside>
-    
-    <!-- Кнопка мобильного меню -->
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
     
     <!-- Основное содержимое -->
     <main class="main-content">

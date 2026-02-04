@@ -1,36 +1,77 @@
-// Переключение темы
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-    const themeIcon = themeToggle.querySelector('i');
+// Определяем текущую страницу
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+// Переключение темы в верхнем меню
+const topThemeToggle = document.querySelector('.top-nav-theme-toggle');
+if (topThemeToggle) {
+    const themeIcon = topThemeToggle.querySelector('i');
     
-    // Проверяем сохраненную тему в localStorage
+    // Проверяем сохраненную тему
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-theme');
         themeIcon.className = 'fas fa-sun';
-        themeToggle.innerHTML = '<span>Светлая тема</span> <i class="fas fa-sun"></i>';
+        topThemeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Светлая</span>';
     }
     
-    themeToggle.addEventListener('click', () => {
+    topThemeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');
         
         if (document.body.classList.contains('dark-theme')) {
             themeIcon.className = 'fas fa-sun';
-            themeToggle.innerHTML = '<span>Светлая тема</span> <i class="fas fa-sun"></i>';
+            topThemeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Светлая</span>';
             localStorage.setItem('theme', 'dark');
         } else {
             themeIcon.className = 'fas fa-moon';
-            themeToggle.innerHTML = '<span>Темная тема</span> <i class="fas fa-moon"></i>';
+            topThemeToggle.innerHTML = '<i class="fas fa-moon"></i> <span>Темная</span>';
             localStorage.setItem('theme', 'light');
+        }
+        
+        // Синхронизируем с кнопкой в боковом меню
+        const sidebarThemeToggle = document.querySelector('.sidebar .theme-toggle');
+        if (sidebarThemeToggle) {
+            if (document.body.classList.contains('dark-theme')) {
+                sidebarThemeToggle.innerHTML = '<span>Светлая тема</span> <i class="fas fa-sun"></i>';
+            } else {
+                sidebarThemeToggle.innerHTML = '<span>Темная тема</span> <i class="fas fa-moon"></i>';
+            }
         }
     });
 }
 
-// Мобильное меню
-const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+// Переключение темы в боковом меню
+const sidebarThemeToggle = document.querySelector('.sidebar .theme-toggle');
+if (sidebarThemeToggle) {
+    sidebarThemeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        
+        if (document.body.classList.contains('dark-theme')) {
+            sidebarThemeToggle.innerHTML = '<span>Светлая тема</span> <i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            sidebarThemeToggle.innerHTML = '<span>Темная тема</span> <i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light');
+        }
+        
+        // Синхронизируем с кнопкой в верхнем меню
+        if (topThemeToggle) {
+            const topIcon = topThemeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                topIcon.className = 'fas fa-sun';
+                topThemeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Светлая</span>';
+            } else {
+                topIcon.className = 'fas fa-moon';
+                topThemeToggle.innerHTML = '<i class="fas fa-moon"></i> <span>Темная</span>';
+            }
+        }
+    });
+}
+
+// Мобильное меню (верхняя кнопка)
+const topNavMobileToggle = document.querySelector('.top-nav-mobile-toggle');
 const sidebar = document.getElementById('sidebar');
 
-if (mobileMenuToggle && sidebar) {
-    mobileMenuToggle.addEventListener('click', () => {
+if (topNavMobileToggle && sidebar) {
+    topNavMobileToggle.addEventListener('click', () => {
         sidebar.classList.toggle('open');
     });
     
@@ -41,6 +82,16 @@ if (mobileMenuToggle && sidebar) {
                 sidebar.classList.remove('open');
             }
         });
+    });
+    
+    // Закрытие меню при клике вне его
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992 && 
+            !sidebar.contains(e.target) && 
+            !topNavMobileToggle.contains(e.target) && 
+            sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+        }
     });
 }
 
@@ -55,11 +106,8 @@ if (backToTopButton) {
             backToTopButton.classList.remove('show');
         }
         
-        // Активное состояние для навигационных ссылок (только если на странице есть якорные ссылки)
-        const currentPath = window.location.pathname;
-        const isIndexPage = currentPath.endsWith('index.html') || currentPath.endsWith('/');
-        
-        if (isIndexPage || currentPath.includes('#')) {
+        // Активное состояние для навигационных ссылок в боковом меню
+        if (currentPage === 'index.html' || currentPage === '' || currentPage.includes('#')) {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-links a');
             
@@ -69,7 +117,7 @@ if (backToTopButton) {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 
-                if (window.scrollY >= sectionTop - 200) {
+                if (window.scrollY >= sectionTop - 100) {
                     current = section.getAttribute('id');
                 }
             });
@@ -78,13 +126,7 @@ if (backToTopButton) {
                 link.classList.remove('active');
                 const href = link.getAttribute('href');
                 
-                // Для якорных ссылок на текущей странице
-                if (href.startsWith('#') && href === `#${current}`) {
-                    link.classList.add('active');
-                }
-                
-                // Для ссылки на главную страницу, если мы на главной
-                if (isIndexPage && href === '#introduction' && !current) {
+                if (href && href.startsWith('#') && href === `#${current}`) {
                     link.classList.add('active');
                 }
             });
@@ -103,29 +145,32 @@ if (backToTopButton) {
     });
 }
 
-// Плавная прокрутка для навигационных ссылок
-document.querySelectorAll('.nav-links a, .footer-links a, .nav-button').forEach(anchor => {
+// Плавная прокрутка для всех ссылок
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
+        e.preventDefault();
         
-        // Если это якорная ссылка на текущей странице
-        if (targetId && targetId.startsWith('#')) {
-            e.preventDefault();
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
-                    behavior: 'smooth'
-                });
-            }
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Учитываем верхнее меню
+                behavior: 'smooth'
+            });
         }
-        // Если это ссылка на другую страницу с якорем
-        else if (targetId && targetId.includes('#')) {
-            // Разрешаем обычную навигацию
-            // Браузер сам перейдет по ссылке
-        }
-        // Для остальных ссылок оставляем обычное поведение
     });
+});
+
+// Активное состояние для ссылок в верхнем меню
+document.querySelectorAll('.top-nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || 
+        (currentPage === '' && href === 'index.html') ||
+        (currentPage === 'index.html' && href === 'index.html')) {
+        link.classList.add('active');
+    }
 });
 
 // Анимация появления элементов при скролле
@@ -143,31 +188,30 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Наблюдаем за всеми секциями на странице
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
-
-// Наблюдаем за карточками сравнения
-document.querySelectorAll('.comparison-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(card);
+// Наблюдаем за секциями и карточками
+document.querySelectorAll('section, .comparison-card').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(element);
 });
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // Показываем секции, которые уже видны при загрузке
-    const visibleSections = document.querySelectorAll('section');
-    visibleSections.forEach(section => {
-        const rect = section.getBoundingClientRect();
+    // Показываем видимые элементы
+    const visibleElements = document.querySelectorAll('section, .comparison-card');
+    visibleElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
         }
     });
+});
+
+// Автоматически расширяем боковое меню при наведении на маленьких экранах
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 992) {
+        sidebar.classList.remove('open');
+    }
 });

@@ -9,11 +9,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Боковое меню -->
+    <!-- Верхнее горизонтальное меню -->
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <a href="index.html" class="top-nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Медь vs Оптика</span>
+            </a>
+            
+            <div class="top-nav-links">
+                <a href="index.html" class="top-nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+                <a href="copper-principles.html" class="top-nav-link">
+                    <i class="fas fa-microchip"></i>
+                    <span>Принципы ВП</span>
+                </a>
+                <a href="fiber-principles.html" class="top-nav-link">
+                    <i class="fas fa-wave-square"></i>
+                    <span>Принципы ОВ</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="top-nav-right">
+            <button class="top-nav-theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Темная</span>
+            </button>
+            <button class="top-nav-mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Боковое меню (компактное) -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo">
-                <i class="fas fa-network-wired"></i>
+                <i class="fas fa-microchip"></i>
             </div>
             <h2 class="sidebar-title">Принципы ВП</h2>
             <p class="sidebar-tagline">Физика передачи</p>
@@ -21,20 +56,53 @@
         
         <nav class="sidebar-nav">
             <ul class="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> На главную</a></li>
-                <li><a href="#basics"><i class="fas fa-atom"></i> Основы передачи</a></li>
-                <li><a href="#twisting"><i class="fas fa-infinity"></i> Скручивание пар</a></li>
-                <li><a href="#parameters"><i class="fas fa-sliders-h"></i> Электрические параметры</a></li>
-                <li><a href="#skin-effect"><i class="fas fa-exclamation-triangle"></i> Скин-эффект</a></li>
-                <li><a href="#modulation"><i class="fas fa-wave-square"></i> Методы модуляции</a></li>
-                <li><a href="#limitations"><i class="fas fa-ban"></i> Ограничения</a></li>
-                <li><a href="#standards"><i class="fas fa-certificate"></i> Стандарты</a></li>
-                <li><a href="fiber-principles.html"><i class="fas fa-lightbulb"></i> Принципы ОВ</a></li>
+                <li>
+                    <a href="#basics">
+                        <i class="fas fa-atom"></i>
+                        <span class="link-text">Основы передачи</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#twisting">
+                        <i class="fas fa-infinity"></i>
+                        <span class="link-text">Скручивание пар</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#parameters">
+                        <i class="fas fa-sliders-h"></i>
+                        <span class="link-text">Электрические параметры</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#skin-effect">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span class="link-text">Скин-эффект</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#modulation">
+                        <i class="fas fa-wave-square"></i>
+                        <span class="link-text">Методы модуляции</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#limitations">
+                        <i class="fas fa-ban"></i>
+                        <span class="link-text">Ограничения</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#standards">
+                        <i class="fas fa-certificate"></i>
+                        <span class="link-text">Стандарты</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         
         <div class="theme-toggle-container">
-            <button id="theme-toggle" class="theme-toggle">
+            <button class="theme-toggle">
                 <span>Темная тема</span>
                 <i class="fas fa-moon"></i>
             </button>
