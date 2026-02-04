@@ -201,7 +201,7 @@ body {
     background: var(--sidebar-bg);
     color: white;
     position: fixed;
-    top: 60px;
+    top: 100px;
     left: 0;
     bottom: 0;
     z-index: 1000;
