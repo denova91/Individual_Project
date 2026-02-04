@@ -9,120 +9,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Верхнее горизонтальное меню -->
-    <nav class="top-nav">
-        <div class="top-nav-left">
-            <a href="index.html" class="top-nav-logo">
-                <i class="fas fa-network-wired"></i>
-                <span>Медь vs Оптика</span>
-            </a>
-            
-            <div class="top-nav-links">
-                <a href="index.html" class="top-nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Главная</span>
-                </a>
-                <a href="copper-principles.html" class="top-nav-link">
-                    <i class="fas fa-microchip"></i>
-                    <span>Принципы ВП</span>
-                </a>
-                <a href="fiber-principles.html" class="top-nav-link active">
-                    <i class="fas fa-wave-square"></i>
-                    <span>Принципы ОВ</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="top-nav-right">
-            <button class="top-nav-theme-toggle">
-                <i class="fas fa-moon"></i>
-                <span>Темная</span>
-            </button>
-            <button class="top-nav-mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-    
-    <!-- Ультракомпактное боковое меню -->
+    <!-- Боковое меню -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Принципы ОВ">
-                <i class="fas fa-wave-square"></i>
+            <div class="sidebar-logo">
+                <i class="fas fa-network-wired"></i>
             </div>
+            <h2 class="sidebar-title">Принципы ОВ</h2>
+            <p class="sidebar-tagline">Физика света</p>
         </div>
         
         <nav class="sidebar-nav">
             <ul class="nav-links">
-                <li>
-                    <button class="nav-button active" data-section="reflection" data-tooltip="Отражение">
-                        <i class="fas fa-sync-alt"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="modes" data-tooltip="Моды">
-                        <i class="fas fa-project-diagram"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="dispersion" data-tooltip="Дисперсия">
-                        <i class="fas fa-running"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="attenuation" data-tooltip="Затухание">
-                        <i class="fas fa-columns"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="nonlinear" data-tooltip="Нелинейные эффекты">
-                        <i class="fas fa-bolt"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="components" data-tooltip="Компоненты">
-                        <i class="fas fa-cogs"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="technologies" data-tooltip="Технологии">
-                        <i class="fas fa-rocket"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
+                <li><a href="index.html"><i class="fas fa-home"></i> На главную</a></li>
+                <li><a href="#reflection"><i class="fas fa-sync-alt"></i> Отражение</a></li>
+                <li><a href="#modes"><i class="fas fa-project-diagram"></i> Моды</a></li>
+                <li><a href="#dispersion"><i class="fas fa-running"></i> Дисперсия</a></li>
+                <li><a href="#attenuation"><i class="fas fa-columns"></i> Затухание</a></li>
+                <li><a href="#nonlinear"><i class="fas fa-bolt"></i> Нелинейные эффекты</a></li>
+                <li><a href="#components"><i class="fas fa-cogs"></i> Компоненты</a></li>
+                <li><a href="#technologies"><i class="fas fa-rocket"></i> Технологии</a></li>
+                <li><a href="copper-principles.html"><i class="fas fa-align-justify"></i> Принципы ВП</a></li>
             </ul>
-            
-            <button class="sidebar-theme" data-tooltip="Темная тема">
+        </nav>
+        
+        <div class="theme-toggle-container">
+            <button id="theme-toggle" class="theme-toggle">
+                <span>Темная тема</span>
                 <i class="fas fa-moon"></i>
             </button>
-        </nav>
+        </div>
     </aside>
+    
+    <!-- Кнопка мобильного меню -->
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
     
     <!-- Основное содержимое -->
     <main class="main-content">
         <div class="container">
             <div class="page-header">
-                <h1><i class="fas fa-wave-square"></i> Принципы действия оптического волокна</h1>
+                <h1><i class="fas fa-align-justify"></i> Принципы действия оптического волокна</h1>
                 <p class="page-subtitle">Физические основы передачи световых сигналов по стеклянным волноводам</p>
             </div>
             
-            <!-- Отражение -->
+            <!-- Полное внутреннее отражение -->
             <section id="reflection">
                 <h2><i class="fas fa-sync-alt"></i> Физика света в волноводе</h2>
                 
@@ -151,7 +83,7 @@
                 <p>где θₘₐₓ - максимальный угол ввода света</p>
             </section>
             
-            <!-- Моды -->
+            <!-- Моды распространения -->
             <section id="modes">
                 <h2><i class="fas fa-project-diagram"></i> Моды распространения</h2>
                 
@@ -312,7 +244,7 @@
                     </div>
                     
                     <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="card-icon"><i class="fas fa-align-justify"></i></div>
                         <h3>Четырехволновое смешение (FWM)</h3>
                         <p>Новые частоты: ω₄ = ω₁ + ω₂ - ω₃</p>
                         <p>Опасность для DWDM систем</p>
@@ -455,14 +387,32 @@
                         </tr>
                     </tbody>
                 </table>
+                
+                <div class="navigation-links">
+                    <a href="copper-principles.html" class="nav-button">
+                        <i class="fas fa-arrow-left"></i> Принципы ВП
+                    </a>
+                    <a href="index.html" class="nav-button">
+                        <i class="fas fa-home"></i> На главную
+                    </a>
+                </div>
             </section>
         </div>
         
         <!-- Подвал -->
         <footer>
             <div class="container footer-content">
-                <p><i class="fas fa-wave-square"></i> © 2025 Принципы действия оптического волокна</p>
+                <p><i class="fas fa-align-justify"></i> © 2025 Принципы действия оптического волокна</p>
                 <p>Детальное описание физических основ и технологий передачи</p>
+                
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="#reflection"><i class="fas fa-sync-alt"></i> Отражение</a>
+                    <a href="#modes"><i class="fas fa-project-diagram"></i> Моды</a>
+                    <a href="#dispersion"><i class="fas fa-running"></i> Дисперсия</a>
+                    <a href="#attenuation"><i class="fas fa-columns"></i> Затухание</a>
+                    <a href="copper-principles.html"><i class="fas fa-align-justify"></i> Принципы ВП</a>
+                </div>
             </div>
         </footer>
     </main>
