@@ -22,7 +22,7 @@
                     <i class="fas fa-home"></i>
                     <span>Главная</span>
                 </a>
-                <a href="copper-principles.html" class="top-nav-link">
+                <a href="copper-principles.html" class="top-nav-link active">
                     <i class="fas fa-microchip"></i>
                     <span>Принципы ВП</span>
                 </a>
@@ -44,75 +44,75 @@
         </div>
     </nav>
     
-    <!-- Боковое меню (компактное) -->
+    <!-- Ультракомпактное боковое меню -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo">
+            <div class="sidebar-logo" data-tooltip="Принципы ВП">
                 <i class="fas fa-microchip"></i>
             </div>
-            <h2 class="sidebar-title">Принципы ВП</h2>
-            <p class="sidebar-tagline">Физика передачи</p>
         </div>
         
         <nav class="sidebar-nav">
             <ul class="nav-links">
                 <li>
-                    <a href="#basics">
+                    <button class="nav-button active" data-section="basics" data-tooltip="Основы передачи">
                         <i class="fas fa-atom"></i>
-                        <span class="link-text">Основы передачи</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#twisting">
+                    <button class="nav-button" data-section="twisting" data-tooltip="Скручивание пар">
                         <i class="fas fa-infinity"></i>
-                        <span class="link-text">Скручивание пар</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#parameters">
+                    <button class="nav-button" data-section="parameters" data-tooltip="Электрические параметры">
                         <i class="fas fa-sliders-h"></i>
-                        <span class="link-text">Электрические параметры</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
+                <div class="nav-divider"></div>
+                
                 <li>
-                    <a href="#skin-effect">
+                    <button class="nav-button" data-section="skin-effect" data-tooltip="Скин-эффект">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <span class="link-text">Скин-эффект</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#modulation">
+                    <button class="nav-button" data-section="modulation" data-tooltip="Методы модуляции">
                         <i class="fas fa-wave-square"></i>
-                        <span class="link-text">Методы модуляции</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
+                <div class="nav-divider"></div>
+                
                 <li>
-                    <a href="#limitations">
+                    <button class="nav-button" data-section="limitations" data-tooltip="Ограничения">
                         <i class="fas fa-ban"></i>
-                        <span class="link-text">Ограничения</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#standards">
+                    <button class="nav-button" data-section="standards" data-tooltip="Стандарты">
                         <i class="fas fa-certificate"></i>
-                        <span class="link-text">Стандарты</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
             </ul>
-        </nav>
-        
-        <div class="theme-toggle-container">
-            <button class="theme-toggle">
-                <span>Темная тема</span>
+            
+            <button class="sidebar-theme" data-tooltip="Темная тема">
                 <i class="fas fa-moon"></i>
             </button>
-        </div>
+        </nav>
     </aside>
-    
-    <!-- Кнопка мобильного меню -->
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
     
     <!-- Основное содержимое -->
     <main class="main-content">
@@ -466,15 +466,6 @@
                         </tr>
                     </tbody>
                 </table>
-                
-                <div class="navigation-links">
-                    <a href="index.html" class="nav-button">
-                        <i class="fas fa-home"></i> На главную
-                    </a>
-                    <a href="fiber-principles.html" class="nav-button">
-                        <i class="fas fa-arrow-right"></i> Принципы ОВ
-                    </a>
-                </div>
             </section>
         </div>
         
@@ -483,15 +474,6 @@
             <div class="container footer-content">
                 <p><i class="fas fa-microchip"></i> © 2025 Принципы действия витой пары</p>
                 <p>Детальное описание физических основ и технологий передачи</p>
-                
-                <div class="footer-links">
-                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                    <a href="#basics"><i class="fas fa-atom"></i> Основы</a>
-                    <a href="#twisting"><i class="fas fa-infinity"></i> Скручивание</a>
-                    <a href="#modulation"><i class="fas fa-wave-square"></i> Модуляция</a>
-                    <a href="#standards"><i class="fas fa-certificate"></i> Стандарты</a>
-                    <a href="fiber-principles.html"><i class="fas fa-lightbulb"></i> Принципы ОВ</a>
-                </div>
             </div>
         </footer>
     </main>

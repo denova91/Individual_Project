@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Боковое меню -->
     <!-- Верхнее горизонтальное меню -->
     <nav class="top-nav">
         <div class="top-nav-left">
@@ -19,7 +18,7 @@
             </a>
             
             <div class="top-nav-links">
-                <a href="index.html" class="top-nav-link">
+                <a href="index.html" class="top-nav-link active">
                     <i class="fas fa-home"></i>
                     <span>Главная</span>
                 </a>
@@ -45,75 +44,75 @@
         </div>
     </nav>
     
-    <!-- Боковое меню (компактное) -->
+    <!-- Ультракомпактное боковое меню (только иконки) -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo">
+            <div class="sidebar-logo" data-tooltip="Сравнительный анализ">
                 <i class="fas fa-balance-scale"></i>
             </div>
-            <h2 class="sidebar-title">Сравнительный анализ</h2>
-            <p class="sidebar-tagline">Медь vs Оптика</p>
         </div>
         
         <nav class="sidebar-nav">
             <ul class="nav-links">
                 <li>
-                    <a href="#introduction">
+                    <button class="nav-button active" data-section="introduction" data-tooltip="Введение">
                         <i class="fas fa-home"></i>
-                        <span class="link-text">Введение</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#copper-lines">
+                    <button class="nav-button" data-section="copper-lines" data-tooltip="Медные линии">
                         <i class="fas fa-bolt"></i>
-                        <span class="link-text">Медные линии</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#fiber-lines">
+                    <button class="nav-button" data-section="fiber-lines" data-tooltip="Оптические линии">
                         <i class="fas fa-lightbulb"></i>
-                        <span class="link-text">Оптические линии</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
+                <div class="nav-divider"></div>
+                
                 <li>
-                    <a href="#comparison">
+                    <button class="nav-button" data-section="comparison" data-tooltip="Сравнительный анализ">
                         <i class="fas fa-balance-scale"></i>
-                        <span class="link-text">Сравнительный анализ</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#economic-analysis">
+                    <button class="nav-button" data-section="economic-analysis" data-tooltip="Экономический анализ">
                         <i class="fas fa-chart-line"></i>
-                        <span class="link-text">Экономический анализ</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
                 <li>
-                    <a href="#conclusion">
+                    <button class="nav-button" data-section="conclusion" data-tooltip="Заключение">
                         <i class="fas fa-flag-checkered"></i>
-                        <span class="link-text">Заключение</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
+                
+                <div class="nav-divider"></div>
+                
                 <li>
-                    <a href="#sources">
+                    <button class="nav-button" data-section="sources" data-tooltip="Источники">
                         <i class="fas fa-book"></i>
-                        <span class="link-text">Источники</span>
-                    </a>
+                        <div class="nav-indicator"></div>
+                    </button>
                 </li>
             </ul>
-        </nav>
-        
-        <div class="theme-toggle-container">
-            <button class="theme-toggle">
-                <span>Темная тема</span>
+            
+            <button class="sidebar-theme" data-tooltip="Темная тема">
                 <i class="fas fa-moon"></i>
             </button>
-        </div>
+        </nav>
     </aside>
-    
-    <!-- Кнопка мобильного меню -->
-    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
     
     <!-- Основное содержимое -->
     <main class="main-content">
@@ -248,7 +247,7 @@
                 <ul>
                     <li>Диаметр сердцевины: 9 микрон</li>
                     <li>Принцип: Распространяется только одна, фундаментальная мода</li>
-                    <li>Преимущество: Отсутствие межмодовой дисперсии, дальность сотни км</li>
+                    <li>Преимущество: Отсутствие межмодовой дисперсия, дальность сотни км</li>
                     <li>Применение: Магистральные линии, междугородная связь</li>
                 </ul>
                 
@@ -456,7 +455,7 @@
                 </div>
             </section>
             
-            <!-- Экономический анализ (без калькулятора) -->
+            <!-- Экономический анализ -->
             <section id="economic-analysis">
                 <h2><i class="fas fa-chart-line"></i> Экономический анализ: Стоимость владения и окупаемость</h2>
                 <p>Выбор между медью и оптикой — это не только техническое, но и экономическое решение. Рассмотрим полную стоимость владения (TCO) и рентабельность инвестиций.</p>
@@ -509,7 +508,7 @@
                 <h3>Основные выводы</h3>
                 
                 <h4>Медь — оптимальна для "последних метров"</h4>
-                <p>Идеально подходит для горизонтальной разводки в офисах, подключения рабочих мест и устройств с PoE. Экономически выгодна при длинах до 100 м и скоростях до 10 Гбит/с.</p>
+                <p>Идеально подходит для горизонтальной разводки в офисаи, подключения рабочих мест и устройств с PoE. Экономически выгодна при длинах до 100 м и скоростях до 10 Гбит/с.</p>
                 
                 <h4>Оптика — безальтернативна для магистралей</h4>
                 <p>Единственный вариант для магистральных сетей, межздательных соединений и высокоскоростных каналов. Обеспечивает неограниченную масштабируемость и будущезащищенность.</p>
@@ -595,26 +594,23 @@
         
         <!-- Подвал -->
         <footer>
-            <div class="footer-links">
-                <a href="#introduction"><i class="fas fa-home"></i> Введение</a>
-                <a href="copper-principles.html"><i class="fas fa-microchip"></i> Принципы ВП</a>
-                <a href="#copper-lines"><i class="fas fa-bolt"></i> Медь</a>
-                <a href="fiber-principles.html"><i class="fas fa-wave-square"></i> Принципы ОВ</a>
-                <a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптика</a>
-                <a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнение</a>
+            <div class="container footer-content">
+                <p><i class="fas fa-network-wired"></i> © 2025 Сравнительный анализ медных и оптических линий связи</p>
+                <p>Информационный ресурс для инженеров ,специалистов по сетевым технологиям и обучающихся</p>
+                
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="copper-principles.html"><i class="fas fa-microchip"></i> Принципы ВП</a>
+                    <a href="fiber-principles.html"><i class="fas fa-wave-square"></i> Принципы ОВ</a>
+                </div>
+                
+                <div class="sources">
+                    <p>Материалы предоставлены в учебных целях | Последнее обновление: Декабрь 2025</p>
+                </div>
             </div>
         </footer>
-
-
-            <div class="footer-links">
-                <a href="#introduction"><i class="fas fa-home"></i> Введение</a>
-                <a href="copper-principles.html"><i class="fas fa-microchip"></i> Принципы ВП</a>
-                <a href="#copper-lines"><i class="fas fa-bolt"></i> Медь</a>
-                <a href="fiber-principles.html"><i class="fas fa-wave-square"></i> Принципы ОВ</a>
-                <a href="#fiber-lines"><i class="fas fa-lightbulb"></i> Оптика</a>
-                <a href="#comparison"><i class="fas fa-balance-scale"></i> Сравнение</a>
-            </div>
-
+    </main>
+    
     <!-- Кнопка быстрого подъема -->
     <button id="back-to-top" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
@@ -623,4 +619,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-    </main>
