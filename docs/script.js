@@ -1,260 +1,240 @@
-// Определяем текущую страницу
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-const currentHash = window.location.hash || '';
-
-// Переключение темы в верхнем меню
-const topThemeToggle = document.querySelector('.top-nav-theme-toggle');
-if (topThemeToggle) {
-    const themeIcon = topThemeToggle.querySelector('i');
-    
-    // Проверяем сохраненную тему
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeIcon.className = 'fas fa-sun';
-        topThemeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Светлая</span>';
-        
-        // Синхронизируем боковую кнопку
-        const sidebarThemeBtn = document.querySelector('.sidebar-theme');
-        if (sidebarThemeBtn) {
-            sidebarThemeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            sidebarThemeBtn.setAttribute('data-tooltip', 'Светлая тема');
-        }
-    }
-    
-    topThemeToggle.addEventListener('click', () => {
-        toggleTheme();
-    });
-}
-
-// Переключение темы в боковом меню
-const sidebarThemeBtn = document.querySelector('.sidebar-theme');
-if (sidebarThemeBtn) {
-    sidebarThemeBtn.addEventListener('click', () => {
-        toggleTheme();
-    });
-}
-
 // Функция переключения темы
 function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
+    const htmlElement = document.documentElement;
+    const isDark = htmlElement.classList.contains('dark-theme');
     
-    const topThemeToggle = document.querySelector('.top-nav-theme-toggle');
-    const sidebarThemeBtn = document.querySelector('.sidebar-theme');
-    
-    if (document.body.classList.contains('dark-theme')) {
-        // Устанавливаем темную тему
-        localStorage.setItem('theme', 'dark');
-        
-        // Обновляем верхнюю кнопку
-        if (topThemeToggle) {
-            topThemeToggle.innerHTML = '<i class="fas fa-sun"></i> <span>Светлая</span>';
-        }
-        
-        // Обновляем боковую кнопку
-        if (sidebarThemeBtn) {
-            sidebarThemeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-            sidebarThemeBtn.setAttribute('data-tooltip', 'Светлая тема');
-        }
-    } else {
-        // Устанавливаем светлую тему
+    if (isDark) {
+        htmlElement.classList.remove('dark-theme');
+        htmlElement.classList.add('light-theme');
         localStorage.setItem('theme', 'light');
-        
-        // Обновляем верхнюю кнопку
-        if (topThemeToggle) {
-            topThemeToggle.innerHTML = '<i class="fas fa-moon"></i> <span>Темная</span>';
-        }
-        
-        // Обновляем боковую кнопку
-        if (sidebarThemeBtn) {
-            sidebarThemeBtn.innerHTML = '<i class="fas fa-moon"></i>';
-            sidebarThemeBtn.setAttribute('data-tooltip', 'Темная тема');
-        }
+        updateThemeIcons('light');
+    } else {
+        htmlElement.classList.remove('light-theme');
+        htmlElement.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+        updateThemeIcons('dark');
     }
 }
 
-// Мобильное меню (верхняя кнопка)
-const topNavMobileToggle = document.querySelector('.top-nav-mobile-toggle');
-const sidebar = document.getElementById('sidebar');
-
-if (topNavMobileToggle && sidebar) {
-    topNavMobileToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
-    
-    // Закрытие меню при клике вне его
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 992 && 
-            !sidebar.contains(e.target) && 
-            !topNavMobileToggle.contains(e.target) && 
-            sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
+// Обновление иконок темы
+function updateThemeIcons(theme) {
+    const themeButtons = document.querySelectorAll('#themeToggle, #sidebarThemeToggle');
+    themeButtons.forEach(button => {
+        const icon = button.querySelector('i');
+        const text = button.querySelector('span');
+        
+        if (theme === 'dark') {
+            icon.className = 'fas fa-sun';
+            if (text) text.textContent = 'Светлая тема';
+        } else {
+            icon.className = 'fas fa-moon';
+            if (text) text.textContent = 'Темная тема';
         }
     });
 }
 
-// Кнопка быстрого подъема
-const backToTopButton = document.getElementById('back-to-top');
+// Функция для прокрутки к разделу
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        
+        // Добавляем визуальный эффект для активного раздела
+        section.style.animation = 'none';
+        setTimeout(() => {
+            section.style.animation = 'fadeInUp 0.5s ease';
+        }, 10);
+    }
+}
 
-if (backToTopButton) {
+// Кнопка "Наверх"
+function initBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
             backToTopButton.classList.add('show');
         } else {
             backToTopButton.classList.remove('show');
         }
-        
-        // Активное состояние для кнопок в боковом меню
-        if (currentPage === 'index.html' || currentPage === '') {
-            const sections = document.querySelectorAll('section[id]');
-            const navButtons = document.querySelectorAll('.nav-button[data-section]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - 100) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navButtons.forEach(button => {
-                button.classList.remove('active');
-                const section = button.getAttribute('data-section');
-                
-                if (section && section === currentSection) {
-                    button.classList.add('active');
-                }
-                
-                // Активируем кнопку "Введение" если мы вверху страницы
-                if (!currentSection && section === 'introduction') {
-                    button.classList.add('active');
-                }
-            });
-        }
     });
     
-    // Инициализация - скрываем кнопку при загрузке
-    backToTopButton.classList.remove('show');
-    
-    // Добавляем обработчик для кнопки "Наверх"
     backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-// Плавная прокрутка для всех якорных ссылок
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
+// Мобильное меню
+function initMobileMenu() {
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (mobileToggle && sidebar) {
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
             
-            // Закрываем мобильное меню
-            if (window.innerWidth <= 992 && sidebar && sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
+            // Анимация иконки бургер-меню
+            const icon = mobileToggle.querySelector('i');
+            if (sidebar.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
             }
-        }
-    });
-});
-
-// Обработчики для кнопок в боковом меню
-document.querySelectorAll('.nav-button[data-section]').forEach(button => {
-    button.addEventListener('click', function() {
-        const section = this.getAttribute('data-section');
-        const targetElement = document.querySelector(`#${section}`);
+        });
         
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            
-            // Закрываем мобильное меню
-            if (window.innerWidth <= 992 && sidebar && sidebar.classList.contains('open')) {
+        // Закрытие меню при клике вне его
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && !mobileToggle.contains(event.target)) {
                 sidebar.classList.remove('open');
+                const icon = mobileToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
             }
-        }
-    });
-});
-
-// Активное состояние для ссылок в верхнем меню
-document.querySelectorAll('.top-nav-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || 
-        (currentPage === '' && href === 'index.html') ||
-        (currentPage === 'index.html' && href === 'index.html')) {
-        link.classList.add('active');
+        });
     }
-});
+}
 
-// Анимация появления элементов при скролле
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// Инициализация активных кнопок навигации
+function initActiveNavButtons() {
+    const currentPage = window.location.pathname.split('/').pop();
+    const navButtons = document.querySelectorAll('.nav-button');
+    
+    navButtons.forEach(button => {
+        const href = button.getAttribute('onclick');
+        if (href) {
+            const page = href.split("'")[1];
+            if (page === currentPage || (currentPage === '' && page === 'index.html')) {
+                button.classList.add('active');
+            }
         }
     });
-}, observerOptions);
+}
 
-// Наблюдаем за секциями и карточками
-document.querySelectorAll('section, .comparison-card').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(element);
-});
+// Анимация при прокрутке
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Наблюдаем за всеми секциями
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(section);
+    });
+}
+
+// Функция для показа уведомления
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Показываем уведомление
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Убираем уведомление через 5 секунд
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
 
 // Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-    // Показываем видимые элементы
-    const visibleElements = document.querySelectorAll('section, .comparison-card');
-    visibleElements.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // Загрузка сохраненной темы
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.className = savedTheme + '-theme';
+    updateThemeIcons(savedTheme);
+    
+    // Инициализация компонентов
+    initBackToTop();
+    initMobileMenu();
+    initActiveNavButtons();
+    initScrollAnimations();
+    
+    // Назначение обработчиков событий
+    const themeToggles = document.querySelectorAll('#themeToggle, #sidebarThemeToggle');
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', toggleTheme);
     });
     
-    // Активируем первую кнопку навигации
-    const firstNavButton = document.querySelector('.nav-button[data-section]');
-    if (firstNavButton && currentPage === 'index.html' && !currentHash) {
-        firstNavButton.classList.add('active');
+    // Добавляем обработчики для кнопок навигации
+    document.querySelectorAll('.nav-button[onclick^="scrollToSection"]').forEach(button => {
+        button.addEventListener('click', function() {
+            const match = this.getAttribute('onclick').match(/scrollToSection\('([^']+)'\)/);
+            if (match) {
+                scrollToSection(match[1]);
+            }
+        });
+    });
+    
+    // Анимация для таблиц
+    document.querySelectorAll('table tr').forEach((row, index) => {
+        row.style.animationDelay = `${index * 0.05}s`;
+    });
+    
+    // Добавляем эффект печати для заголовков
+    const pageHeader = document.querySelector('.page-header h1');
+    if (pageHeader) {
+        const text = pageHeader.textContent;
+        pageHeader.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                pageHeader.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        };
+        
     }
     
-    // Активируем кнопку по хэшу
-    if (currentHash && currentHash !== '#') {
-        const hashSection = currentHash.replace('#', '');
-        const targetButton = document.querySelector(`.nav-button[data-section="${hashSection}"]`);
-        if (targetButton) {
-            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
-            targetButton.classList.add('active');
-        }
+    // Показываем приветственное уведомление на главной странице
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        setTimeout(() => {
+            showNotification('Добро пожаловать в сравнительный анализ медных и оптических линий связи!', 'info');
+        }, 1000);
     }
 });
 
-// Автоматически закрываем боковое меню при ресайзе
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 992 && sidebar) {
-        sidebar.classList.remove('open');
+// Добавляем обработчик для клавиатуры
+document.addEventListener('keydown', (event) => {
+    // Alt + T для переключения темы
+    if (event.altKey && event.key === 't') {
+        toggleTheme();
+    }
+    
+    // Escape для закрытия мобильного меню
+    if (event.key === 'Escape') {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            if (mobileToggle) {
+                const icon = mobileToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
+            }
+        }
     }
 });

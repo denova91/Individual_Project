@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru" class="light-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение | Медь vs Оптика</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Верхнее меню -->
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <a href="index.html" class="top-nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Медь vs Оптика</span>
+            </a>
+            <div class="top-nav-links">
+                <a href="index.html" class="top-nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="copper.html" class="top-nav-link">
+                    <i class="fas fa-bolt"></i> Медные линии
+                </a>
+                <a href="optical.html" class="top-nav-link">
+                    <i class="fas fa-fiber-optic"></i> Оптические линии
+                </a>
+                <a href="comparison.html" class="top-nav-link active">
+                    <i class="fas fa-balance-scale"></i> Сравнение
+                </a>
+            </div>
+        </div>
+        <div class="top-nav-right">
+            <button class="top-nav-theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Темная тема</span>
+            </button>
+            <button class="top-nav-mobile-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Боковое меню -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo" data-tooltip="Навигация">
+                <i class="fas fa-compass"></i>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-links">
+                <li>
+                    <button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button" data-tooltip="Медные линии" onclick="window.location.href='copper.html'">
+                        <i class="fas fa-bolt"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='optical.html'">
+                        <i class="fas fa-fiber-optic"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button active" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'">
+                        <i class="fas fa-balance-scale"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li class="nav-divider"></li>
+                <li>
+                    <button class="nav-button" data-tooltip="Сравнительная таблица" onclick="scrollToSection('comparison-table')">
+                        <i class="fas fa-table"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button" data-tooltip="Выбор технологии" onclick="scrollToSection('technology-choice')">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
+            <i class="fas fa-palette"></i>
+        </button>
+    </aside>
+
+    <!-- Основное содержимое -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Заголовок -->
+            <div class="page-header">
+                <h1>
+                    <i class="fas fa-balance-scale"></i>
+                    Сравнительный анализ
+                    <i class="fas fa-chart-bar"></i>
+                </h1>
+                <p class="page-subtitle">Детальное сравнение характеристик, преимуществ и областей применения медных и оптических линий связи</p>
+            </div>
+
+            <!-- Введение -->
+            <section id="introduction">
+                <h2><i class="fas fa-star"></i> Введение в сравнение</h2>
+                <p>Выбор между медными и оптическими линиями связи зависит от множества факторов: расстояния, требуемой скорости передачи данных, бюджета, условий эксплуатации и будущих потребностей. Давайте рассмотрим ключевые различия.</p>
+                
+                <div class="analogy">
+                    <h4><i class="fas fa-brain"></i> Простая аналогия</h4>
+                    <p>Выбор между медью и оптикой похож на выбор между автомобилем и самолетом для поездки. Для коротких дистанций по городу автомобиль (медь) удобнее и дешевле. Для дальних перелетов между городами или странами самолет (оптика) - единственный разумный выбор.</p>
+                </div>
+            </section>
+
+            <!-- Сравнительная таблица -->
+            <section id="comparison-table">
+                <h2><i class="fas fa-table"></i> Сравнительная таблица</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Характеристика</th>
+                            <th style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">Медные линии</th>
+                            <th style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">Оптические линии</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Физический принцип</strong></td>
+                            <td>Электрические сигналы (электроны)</td>
+                            <td>Световые сигналы (фотоны)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Скорость передачи</strong></td>
+                            <td>До 10 Гбит/с (на 100 м)</td>
+                            <td>До 100+ Тбит/с (в одном волокне)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Макс. расстояние</strong></td>
+                            <td>100 м (для Ethernet)</td>
+                            <td>100+ км (без усилителей)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Затухание сигнала</strong></td>
+                            <td>Высокое, зависит от частоты</td>
+                            <td>Очень низкое (0.2 дБ/км)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ЭМ помехи</strong></td>
+                            <td>Высокая чувствительность</td>
+                            <td>Полный иммунитет</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Безопасность данных</strong></td>
+                            <td>Возможен перехват</td>
+                            <td>Высокая защищенность</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Стоимость кабеля</strong></td>
+                            <td>Низкая ($0.5-2/метр)</td>
+                            <td>Высокая ($2-5/метр)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Стоимость монтажа</strong></td>
+                            <td>Низкая (обжим коннекторов)</td>
+                            <td>Высокая (сварка волокон)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Срок службы</strong></td>
+                            <td>15-20 лет</td>
+                            <td>25-30+ лет</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Гибкость/прочность</strong></td>
+                            <td>Высокая гибкость</td>
+                            <td>Хрупкость, ограничения по изгибу</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Питание по кабелю</strong></td>
+                            <td>PoE до 100 Вт</td>
+                            <td>Невозможно</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Вес кабеля</strong></td>
+                            <td>Высокий (медь тяжелая)</td>
+                            <td>Низкий (стекло легкое)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Диаметр кабеля</strong></td>
+                            <td>Больший диаметр</td>
+                            <td>Меньший диаметр</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Температурный диапазон</strong></td>
+                            <td>-20°C до +60°C</td>
+                            <td>-40°C до +85°C</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Визуальное сравнение -->
+            <section id="visual-comparison">
+                <h2><i class="fas fa-chart-pie"></i> Визуальное сравнение</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card copper-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Медь: Ключевые моменты</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h5>Лучше для:</h5>
+                                <p>Коротких дистанций</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Бюджет:</h5>
+                                <p>Экономичный выбор</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Сложность:</h5>
+                                <p>Простой монтаж</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Гибкость:</h5>
+                                <p>Высокая</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-card fiber-card">
+                        <div class="card-icon">
+                            <i class="fas fa-fiber-optic"></i>
+                        </div>
+                        <h3>Оптика: Ключевые моменты</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <h5>Лучше для:</h5>
+                                <p>Дальних дистанций</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Бюджет:</h5>
+                                <p>Премиум-решение</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Сложность:</h5>
+                                <p>Требует экспертов</p>
+                            </div>
+                            <div class="info-item">
+                                <h5>Скорость:</h5>
+                                <p>Максимальная</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Выбор технологии -->
+            <section id="technology-choice">
+                <h2><i class="fas fa-question-circle"></i> Какую технологию выбрать?</h2>
+                
+                <div class="physics-card">
+                    <h3><i class="fas fa-road"></i> Рекомендации по выбору</h3>
+                    
+                    <div class="comparison-blocks">
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-check-circle" style="color: #38a169;"></i> Выбирайте МЕДЬ, если:</h4>
+                            <ul>
+                                <li>Расстояние ≤ 100 метров</li>
+                                <li>Бюджет ограничен</li>
+                                <li>Нужна подача питания (PoE)</li>
+                                <li>Требуется частая реконфигурация</li>
+                                <li>Подключение конечных устройств</li>
+                                <li>Офисные или домашние сети</li>
+                                <li>Нет квалифицированных специалистов по оптике</li>
+                            </ul>
+                        </div>
+
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-check-circle" style="color: #3182ce;"></i> Выбирайте ОПТИКУ, если:</h4>
+                            <ul>
+                                <li>Расстояние > 100 метров</li>
+                                <li>Требуется высокая скорость (>10 Гбит/с)</li>
+                                <li>Сильные электромагнитные помехи</li>
+                                <li>Высокие требования к безопасности</li>
+                                <li>Магистральные соединения</li>
+                                <li>Межздательные соединения</li>
+                                <li>Центры обработки данных</li>
+                                <li>Планы на будущее расширение</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Диаграмма принятия решения -->
+                <h3><i class="fas fa-sitemap"></i> Диаграмма принятия решения</h3>
+                <div class="optical-diagram" style="height: 400px; background: var(--neumorphism-shadow-inset);">
+                    <div style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%); text-align: center; width: 200px; padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: var(--border-radius-sm);">
+                        <strong>Начало</strong><br>
+                        Выбор технологии
+                    </div>
+                    
+                    <!-- Ветка меди -->
+                    <div style="position: absolute; top: 130px; left: 25%; width: 40%;">
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: var(--border-radius-sm); text-align: center;">
+                            <strong>Медь</strong><br>
+                            ≤ 100 м, бюджетно, PoE
+                        </div>
+                        <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(240, 147, 251, 0.1); border-radius: var(--border-radius-sm);">
+                            Применение: офисы, дома, камеры, телефоны
+                        </div>
+                    </div>
+                    
+                    <!-- Ветка оптики -->
+                    <div style="position: absolute; top: 130px; right: 25%; width: 40%;">
+                        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 1rem; border-radius: var(--border-radius-sm); text-align: center;">
+                            <strong>Оптика</strong><br>
+                            > 100 м, высокая скорость, защита
+                        </div>
+                        <div style="margin-top: 1rem; padding: 0.8rem; background: rgba(79, 172, 254, 0.1); border-radius: var(--border-radius-sm);">
+                            Применение: магистрали, ЦОД, 5G, кампусы
+                        </div>
+                    </div>
+                    
+                    <!-- Стрелки -->
+                    <div style="position: absolute; top: 120px; left: 50%; width: 2px; height: 60px; background: var(--text-color); opacity: 0.3;"></div>
+                    <div style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--text-color); opacity: 0.3;"></div>
+                    
+                    <div style="position: absolute; top: 180px; left: 50%; transform: translateX(-250px); width: 100px; height: 2px; background: var(--text-color); opacity: 0.3;"></div>
+                    <div style="position: absolute; top: 180px; right: 50%; transform: translateX(250px); width: 100px; height: 2px; background: var(--text-color); opacity: 0.3;"></div>
+                    
+                    <div style="position: absolute; top: 178px; left: calc(25% + 45%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 15px solid var(--text-color); opacity: 0.3;"></div>
+                    <div style="position: absolute; top: 178px; right: calc(25% + 45%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 15px solid var(--text-color); opacity: 0.3;"></div>
+                </div>
+            </section>
+
+            <!-- Стоимостной анализ -->
+            <section id="cost-analysis">
+                <h2><i class="fas fa-calculator"></i> Стоимостной анализ (TCO)</h2>
+                
+                <div class="cost-comparison">
+                    <div class="cost-item">
+                        <h3><i class="fas fa-bolt"></i> Медь: Затраты</h3>
+                        <div class="cost-value">$$</div>
+                        <h4>Начальные затраты:</h4>
+                        <ul>
+                            <li>Кабель: $0.5-2/м</li>
+                            <li>Коннекторы: $0.5-1/шт</li>
+                            <li>Оборудование: $50-200/порт</li>
+                            <li>Монтаж: $50-100/точка</li>
+                        </ul>
+                        <h4>Эксплуатация:</h4>
+                        <ul>
+                            <li>Обслуживание: низкое</li>
+                            <li>Ремонт: простой</li>
+                            <li>Энергопотребление: высокое</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cost-item">
+                        <h3><i class="fas fa-fiber-optic"></i> Оптика: Затраты</h3>
+                        <div class="cost-value">$$$$</div>
+                        <h4>Начальные затраты:</h4>
+                        <ul>
+                            <li>Кабель: $2-5/м</li>
+                            <li>Коннекторы: $5-20/шт</li>
+                            <li>Оборудование: $200-1000/порт</li>
+                            <li>Монтаж: $100-300/точка</li>
+                        </ul>
+                        <h4>Эксплуатация:</h4>
+                        <ul>
+                            <li>Обслуживание: среднее</li>
+                            <li>Ремонт: сложный</li>
+                            <li>Энергопотребление: низкое</li>
+                        </ul>
+                    </div>
+
+                    <div class="cost-item">
+                        <h3><i class="fas fa-balance-scale"></i> ROI (окупаемость)</h3>
+                        <div class="cost-value">📈</div>
+                        <p><strong>Медь:</strong> Быстрая окупаемость (1-2 года), но ограниченная масштабируемость.</p>
+                        <p><strong>Оптика:</strong> Дольше окупается (3-5 лет), но обеспечивает рост на десятилетия.</p>
+                        <div class="important-note" style="margin-top: 1rem; padding: 1rem;">
+                            <p><strong>Вывод:</strong> Для долгосрочных проектов оптика экономически выгоднее благодаря большей пропускной способности и долговечности.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Гибридные решения -->
+            <section id="hybrid-solutions">
+                <h2><i class="fas fa-random"></i> Гибридные решения</h2>
+                
+                <div class="physics-card">
+                    <h3><i class="fas fa-link"></i> Комбинирование технологий</h3>
+                    <p>В реальных проектах часто используется комбинация медных и оптических технологий для достижения оптимального баланса стоимости и производительности.</p>
+                    
+                    <div class="comparison-blocks">
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-building"></i> Типичная корпоративная сеть</h4>
+                            <ul>
+                                <li><strong>Ядро сети:</strong> Оптика (высокая скорость)</li>
+                                <li><strong>Распределение:</strong> Оптика между зданиями</li>
+                                <li><strong>Доступ:</strong> Медь на рабочих местах</li>
+                                <li><strong>Серверная:</strong> Оптика для серверов</li>
+                            </ul>
+                        </div>
+
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-home"></i> Типичная домашняя сеть</h4>
+                            <ul>
+                                <li><strong>Внешняя линия:</strong> Оптика (FTTH)</li>
+                                <li><strong>Роутер:</strong> Оптический вход</li>
+                                <li><strong>Внутри дома:</strong> Медь (Ethernet)</li>
+                                <li><strong>Wi-Fi точки:</strong> Медь (PoE)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="analogy" style="margin-top: 2rem;">
+                        <h4><i class="fas fa-brain"></i> Аналогия с транспортной системой</h4>
+                        <p>Современная транспортная система использует разные виды транспорта для разных задач: самолеты для международных перелетов, поезда для междугородних поездок, метро для перемещения по городу, автомобили для коротких поездок. Также и в сетях: оптика для магистралей, медь для "последней мили".</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Будущее технологий -->
+            <section id="future-technologies">
+                <h2><i class="fas fa-crystal-ball"></i> Будущее: конвергенция технологий</h2>
+                
+                <div class="important-note">
+                    <h4><i class="fas fa-info-circle"></i> Тенденции развития</h4>
+                    <p>В будущем мы увидим не замену одной технологии другой, а их сближение и интеграцию. Уже сегодня появляются технологии, сочетающие преимущества обеих систем.</p>
+                </div>
+
+                <h3><i class="fas fa-lightbulb"></i> Перспективные направления</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h5>Медь: новые стандарты</h5>
+                        <p>Cat 8: 40 Гбит/с на 30 м</p>
+                    </div>
+                    <div class="info-item">
+                        <h5>Оптика: удешевление</h5>
+                        <p>Массовое производство компонентов</p>
+                    </div>
+                    <div class="info-item">
+                        <h5>Гибридные кабели</h5>
+                        <p>Оптика + медь в одной оболочке</p>
+                    </div>
+                    <div class="info-item">
+                        <h5>Беспроводные технологии</h5>
+                        <p>Wi-Fi 6E, 5G как дополнение</p>
+                    </div>
+                </div>
+
+                <h3><i class="fas fa-chart-line"></i> Прогноз на 10 лет</h3>
+                <ul>
+                    <li><span class="highlight">Оптика</span> станет стандартом для магистралей и ЦОД</li>
+                    <li><span class="highlight">Медь</span> останется для подключения устройств и PoE</li>
+                    <li><span class="highlight">Беспроводные технологии</span> дополнят проводные решения</li>
+                    <li><span class="highlight">Программно-определяемые сети</span> упростят управление</li>
+                    <li><span class="highlight">ИИ и автоматизация</span> снизят стоимость эксплуатации</li>
+                </ul>
+            </section>
+
+            <!-- Заключение -->
+            <section id="conclusion">
+                <h2><i class="fas fa-flag-checkered"></i> Заключение</h2>
+                
+                <div class="physics-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Ключевые выводы</h3>
+                    
+                    <div class="comparison-blocks">
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-check" style="color: #38a169;"></i> Медь выигрывает, когда:</h4>
+                            <ul>
+                                <li>Важен бюджет</li>
+                                <li>Дистанция небольшая</li>
+                                <li>Нужна простота монтажа</li>
+                                <li>Требуется PoE</li>
+                                <li>Частая реконфигурация</li>
+                            </ul>
+                        </div>
+
+                        <div class="comparison-block">
+                            <h4><i class="fas fa-check" style="color: #3182ce;"></i> Оптика выигрывает, когда:</h4>
+                            <ul>
+                                <li>Нужна высокая скорость</li>
+                                <li>Большие расстояния</li>
+                                <li>Важна безопасность</li>
+                                <li>Есть электромагнитные помехи</li>
+                                <li>Планируется масштабирование</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="analogy" style="margin-top: 2rem;">
+                        <h4><i class="fas fa-brain"></i> Финальная аналогия</h4>
+                        <p>Медь и оптика - не конкуренты, а партнеры в мире связи. Как молоток и отвертка в наборе инструментов: каждый хорош для своей задачи. Умный инженер знает, когда использовать молоток (медь), а когда - отвертку (оптику), а чаще всего использует оба инструмента вместе для создания надежной и эффективной системы.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Сравнительный анализ</h3>
+                <p>Детальное сравнение технологий передачи данных</p>
+                
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="copper.html"><i class="fas fa-bolt"></i> Медь</a>
+                    <a href="optical.html"><i class="fas fa-fiber-optic"></i> Оптика</a>
+                    <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
+                </div>
+                
+                <div class="sources">
+                    <p>© 2024 Образовательный проект. Все права защищены.</p>
+                    <p>Материалы предназначены для образовательных целей.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

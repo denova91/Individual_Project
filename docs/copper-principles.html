@@ -1,487 +1,390 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="light-theme">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Принципы действия витой пары | Медь vs Оптика</title>
+    <title>Медные линии | Медь vs Оптика</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Верхнее горизонтальное меню -->
+    <!-- Верхнее меню -->
     <nav class="top-nav">
         <div class="top-nav-left">
             <a href="index.html" class="top-nav-logo">
                 <i class="fas fa-network-wired"></i>
                 <span>Медь vs Оптика</span>
             </a>
-            
             <div class="top-nav-links">
                 <a href="index.html" class="top-nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Главная</span>
+                    <i class="fas fa-home"></i> Главная
                 </a>
-                <a href="copper-principles.html" class="top-nav-link active">
-                    <i class="fas fa-align-justify"></i>
-                    <span>Принципы ВП</span>
+                <a href="copper.html" class="top-nav-link active">
+                    <i class="fas fa-bolt"></i> Медные линии
                 </a>
-                <a href="fiber-principles.html" class="top-nav-link">
-                    <i class="fas fa-align-justify"></i>
-                    <span>Принципы ОВ</span>
+                <a href="optical.html" class="top-nav-link">
+                    <i class="fas fa-fiber-optic"></i> Оптические линии
+                </a>
+                <a href="comparison.html" class="top-nav-link">
+                    <i class="fas fa-balance-scale"></i> Сравнение
                 </a>
             </div>
         </div>
-        
         <div class="top-nav-right">
-            <button class="top-nav-theme-toggle">
+            <button class="top-nav-theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
-                <span>Темная</span>
+                <span>Темная тема</span>
             </button>
-            <button class="top-nav-mobile-toggle">
+            <button class="top-nav-mobile-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
-    
-    <!-- Ультракомпактное боковое меню -->
+
+    <!-- Боковое меню -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Принципы ВП">
-                <i class="fas fa-align-justify"></i>
+            <div class="sidebar-logo" data-tooltip="Навигация">
+                <i class="fas fa-compass"></i>
             </div>
         </div>
-        
         <nav class="sidebar-nav">
             <ul class="nav-links">
                 <li>
-                    <button class="nav-button active" data-section="basics" data-tooltip="Основы передачи">
+                    <button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'">
+                        <i class="fas fa-home"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button active" data-tooltip="Медные линии" onclick="window.location.href='copper.html'">
+                        <i class="fas fa-bolt"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='optical.html'">
+                        <i class="fas fa-fiber-optic"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li>
+                    <button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'">
+                        <i class="fas fa-balance-scale"></i>
+                        <span class="nav-indicator"></span>
+                    </button>
+                </li>
+                <li class="nav-divider"></li>
+                <li>
+                    <button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')">
                         <i class="fas fa-atom"></i>
-                        <div class="nav-indicator"></div>
+                        <span class="nav-indicator"></span>
                     </button>
                 </li>
-                
                 <li>
-                    <button class="nav-button" data-section="twisting" data-tooltip="Скручивание пар">
-                        <i class="fas fa-infinity"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="parameters" data-tooltip="Электрические параметры">
-                        <i class="fas fa-sliders-h"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="skin-effect" data-tooltip="Скин-эффект">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="modulation" data-tooltip="Методы модуляции">
-                        <i class="fas fa-align-justify"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="limitations" data-tooltip="Ограничения">
-                        <i class="fas fa-ban"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="standards" data-tooltip="Стандарты">
-                        <i class="fas fa-certificate"></i>
-                        <div class="nav-indicator"></div>
+                    <button class="nav-button" data-tooltip="Стандарты" onclick="scrollToSection('standards')">
+                        <i class="fas fa-cogs"></i>
+                        <span class="nav-indicator"></span>
                     </button>
                 </li>
             </ul>
-            
-            <button class="sidebar-theme" data-tooltip="Темная тема">
-                <i class="fas fa-moon"></i>
-            </button>
         </nav>
+        <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
+            <i class="fas fa-palette"></i>
+        </button>
     </aside>
-    
+
     <!-- Основное содержимое -->
     <main class="main-content">
         <div class="container">
+            <!-- Заголовок -->
             <div class="page-header">
-                <h1><i class="fas fa-align-justify"></i> Принципы действия витой пары</h1>
-                <p class="page-subtitle">Физические основы передачи электрических сигналов по медным проводникам</p>
+                <h1>
+                    <i class="fas fa-bolt"></i>
+                    Медные линии связи
+                </h1>
+                <p class="page-subtitle">Технология передачи электрических сигналов по металлическим проводникам</p>
             </div>
-            
-            <!-- Основы передачи -->
-            <section id="basics">
-                <h2><i class="fas fa-atom"></i> Физические основы передачи</h2>
+
+            <!-- Введение -->
+            <section id="introduction">
+                <h2><i class="fas fa-info-circle"></i> Введение</h2>
+                <p>Медные линии связи - это технология передачи данных с использованием электрических сигналов, распространяющихся по металлическим проводникам. Это одна из старейших и наиболее распространенных технологий связи, которая до сих пор широко используется во всем мире.</p>
                 
                 <div class="analogy">
-                    <h4>Простая аналогия:</h4>
-                    <p>Представьте водопроводную трубу. Сигнал — это вода под давлением. Открывая и закрывая кран (модуляция), мы можем передавать информацию. Но если труба слишком длинная или узкая, давление падает (затухание), а посторонние шумы могут исказить поток.</p>
+                    <h4><i class="fas fa-brain"></i> Простая аналогия</h4>
+                    <p>Представьте водопроводную трубу. Вода (данные) течет под давлением (напряжением). Чем больше диаметр трубы (сечение провода) и выше давление (напряжение), тем больше воды (данных) можно передать за единицу времени.</p>
                 </div>
-                
-                <h3>Физический принцип</h3>
-                <p>Передача данных по витой паре основана на распространении <span class="highlight">электромагнитных волн</span> вдоль проводника. Каждый бит информации преобразуется в изменение напряжения или тока, которое проходит по медным проводам на расстояние до 100 метров.</p>
-                
-                <h4>Ключевые элементы:</h4>
-                <ul>
-                    <li><strong>Проводник:</strong> Медь (чистота 99.99%) диаметром 0.4-0.6 мм</li>
-                    <li><strong>Изоляция:</strong> Полиэтилен или полипропилен</li>
-                    <li><strong>Скрутка:</strong> 2-6 витков на сантиметр</li>
-                    <li><strong>Экранирование:</strong> Фольга, оплетка или их комбинация</li>
-                </ul>
             </section>
-            
-            <!-- Скручивание пар -->
-            <section id="twisting">
-                <h2><i class="fas fa-infinity"></i> Скручивание пар: гениальное решение</h2>
+
+            <!-- Физические принципы -->
+            <section id="physics">
+                <h2><i class="fas fa-atom"></i> Физические принципы</h2>
                 
-                <h3>Зачем скручивать провода?</h3>
-                <p>Две основные причины скручивания проводов:</p>
-                
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Подавление электромагнитных помех (EMI)</h3>
-                        <p>Внешнее магнитное поле наводит одинаковые напряжения в обоих проводах</p>
-                        <h4>Принцип работы:</h4>
-                        <ul>
-                            <li>Дифференциальный усилитель вычитает помеху</li>
-                            <li>Vсигнал = (V1 - V2) - (Vпомеха1 - Vпомеха2) = V1 - V2</li>
-                            <li>Эффективность: снижение помех в 10-100 раз</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-magnet"></i></div>
-                        <h3>Снижение перекрестных наводок (Crosstalk)</h3>
-                        <p>Соседние пары имеют разный шаг скрутки</p>
-                        <h4>Результат:</h4>
-                        <ul>
-                            <li>Передача сигнала в разных парах расфазируется</li>
-                            <li>NEXT и FEXT минимизируются</li>
-                            <li>Улучшение качества сигнала</li>
-                        </ul>
+                <h3><i class="fas fa-bolt"></i> Передача электрических сигналов</h3>
+                <p>Медь является отличным проводником электричества благодаря своей кристаллической структуре, которая позволяет свободным электронам легко перемещаться под воздействием электрического поля.</p>
+
+                <div class="physics-card">
+                    <h4><i class="fas fa-wave-square"></i> Характеристики передачи</h4>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <h5>Сопротивление</h5>
+                            <p>1.68 × 10⁻⁸ Ω·м при 20°C</p>
+                        </div>
+                        <div class="info-item">
+                            <h5>Скорость сигнала</h5>
+                            <p>~70% скорости света в вакууме</p>
+                        </div>
+                        <div class="info-item">
+                            <h5>Затухание</h5>
+                            <p>Зависит от частоты и расстояния</p>
+                        </div>
+                        <div class="info-item">
+                            <h5>Пропускная способность</h5>
+                            <p>До 10 Гбит/с на коротких дистанциях</p>
+                        </div>
                     </div>
                 </div>
+
+                <h3><i class="fas fa-ruler-combined"></i> Типы медных кабелей</h3>
                 
-                <h3>Шаг скрутки для различных категорий</h3>
-                <table>
+                <table class="refraction-table">
                     <thead>
                         <tr>
-                            <th>Категория</th>
-                            <th>Пара 1 (синий)</th>
-                            <th>Пара 2 (оранжевый)</th>
-                            <th>Пара 3 (зеленый)</th>
-                            <th>Пара 4 (коричневый)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cat5e</strong></td>
-                            <td>14-16 витков/м</td>
-                            <td>12-14 витков/м</td>
-                            <td>10-12 витков/м</td>
-                            <td>8-10 витков/м</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cat6</strong></td>
-                            <td>16-18 витков/м</td>
-                            <td>14-16 витков/м</td>
-                            <td>12-14 витков/м</td>
-                            <td>10-12 витков/м</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cat6A</strong></td>
-                            <td>18-20 витков/м</td>
-                            <td>16-18 витков/м</td>
-                            <td>14-16 витков/м</td>
-                            <td>12-14 витков/м</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <!-- Электрические параметры -->
-            <section id="parameters">
-                <h2><i class="fas fa-sliders-h"></i> Электрические параметры и их влияние</h2>
-                
-                <h3>Основные параметры витой пары</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Параметр</th>
-                            <th>Значение</th>
-                            <th>Влияние на передачу</th>
-                            <th>Формула</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Сопротивление (R)</strong></td>
-                            <td>100 Ом ±15% при 20°C</td>
-                            <td>Определяет потери энергии (джоулево тепло)</td>
-                            <td>R(T) = R₂₀·[1 + α·(T-20)]<br>α = 0.00393 1/°C для меди</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Индуктивность (L)</strong></td>
-                            <td>0.4-0.6 мкГн/м</td>
-                            <td>Ограничивает скорость изменения тока</td>
-                            <td>L = (μ₀/π)·ln(D/d) Гн/м</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Емкость (C)</strong></td>
-                            <td>40-60 пФ/м</td>
-                            <td>Вызывает задержку сигнала и искажения</td>
-                            <td>C = (ε·ε₀·π)/ln(D/d) Ф/м</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Проводимость изоляции (G)</strong></td>
-                            <td>1-10 мкСм/м</td>
-                            <td>Определяет утечки тока через изоляцию</td>
-                            <td>Зависит от материала изоляции</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <!-- Скин-эффект -->
-            <section id="skin-effect">
-                <h2><i class="fas fa-exclamation-triangle"></i> Скин-эффект: главное ограничение</h2>
-                
-                <h3>Физическая суть скин-эффекта</h3>
-                <p>При повышении частоты ток вытесняется к поверхности проводника. Эффективная площадь сечения уменьшается, сопротивление растет.</p>
-                
-                <div class="analogy warning-box">
-                    <h4>Глубина скин-слоя:</h4>
-                    <p>δ = √(ρ/(π·f·μ))</p>
-                    <p>где:<br>
-                    • ρ = 1.68·10⁻⁸ Ом·м (удельное сопротивление меди)<br>
-                    • f - частота (Гц)<br>
-                    • μ = 4π·10⁻⁷ Гн/м (магнитная проницаемость)</p>
-                </div>
-                
-                <h3>Численные значения глубины скин-слоя</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Частота</th>
-                            <th>Глубина δ</th>
-                            <th>Эффективное сечение</th>
+                            <th>Тип кабеля</th>
+                            <th>Конструкция</th>
                             <th>Применение</th>
+                            <th>Макс. скорость</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>10 МГц</strong></td>
-                            <td>0.66 мм</td>
-                            <td>≈100%</td>
-                            <td>10BASE-T, Ethernet</td>
+                            <td><strong>Витая пара (UTP)</strong></td>
+                            <td>4 пары скрученных проводов</td>
+                            <td>Ethernet сети, телефония</td>
+                            <td>10 Гбит/с</td>
                         </tr>
                         <tr>
-                            <td><strong>100 МГц</strong></td>
-                            <td>0.21 мм</td>
-                            <td>≈70%</td>
-                            <td>100BASE-TX, Fast Ethernet</td>
+                            <td><strong>Коаксиальный</strong></td>
+                            <td>Центральный проводник + экран</td>
+                            <td>Телевидение, видеонаблюдение</td>
+                            <td>1 Гбит/с</td>
                         </tr>
                         <tr>
-                            <td><strong>500 МГц</strong></td>
-                            <td>0.093 мм</td>
-                            <td>≈45%</td>
-                            <td>Cat6A, 10GBASE-T</td>
+                            <td><strong>Витая пара экранированная (STP)</strong></td>
+                            <td>UTP + общий экран</td>
+                            <td>Промышленные сети</td>
+                            <td>10 Гбит/с</td>
                         </tr>
                         <tr>
-                            <td><strong>1000 МГц</strong></td>
-                            <td>0.066 мм</td>
-                            <td>≈30%</td>
-                            <td>Cat7, Cat8</td>
+                            <td><strong>Телефонный (POTS)</strong></td>
+                            <td>2-4 провода</td>
+                            <td>Аналоговая телефония</td>
+                            <td>56 Кбит/с</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
-            
-            <!-- Методы модуляции -->
-            <section id="modulation">
-                <h2><i class="fas fa-align-justify"></i> Методы модуляции и кодирования</h2>
-                
-                <h3>Эволюция технологий модуляции</h3>
-                
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-signal"></i></div>
-                        <h3>Манчестерское кодирование (10BASE-T)</h3>
-                        <ul>
-                            <li>0 = переход от 0 к 1 в середине интервала</li>
-                            <li>1 = переход от 1 к 0 в середине интервала</li>
-                            <li>Частота 20 МГц для 10 Мбит/с</li>
-                            <li>Простота, но низкая эффективность</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-align-justify"></i></div>
-                        <h3>MLT-3 (100BASE-TX)</h3>
-                        <ul>
-                            <li>Три уровня напряжения: +V, 0, -V</li>
-                            <li>Переходы: 0→+V→0→-V→0</li>
-                            <li>Частота 31.25 МГц для 100 Мбит/с</li>
-                            <li>Снижает электромагнитное излучение</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>PAM-5 (1000BASE-T)</h3>
-                        <ul>
-                            <li>5 уровней: -2, -1, 0, +1, +2</li>
-                            <li>2 бита/символ на каждой из 4 пар</li>
-                            <li>Частота 125 МГц на пару, итого 500 МГц</li>
-                            <li>Использует все 4 пары одновременно</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
-                        <h3>PAM-16 (10GBASE-T)</h3>
-                        <ul>
-                            <li>16 уровней (±15, ±13, ±11, ±9, ±7, ±5, ±3, ±1)</li>
-                            <li>4 бита/символ</li>
-                            <li>Использует треллис-кодирование для коррекции ошибок</li>
-                            <li>Частота 400 МГц на пару</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Ограничения -->
-            <section id="limitations">
-                <h2><i class="fas fa-ban"></i> Ограничения и компенсация</h2>
-                
-                <h3>Основные виды помех и ограничений</h3>
-                
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-arrow-down"></i></div>
-                        <h3>Затухание (Attenuation)</h3>
-                        <p>A(dB) = 10·log₁₀(Pвых/Pвх) = α·L</p>
-                        <p>где α = (R/2)·√(C/L) + (G/2)·√(L/C)</p>
-                        <p>Ограничивает максимальную длину линии</p>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
-                        <h3>NEXT (Near-End Crosstalk)</h3>
-                        <ul>
-                            <li>Помеха от передатчика в соседней паре</li>
-                            <li>Стандарт: ≥23.3 дБ для Cat6A на 500 МГц</li>
-                            <li>Основная проблема на высоких частотах</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-road"></i></div>
-                        <h3>FEXT (Far-End Crosstalk)</h3>
-                        <ul>
-                            <li>Помеха от дальнего передатчика</li>
-                            <li>Менее критична, чем NEXT</li>
-                            <li>Компенсируется выравниванием</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-external-link-alt"></i></div>
-                        <h3>Alien Crosstalk (ANEXT)</h3>
-                        <ul>
-                            <li>Помеха от кабелей в том же пучке</li>
-                            <li>Категория 6A требует разделителей</li>
-                            <li>Сложнее всего компенсировать</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3>Технологии компенсации</h3>
-                
-                <div class="analogy success-box">
-                    <h4>Эхоподавление (Echo Cancellation):</h4>
-                    <p>Полнодуплексная передача по одной паре. Вычитание собственного передаваемого сигнала с использованием цифровых фильтров с 64-256 коэффициентами.</p>
-                </div>
-            </section>
-            
+
             <!-- Стандарты -->
             <section id="standards">
-                <h2><i class="fas fa-certificate"></i> Стандарты и спецификации</h2>
+                <h2><i class="fas fa-cogs"></i> Стандарты Ethernet</h2>
                 
-                <h3>ANSI/TIA-568.2-D стандарты</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Категория</th>
-                            <th>Макс. частота</th>
-                            <th>Скорость передачи</th>
-                            <th>Макс. длина</th>
-                            <th>Применение</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cat5e</strong></td>
-                            <td>100 МГц</td>
-                            <td>до 1 Гбит/с</td>
-                            <td>100 м</td>
-                            <td>Базовый стандарт для гигабитных сетей</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cat6</strong></td>
-                            <td>250 МГц</td>
-                            <td>до 10 Гбит/с</td>
-                            <td>55 м (10 Гбит/с)<br>100 м (1 Гбит/с)</td>
-                            <td>Улучшенная защита от помех</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cat6A</strong></td>
-                            <td>500 МГц</td>
-                            <td>до 10 Гбит/с</td>
-                            <td>100 м</td>
-                            <td>Полноценная поддержка 10 Гбит/с</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cat8</strong></td>
-                            <td>2000 МГц</td>
-                            <td>до 40 Гбит/с</td>
-                            <td>30 м</td>
-                            <td>Для центров обработки данных</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="comparison-blocks">
+                    <div class="comparison-block">
+                        <h4><i class="fas fa-tachometer-alt"></i> Стандарты скорости</h4>
+                        <table style="width: 100%;">
+                            <tr>
+                                <th>Стандарт</th>
+                                <th>Скорость</th>
+                                <th>Год</th>
+                            </tr>
+                            <tr>
+                                <td>Ethernet</td>
+                                <td>10 Мбит/с</td>
+                                <td>1983</td>
+                            </tr>
+                            <tr>
+                                <td>Fast Ethernet</td>
+                                <td>100 Мбит/с</td>
+                                <td>1995</td>
+                            </tr>
+                            <tr>
+                                <td>Gigabit Ethernet</td>
+                                <td>1 Гбит/с</td>
+                                <td>1999</td>
+                            </tr>
+                            <tr>
+                                <td>10G Ethernet</td>
+                                <td>10 Гбит/с</td>
+                                <td>2002</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="comparison-block">
+                        <h4><i class="fas fa-ruler"></i> Максимальная дистанция</h4>
+                        <table style="width: 100%;">
+                            <tr>
+                                <th>Категория</th>
+                                <th>Макс. длина</th>
+                                <th>Частота</th>
+                            </tr>
+                            <tr>
+                                <td>Cat 5e</td>
+                                <td>100 м</td>
+                                <td>100 МГц</td>
+                            </tr>
+                            <tr>
+                                <td>Cat 6</td>
+                                <td>100 м</td>
+                                <td>250 МГц</td>
+                            </tr>
+                            <tr>
+                                <td>Cat 6A</td>
+                                <td>100 м</td>
+                                <td>500 МГц</td>
+                            </tr>
+                            <tr>
+                                <td>Cat 7</td>
+                                <td>100 м</td>
+                                <td>600 МГц</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Преимущества -->
+            <section id="advantages">
+                <h2><i class="fas fa-thumbs-up"></i> Преимущества медных линий</h2>
+                
+                <div class="cost-comparison">
+                    <div class="cost-item">
+                        <h3><i class="fas fa-money-bill-wave"></i> Экономические</h3>
+                        <div class="cost-value">$</div>
+                        <ul>
+                            <li>Низкая стоимость кабеля</li>
+                            <li>Дешевые коннекторы и оборудование</li>
+                            <li>Простой монтаж</li>
+                            <li>Низкая стоимость обслуживания</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cost-item">
+                        <h3><i class="fas fa-tools"></i> Технические</h3>
+                        <div class="cost-value">⚙️</div>
+                        <ul>
+                            <li>Простота подключения</li>
+                            <li>Совместимость с большинством устройств</li>
+                            <li>Возможность подачи питания (PoE)</li>
+                            <li>Гибкость и прочность</li>
+                        </ul>
+                    </div>
+
+                    <div class="cost-item">
+                        <h3><i class="fas fa-infinity"></i> Практические</h3>
+                        <div class="cost-value">♾️</div>
+                        <ul>
+                            <li>Широкая распространенность</li>
+                            <li>Большая база специалистов</li>
+                            <li>Огромный выбор оборудования</li>
+                            <li>Простота диагностики</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ограничения -->
+            <section id="limitations">
+                <h2><i class="fas fa-exclamation-triangle"></i> Ограничения и проблемы</h2>
+                
+                <div class="important-note">
+                    <h4><i class="fas fa-info-circle"></i> Ключевые ограничения</h4>
+                    <p>Медные линии имеют фундаментальные физические ограничения, которые невозможно преодолеть без перехода на другую технологию передачи данных.</p>
+                </div>
+
+                <h3><i class="fas fa-wave-square"></i> Основные проблемы</h3>
+                <ul>
+                    <li><span class="highlight">Затухание сигнала</span> - сигнал ослабевает с расстоянием</li>
+                    <li><span class="highlight">Электромагнитные помехи</span> - чувствительность к внешним полям</li>
+                    <li><span class="highlight">Перекрестные наводки</span> - влияние соседних пар проводов</li>
+                    <li><span class="highlight">Ограничение полосы пропускания</span> - физический предел меди</li>
+                    <li><span class="highlight">Коррозия</span> - ухудшение свойств со временем</li>
+                </ul>
+
+                <h3><i class="fas fa-chart-line"></i> Зависимость скорости от расстояния</h3>
+                <div class="optical-diagram" style="height: 250px; background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);">
+                    <div style="position: absolute; bottom: 40px; left: 50px; right: 50px; height: 2px; background: var(--text-color); opacity: 0.3;"></div>
+                    <div style="position: absolute; left: 50px; top: 40px; bottom: 40px; width: 2px; background: var(--text-color); opacity: 0.3;"></div>
+                    
+                    <!-- График скорости -->
+                    <div style="position: absolute; left: 60px; bottom: 40px; width: calc(100% - 120px); height: calc(100% - 80px);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 80%; background: linear-gradient(to top, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.2)); border-radius: 5px 5px 0 0;"></div>
+                        <div style="position: absolute; bottom: 80%; left: 0; width: 100%; height: 20%; background: linear-gradient(to top, rgba(240, 147, 251, 0.4), rgba(240, 147, 251, 0.2)); border-radius: 5px 5px 0 0;"></div>
+                    </div>
+                    
+                    <!-- Подписи -->
+                    <div style="position: absolute; bottom: 20px; left: 50px; right: 50px; display: flex; justify-content: space-between; color: var(--text-color); font-size: 0.9rem;">
+                        <span>0 м</span>
+                        <span>50 м</span>
+                        <span>100 м</span>
+                    </div>
+                    <div style="position: absolute; left: 30px; top: 40px; bottom: 40px; display: flex; flex-direction: column; justify-content: space-between; color: var(--text-color); font-size: 0.9rem;">
+                        <span>10 Гбит/с</span>
+                        <span>1 Гбит/с</span>
+                        <span>100 Мбит/с</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Будущее -->
+            <section id="future">
+                <h2><i class="fas fa-crystal-ball"></i> Будущее медных технологий</h2>
+                <p>Несмотря на растущую популярность оптических технологий, медные линии будут продолжать использоваться в обозримом будущем по нескольким причинам:</p>
+                
+                <ul>
+                    <li><span class="highlight">Существующая инфраструктура</span> - миллионы километров уже проложенных кабелей</li>
+                    <li><span class="highlight">Экономическая целесообразность</span> - для коротких дистанций медь остается дешевле</li>
+                    <li><span class="highlight">Технологии PoE</span> - передача данных и питания по одному кабелю</li>
+                    <li><span class="highlight">Интернет вещей (IoT)</span> - множество устройств с медными интерфейсами</li>
+                </ul>
+
+                <div class="analogy">
+                    <h4><i class="fas fa-brain"></i> Аналогия с транспортом</h4>
+                    <p>Медь - как автомобили в городе. Оптика - как скоростные поезда между городами. Оба вида транспорта будут сосуществовать, так как решают разные задачи: автомобили для коротких поездок по городу, поезда - для быстрых дальних перевозок.</p>
+                </div>
             </section>
         </div>
-        
-        <!-- Подвал -->
-        <footer>
-            <div class="container footer-content">
-                <p><i class="fas fa-align-justify"></i> © 2025 Принципы действия витой пары</p>
-                <p>Детальное описание физических основ и технологий передачи</p>
-            </div>
-        </footer>
     </main>
-    
-    <!-- Кнопка быстрого подъема -->
-    <button id="back-to-top" class="back-to-top">
+
+    <!-- Кнопка "Наверх" -->
+    <button class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Медные линии связи</h3>
+                <p>Технология передачи электрических сигналов</p>
+                
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="copper.html"><i class="fas fa-bolt"></i> Медь</a>
+                    <a href="optical.html"><i class="fas fa-fiber-optic"></i> Оптика</a>
+                    <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
+                </div>
+                
+                <div class="sources">
+                    <p>© 2024 Образовательный проект. Все права защищены.</p>
+                    <p>Материалы предназначены для образовательных целей.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
