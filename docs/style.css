@@ -1247,6 +1247,10 @@ footer:before {
     .sidebar.open {
         transform: translateX(0);
     }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
     
     .main-content {
         margin-left: 0;
