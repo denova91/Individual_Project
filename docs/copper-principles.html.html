@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru" class="light-theme">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Медные линии | Медь vs Оптика</title>
+    <!-- Скрипт для предотвращения белой вспышки -->
+    <script>
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.className = savedTheme + '-theme';
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,16 +26,16 @@
                 <span>Медь vs Оптика</span>
             </a>
             <div class="top-nav-links">
-                <a href="index.html" class="top-nav-link active">
+                <a href="index.html" class="top-nav-link">
                     <i class="fas fa-home"></i>
                     <span>Главная</span>
                 </a>
-                <a href="copper-principles.html" class="top-nav-link">
+                <a href="copper-principles.html" class="top-nav-link active">
                     <i class="fas fa-bolt"></i>
                     <span>Медные линии</span>
                 </a>
                 <a href="fiber-principles.html" class="top-nav-link">
-                    <i class="fa fa-code-fork" aria-hidden="true"></i>
+                    <i class="fa fa-ravelry"></i>
                     <span>Оптические линии</span>
                 </a>
                 <a href="comparison.html" class="top-nav-link">
@@ -69,7 +78,7 @@
                 </li>
                 <li>
                     <button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'">
-                        <i class="fa fa-code-fork" aria-hidden="true"></i>
+                        <i class="fa fa-ravelry"></i>
                         <span class="nav-indicator"></span>
                     </button>
                 </li>
@@ -378,12 +387,12 @@
                 <div class="footer-links">
                     <a href="index.html"><i class="fas fa-home"></i> Главная</a>
                     <a href="copper-principles.html"><i class="fas fa-bolt"></i> Медь</a>
-                    <a href="fiber-principles.html"><i class="fa fa-code-fork" aria-hidden="true"></i> Оптика</a>
+                    <a href="fiber-principles.html"><i class="fa fa-ravelry"></i> Оптика</a>
                     <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
                 </div>
                 
                 <div class="sources">
-                    <p>©  Образовательный проект.</p>
+                    <p>© Образовательный проект.</p>
                     <p>Материалы предназначены для образовательных целей.</p>
                 </div>
             </div>

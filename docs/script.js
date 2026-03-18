@@ -163,7 +163,7 @@ function showNotification(message, type = 'info') {
 document.addEventListener('DOMContentLoaded', () => {
     // Загрузка сохраненной темы
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.className = savedTheme + '-theme';
+    // Класс уже установлен скриптом в head, поэтому просто обновляем иконки
     updateThemeIcons(savedTheme);
     
     // Инициализация компонентов
@@ -193,22 +193,22 @@ document.addEventListener('DOMContentLoaded', () => {
         row.style.animationDelay = `${index * 0.05}s`;
     });
     
-    // Добавляем эффект печати для заголовков
-    const pageHeader = document.querySelector('.page-header h1');
-    if (pageHeader) {
-        const text = pageHeader.textContent;
-        pageHeader.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                pageHeader.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-    }
+    // Добавляем эффект печати для заголовков (закомментировано, т.к. не используется)
+    // const pageHeader = document.querySelector('.page-header h1');
+    // if (pageHeader) {
+    //     const text = pageHeader.textContent;
+    //     pageHeader.textContent = '';
+    //     
+    //     let i = 0;
+    //     const typeWriter = () => {
+    //         if (i < text.length) {
+    //             pageHeader.textContent += text.charAt(i);
+    //             i++;
+    //             setTimeout(typeWriter, 50);
+    //         }
+    //     };
+    //     
+    // }
     
     // Показываем приветственное уведомление на главной странице
     if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {

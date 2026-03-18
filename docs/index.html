@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сравнительный анализ медных и оптических линий связи</title>
+    <!-- Скрипт для предотвращения белой вспышки -->
+    <script>
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.className = savedTheme + '-theme';
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -27,7 +36,7 @@
                     <span>Медные линии</span>
                 </a>
                 <a href="fiber-principles.html" class="top-nav-link">
-                    <i class="fa fa-code-fork" aria-hidden="true"></i>
+                    <i class="fa fa-ravelry"></i>
                     <span>Оптические линии</span>
                 </a>
                 <a href="comparison.html" class="top-nav-link">
@@ -74,7 +83,7 @@
                 
                 <li>
                     <button class="nav-button" data-section="fiber-lines" data-tooltip="Оптические линии">
-                        <i class="fa fa-code-fork" aria-hidden="true"></i>
+                        <i class="fa fa-ravelry"></i>
                         <div class="nav-indicator"></div>
                     </button>
                 </li>
@@ -141,7 +150,7 @@
                     </div>
                     
                     <div class="comparison-card fiber-card">
-                        <div class="card-icon"><i class="fa fa-code-fork" aria-hidden="true"></i></div>
+                        <div class="card-icon"><i class="fa fa-ravelry"></i></div>
                         <h3>Оптические линии</h3>
                         <p>Технология передачи световых импульсов по стеклянным или пластиковым волокнам. Использует модуляцию интенсивности света для передачи данных.</p>
                         <h4>Ключевые особенности:</h4>
@@ -223,7 +232,7 @@
             
             <!-- Оптические линии связи -->
             <section id="fiber-lines">
-                <h2><i class="fa fa-code-fork" aria-hidden="true"></i> Оптические линии связи: Свет в невидимом русле</h2>
+                <h2><i class="fa fa-ravelry"></i> Оптические линии связи: Свет в невидимом русле</h2>
                 
                 <h3>Физический принцип: полное внутреннее отражение</h3>
                 <p>В основе лежит управление светом на границе двух сред. Оптическое волокно состоит из сердцевины (core) из сверхчистого кварцевого стекла с высоким показателем преломления, окруженной оболочкой (cladding) с более низким показателем преломления.</p>
@@ -448,7 +457,7 @@
                     </div>
                     
                     <div class="cost-item">
-                        <h4><i class="fa fa-code-fork" aria-hidden="true"></i> Оптика SMF (100 точек)</h4>
+                        <h4><i class="fa fa-ravelry"></i> Оптика SMF (100 точек)</h4>
                         <div class="cost-value">$25,000</div>
                         <ul>
                             <li>Кабель: $5,000</li>
@@ -604,8 +613,9 @@
                 
                 <div class="footer-links">
                     <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                    <a href="copper-principles.html"><i class="fas fa-align-justify"></i> Принципы ВП</a>
-                    <a href="fiber-principles.html"><i class="fas fa-align-justify"></i> Принципы ОВ</a>
+                    <a href="copper-principles.html"><i class="fas fa-bolt"></i> Медь</a>
+                    <a href="fiber-principles.html"><i class="fa fa-ravelry"></i> Оптика</a>
+                    <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
                 </div>
                 
                 <div class="sources">
