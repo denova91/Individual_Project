@@ -58,74 +58,90 @@
     </nav>
     
     <!-- Ультракомпактное боковое меню (только иконки) -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Сравнительный анализ">
-                <i class="fas fa-balance-scale"></i>
-            </div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo" data-tooltip="Сравнительный анализ">
+            <i class="fas fa-balance-scale"></i>
         </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <ul class="nav-links">
+            <li>
+                <button class="nav-button active" data-tooltip="Главная" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'">
+                    <i class="fas fa-bolt"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'">
+                    <i class="fa fa-ravelry"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'">
+                    <i class="fas fa-balance-scale"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li class="nav-divider"></li>
+            <li>
+                <button class="nav-button" data-tooltip="Введение" onclick="scrollToSection('introduction')">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Медные линии" onclick="scrollToSection('copper-lines')">
+                    <i class="fas fa-bolt"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Оптические линии" onclick="scrollToSection('fiber-lines')">
+                    <i class="fa fa-ravelry"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Сравнительный анализ" onclick="scrollToSection('comparison')">
+                    <i class="fas fa-balance-scale"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Экономический анализ" onclick="scrollToSection('economic-analysis')">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li>
+                <button class="nav-button" data-tooltip="Заключение" onclick="scrollToSection('conclusion')">
+                    <i class="fas fa-flag-checkered"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+            <li class="nav-divider"></li>
+            <li>
+                <button class="nav-button" data-tooltip="Источники" onclick="scrollToSection('sources')">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-indicator"></span>
+                </button>
+            </li>
+        </ul>
         
-        <nav class="sidebar-nav">
-            <ul class="nav-links">
-                <li>
-                    <button class="nav-button active" data-section="introduction" data-tooltip="Введение">
-                        <i class="fas fa-home"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="copper-lines" data-tooltip="Медные линии">
-                        <i class="fas fa-bolt"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="fiber-lines" data-tooltip="Оптические линии">
-                        <i class="fa fa-ravelry"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="comparison" data-tooltip="Сравнительный анализ">
-                        <i class="fas fa-balance-scale"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="economic-analysis" data-tooltip="Экономический анализ">
-                        <i class="fas fa-chart-line"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <li>
-                    <button class="nav-button" data-section="conclusion" data-tooltip="Заключение">
-                        <i class="fas fa-flag-checkered"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-                
-                <div class="nav-divider"></div>
-                
-                <li>
-                    <button class="nav-button" data-section="sources" data-tooltip="Источники">
-                        <i class="fas fa-book"></i>
-                        <div class="nav-indicator"></div>
-                    </button>
-                </li>
-            </ul>
-            
-            <button class="sidebar-theme" data-tooltip="Темная тема">
-                <i class="fas fa-moon"></i>
-            </button>
-        </nav>
-    </aside>
+        <button class="sidebar-theme" data-tooltip="Темная тема">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+</aside>
     
     <!-- Основное содержимое -->
     <main class="main-content">
