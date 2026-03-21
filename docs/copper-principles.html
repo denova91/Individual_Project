@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Медные линии | Медь vs Оптика</title>
-    <!-- Скрипт для предотвращения белой вспышки -->
+    <title>Медные линии связи | Медь vs Оптика</title>
     <script>
         (function() {
             try {
                 const savedTheme = localStorage.getItem('theme') || 'light';
                 document.documentElement.className = savedTheme + '-theme';
+                const savedLang = localStorage.getItem('lang') || 'ru';
+                document.documentElement.setAttribute('data-lang', savedLang);
             } catch (e) {}
         })();
     </script>
@@ -18,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Верхнее меню -->
     <nav class="top-nav">
         <div class="top-nav-left">
             <a href="index.html" class="top-nav-logo">
@@ -26,25 +26,20 @@
                 <span>Медь vs Оптика</span>
             </a>
             <div class="top-nav-links">
-                <a href="index.html" class="top-nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Главная</span>
-                </a>
-                <a href="copper-principles.html" class="top-nav-link active">
-                    <i class="fas fa-bolt"></i>
-                    <span>Медные линии</span>
-                </a>
-                <a href="fiber-principles.html" class="top-nav-link">
-                    <i class="fa fa-code-fork" aria-hidden="true"></i>
-                    <span>Оптические линии</span>
-                </a>
-                <a href="comparison.html" class="top-nav-link">
-                    <i class="fas fa-balance-scale"></i>
-                    <span>Сравнение</span>
-                </a>
+                <a href="index.html" class="top-nav-link"><i class="fas fa-home"></i><span>Главная</span></a>
+                <a href="copper-principles.html" class="top-nav-link active"><i class="fas fa-bolt"></i><span>Медь</span></a>
+                <a href="fiber-principles.html" class="top-nav-link"><i class="fa fa-code-fork"></i><span>Оптика</span></a>
+                <a href="comparison.html" class="top-nav-link"><i class="fas fa-balance-scale"></i><span>Сравнение</span></a>
+                <a href="wireless.html" class="top-nav-link"><i class="fas fa-wifi"></i><span>Беспроводные</span></a>
+                <a href="other-cables.html" class="top-nav-link"><i class="fas fa-plug"></i><span>Интерфейсы</span></a>
             </div>
         </div>
         <div class="top-nav-right">
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
             <button class="top-nav-theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
                 <span>Темная тема</span>
@@ -55,7 +50,6 @@
         </div>
     </nav>
 
-    <!-- Боковое меню -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="sidebar-logo" data-tooltip="Навигация">
@@ -64,341 +58,133 @@
         </div>
         <nav class="sidebar-nav">
             <ul class="nav-links">
-                <li>
-                    <button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button active" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'">
-                        <i class="fas fa-bolt"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'">
-                        <i class="fa fa-code-fork" aria-hidden="true"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'">
-                        <i class="fas fa-balance-scale"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
+                <li><button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'"><i class="fas fa-home"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button active" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'"><i class="fas fa-bolt"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'"><i class="fa fa-code-fork"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'"><i class="fas fa-balance-scale"></i><span class="nav-indicator"></span></button></li>
                 <li class="nav-divider"></li>
-                <li>
-                    <button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')">
-                        <i class="fas fa-atom"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Стандарты" onclick="scrollToSection('standards')">
-                        <i class="fas fa-cogs"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
+                <li><button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')"><i class="fas fa-atom"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="История" onclick="scrollToSection('history')"><i class="fas fa-history"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Стандарты" onclick="scrollToSection('standards')"><i class="fas fa-cogs"></i><span class="nav-indicator"></span></button></li>
             </ul>
+            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
+                <i class="fas fa-palette"></i>
+            </button>
         </nav>
-        <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
-            <i class="fas fa-palette"></i>
-        </button>
     </aside>
 
-    <!-- Основное содержимое -->
     <main class="main-content">
         <div class="container">
-            <!-- Заголовок -->
             <div class="page-header">
-                <h1>
-                    <i class="fas fa-bolt"></i>
-                    Медные линии связи
-                </h1>
+                <h1><i class="fas fa-bolt"></i> Медные линии связи</h1>
                 <p class="page-subtitle">Технология передачи электрических сигналов по металлическим проводникам</p>
             </div>
 
-            <!-- Введение -->
             <section id="introduction">
                 <h2><i class="fas fa-info-circle"></i> Введение</h2>
-                <p>Медные линии связи - это технология передачи данных с использованием электрических сигналов, распространяющихся по металлическим проводникам. Это одна из старейших и наиболее распространенных технологий связи, которая до сих пор широко используется во всем мире.</p>
-                
+                <p>Медные линии связи — это технология передачи данных с использованием электрических сигналов, распространяющихся по металлическим проводникам. Это одна из старейших и наиболее распространенных технологий связи, которая до сих пор широко используется во всем мире.</p>
                 <div class="analogy">
                     <h4><i class="fas fa-brain"></i> Простая аналогия</h4>
                     <p>Представьте водопроводную трубу. Вода (данные) течет под давлением (напряжением). Чем больше диаметр трубы (сечение провода) и выше давление (напряжение), тем больше воды (данных) можно передать за единицу времени.</p>
                 </div>
             </section>
 
-            <!-- Физические принципы -->
+            <section id="history">
+                <h2><i class="fas fa-history"></i> Исторический экскурс</h2>
+                <p><strong>1837 год</strong> – Сэмюэл Морзе демонстрирует электрический телеграф, положив начало эре электрической связи. <strong>1876 год</strong> – Александр Белл патентует телефон, использующий непрерывный электрический сигнал. <strong>1881 год</strong> – появляется витая пара, которая эффективно снижает электромагнитные наводки. <strong>1973 год</strong> – Роберт Меткалф изобретает Ethernet (изначально на коаксиальном кабеле). Позже витая пара становится стандартом для локальных сетей. Сегодня медь остаётся доминирующей на «последней миле» благодаря простоте и низкой стоимости.</p>
+                <p><strong>Ключевые личности:</strong> Сэмюэл Морзе (телеграф), Александр Белл (телефон), Роберт Меткалф (Ethernet), а также инженеры, разработавшие категории кабелей (Cat5, Cat6 и т.д.).</p>
+            </section>
+
             <section id="physics">
                 <h2><i class="fas fa-atom"></i> Физические принципы</h2>
-                
-                <h3><i class="fas fa-bolt"></i> Передача электрических сигналов</h3>
-                <p>Медь является отличным проводником электричества благодаря своей кристаллической структуре, которая позволяет свободным электронам легко перемещаться под воздействием электрического поля.</p>
+                <h3>Скин-эффект</h3>
+                <p>С ростом частоты передаваемого сигнала электрический ток перестает равномерно распределяться по сечению проводника и вытесняется к его поверхности. Это приводит к эффективному уменьшению площади поперечного сечения, доступной для тока, что резко увеличивает сопротивление и, как следствие, затухание сигнала. Именно <span class="glossary-term" data-term="skin-effect">скин-эффект</span> является главным барьером, ограничивающим максимальную частоту, а значит и скорость передачи данных, а также дистанцию для медных кабелей.</p>
+                <canvas id="skinEffectCanvas" width="500" height="250" style="background: #111; border-radius: 12px; display: block; margin: 1rem auto;"></canvas>
+                <p><em>Анимация показывает концентрацию тока у поверхности проводника при высоких частотах.</em></p>
+            </section>
 
-                <div class="physics-card">
-                    <h4><i class="fas fa-wave-square"></i> Характеристики передачи</h4>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <h5>Сопротивление</h5>
-                            <p>1.68 × 10⁻⁸ Ω·м при 20°C</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>Скорость сигнала</h5>
-                            <p>~70% скорости света в вакууме</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>Затухание</h5>
-                            <p>Зависит от частоты и расстояния</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>Пропускная способность</h5>
-                            <p>До 10 Гбит/с на коротких дистанциях</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h3><i class="fas fa-ruler-combined"></i> Типы медных кабелей</h3>
-                
-                <table class="refraction-table">
+            <section id="standards">
+                <h2><i class="fas fa-cogs"></i> Стандарты и категории</h2>
+                <table>
                     <thead>
-                        <tr>
-                            <th>Тип кабеля</th>
-                            <th>Конструкция</th>
-                            <th>Применение</th>
-                            <th>Макс. скорость</th>
-                        </tr>
+                        <tr><th>Категория</th><th>Скорость передачи</th><th>Максимальная частота</th><th>Особенности</th></tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Витая пара (UTP)</strong></td>
-                            <td>4 пары скрученных проводов</td>
-                            <td>Ethernet сети, телефония</td>
-                            <td>10 Гбит/с</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Коаксиальный</strong></td>
-                            <td>Центральный проводник + экран</td>
-                            <td>Телевидение, видеонаблюдение</td>
-                            <td>1 Гбит/с</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Витая пара экранированная (STP)</strong></td>
-                            <td>UTP + общий экран</td>
-                            <td>Промышленные сети</td>
-                            <td>10 Гбит/с</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Телефонный (POTS)</strong></td>
-                            <td>2-4 провода</td>
-                            <td>Аналоговая телефония</td>
-                            <td>56 Кбит/с</td>
-                        </tr>
+                        <tr><td><strong>Cat5e</strong></td><td>до 1 Гбит/с</td><td>100 МГц</td><td>Базовый стандарт для гигабитных сетей</td></tr>
+                        <tr><td><strong>Cat6</strong></td><td>до 10 Гбит/с на 55 м</td><td>250 МГц</td><td>Улучшенная защита от помех</td></tr>
+                        <tr><td><strong>Cat6A</strong></td><td>до 10 Гбит/с на 100 м</td><td>500 МГц</td><td>Полноценная поддержка 10 Гбит/с</td></tr>
+                        <tr><td><strong>Cat8</strong></td><td>до 40 Гбит/с на 30 м</td><td>2000 МГц</td><td>Для центров обработки данных</td></tr>
                     </tbody>
                 </table>
             </section>
 
-            <!-- Стандарты -->
-            <section id="standards">
-                <h2><i class="fas fa-cogs"></i> Стандарты Ethernet</h2>
-                
-                <div class="comparison-blocks">
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-tachometer-alt"></i> Стандарты скорости</h4>
-                        <table style="width: 100%;">
-                            <tr>
-                                <th>Стандарт</th>
-                                <th>Скорость</th>
-                                <th>Год</th>
-                            </tr>
-                            <tr>
-                                <td>Ethernet</td>
-                                <td>10 Мбит/с</td>
-                                <td>1983</td>
-                            </tr>
-                            <tr>
-                                <td>Fast Ethernet</td>
-                                <td>100 Мбит/с</td>
-                                <td>1995</td>
-                            </tr>
-                            <tr>
-                                <td>Gigabit Ethernet</td>
-                                <td>1 Гбит/с</td>
-                                <td>1999</td>
-                            </tr>
-                            <tr>
-                                <td>10G Ethernet</td>
-                                <td>10 Гбит/с</td>
-                                <td>2002</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-ruler"></i> Максимальная дистанция</h4>
-                        <table style="width: 100%;">
-                            <tr>
-                                <th>Категория</th>
-                                <th>Макс. длина</th>
-                                <th>Частота</th>
-                            </tr>
-                            <tr>
-                                <td>Cat 5e</td>
-                                <td>100 м</td>
-                                <td>100 МГц</td>
-                            </tr>
-                            <tr>
-                                <td>Cat 6</td>
-                                <td>100 м</td>
-                                <td>250 МГц</td>
-                            </tr>
-                            <tr>
-                                <td>Cat 6A</td>
-                                <td>100 м</td>
-                                <td>500 МГц</td>
-                            </tr>
-                            <tr>
-                                <td>Cat 7</td>
-                                <td>100 м</td>
-                                <td>600 МГц</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Преимущества -->
             <section id="advantages">
                 <h2><i class="fas fa-thumbs-up"></i> Преимущества медных линий</h2>
-                
                 <div class="cost-comparison">
-                    <div class="cost-item">
-                        <h3><i class="fas fa-money-bill-wave"></i> Экономические</h3>
-                        <div class="cost-value">$</div>
-                        <ul>
-                            <li>Низкая стоимость кабеля</li>
-                            <li>Дешевые коннекторы и оборудование</li>
-                            <li>Простой монтаж</li>
-                            <li>Низкая стоимость обслуживания</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <h3><i class="fas fa-tools"></i> Технические</h3>
-                        <div class="cost-value">⚙️</div>
-                        <ul>
-                            <li>Простота подключения</li>
-                            <li>Совместимость с большинством устройств</li>
-                            <li>Возможность подачи питания (PoE)</li>
-                            <li>Гибкость и прочность</li>
-                        </ul>
-                    </div>
-
-                    <div class="cost-item">
-                        <h3><i class="fas fa-infinity"></i> Практические</h3>
-                        <div class="cost-value">♾️</div>
-                        <ul>
-                            <li>Широкая распространенность</li>
-                            <li>Большая база специалистов</li>
-                            <li>Огромный выбор оборудования</li>
-                            <li>Простота диагностики</li>
-                        </ul>
-                    </div>
+                    <div class="cost-item"><h3>💰 Экономические</h3><div class="cost-value">$</div><ul><li>Низкая стоимость кабеля</li><li>Дешевые коннекторы</li><li>Простой монтаж</li></ul></div>
+                    <div class="cost-item"><h3>⚙️ Технические</h3><div class="cost-value">⚙️</div><ul><li>Простота подключения</li><li>Совместимость</li><li>PoE (питание по кабелю)</li></ul></div>
+                    <div class="cost-item"><h3>♾️ Практические</h3><div class="cost-value">♾️</div><ul><li>Широкая распространенность</li><li>Большая база специалистов</li><li>Простота диагностики</li></ul></div>
                 </div>
             </section>
 
-            <!-- Ограничения -->
             <section id="limitations">
-                <h2><i class="fas fa-exclamation-triangle"></i> Ограничения и проблемы</h2>
-                
-                <div class="important-note">
-                    <h4><i class="fas fa-info-circle"></i> Ключевые ограничения</h4>
-                    <p>Медные линии имеют фундаментальные физические ограничения, которые невозможно преодолеть без перехода на другую технологию передачи данных.</p>
-                </div>
-
-                <h3><i class="fas fa-wave-square"></i> Основные проблемы</h3>
+                <h2><i class="fas fa-exclamation-triangle"></i> Ограничения</h2>
                 <ul>
-                    <li><span class="highlight">Затухание сигнала</span> - сигнал ослабевает с расстоянием</li>
-                    <li><span class="highlight">Электромагнитные помехи</span> - чувствительность к внешним полям</li>
-                    <li><span class="highlight">Перекрестные наводки</span> - влияние соседних пар проводов</li>
-                    <li><span class="highlight">Ограничение полосы пропускания</span> - физический предел меди</li>
-                    <li><span class="highlight">Коррозия</span> - ухудшение свойств со временем</li>
+                    <li><span class="highlight">Затухание сигнала</span> — сигнал ослабевает с расстоянием</li>
+                    <li><span class="highlight">Электромагнитные помехи</span> — чувствительность к внешним полям</li>
+                    <li><span class="highlight">Перекрестные наводки</span> — влияние соседних пар проводов</li>
+                    <li><span class="highlight">Ограничение полосы пропускания</span> — физический предел меди</li>
                 </ul>
-
-                <h3><i class="fas fa-chart-line"></i> Зависимость скорости от расстояния</h3>
-                <div class="optical-diagram" style="height: 250px; background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);">
-                    <div style="position: absolute; bottom: 40px; left: 50px; right: 50px; height: 2px; background: var(--text-color); opacity: 0.3;"></div>
-                    <div style="position: absolute; left: 50px; top: 40px; bottom: 40px; width: 2px; background: var(--text-color); opacity: 0.3;"></div>
-                    
-                    <!-- График скорости -->
-                    <div style="position: absolute; left: 60px; bottom: 40px; width: calc(100% - 120px); height: calc(100% - 80px);">
-                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 80%; background: linear-gradient(to top, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.2)); border-radius: 5px 5px 0 0;"></div>
-                        <div style="position: absolute; bottom: 80%; left: 0; width: 100%; height: 20%; background: linear-gradient(to top, rgba(240, 147, 251, 0.4), rgba(240, 147, 251, 0.2)); border-radius: 5px 5px 0 0;"></div>
-                    </div>
-                    
-                    <!-- Подписи -->
-                    <div style="position: absolute; bottom: 20px; left: 50px; right: 50px; display: flex; justify-content: space-between; color: var(--text-color); font-size: 0.9rem;">
-                        <span>0 м</span>
-                        <span>50 м</span>
-                        <span>100 м</span>
-                    </div>
-                    <div style="position: absolute; left: 30px; top: 40px; bottom: 40px; display: flex; flex-direction: column; justify-content: space-between; color: var(--text-color); font-size: 0.9rem;">
-                        <span>10 Гбит/с</span>
-                        <span>1 Гбит/с</span>
-                        <span>100 Мбит/с</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Будущее -->
-            <section id="future">
-                <h2><i class="fas fa-crystal-ball"></i> Будущее медных технологий</h2>
-                <p>Несмотря на растущую популярность оптических технологий, медные линии будут продолжать использоваться в обозримом будущем по нескольким причинам:</p>
-                
-                <ul>
-                    <li><span class="highlight">Существующая инфраструктура</span> - миллионы километров уже проложенных кабелей</li>
-                    <li><span class="highlight">Экономическая целесообразность</span> - для коротких дистанций медь остается дешевле</li>
-                    <li><span class="highlight">Технологии PoE</span> - передача данных и питания по одному кабелю</li>
-                    <li><span class="highlight">Интернет вещей (IoT)</span> - множество устройств с медными интерфейсами</li>
-                </ul>
-
-                <div class="analogy">
-                    <h4><i class="fas fa-brain"></i> Аналогия с транспортом</h4>
-                    <p>Медь - как автомобили в городе. Оптика - как скоростные поезда между городами. Оба вида транспорта будут сосуществовать, так как решают разные задачи: автомобили для коротких поездок по городу, поезда - для быстрых дальних перевозок.</p>
-                </div>
             </section>
         </div>
-    </main>
-
-    <!-- Кнопка "Наверх" -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Медные линии связи</h3>
-                <p>Технология передачи электрических сигналов</p>
-                
+        <footer>
+            <div class="container footer-content">
+                <p>© 2025 Передача данных: от меди до оптики. Образовательный проект.</p>
                 <div class="footer-links">
-                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                    <a href="copper-principles.html"><i class="fas fa-bolt"></i> Медь</a>
-                    <a href="fiber-principles.html"><i class="fa fa-code-fork" aria-hidden="true"></i> Оптика</a>
-                    <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
-                </div>
-                
-                <div class="sources">
-                    <p>© Образовательный проект.</p>
-                    <p>Материалы предназначены для образовательных целей.</p>
+                    <a href="index.html">Главная</a> <a href="copper-principles.html">Медь</a> <a href="fiber-principles.html">Оптика</a>
+                    <a href="comparison.html">Сравнение</a> <a href="wireless.html">Беспроводные</a> <a href="other-cables.html">Интерфейсы</a> <a href="glossary.html">Глоссарий</a>
                 </div>
             </div>
-        </div>
-    </footer>
-
+        </footer>
+    </main>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
     <script src="script.js"></script>
+    <script>
+        const canvas = document.getElementById('skinEffectCanvas');
+        const ctx = canvas.getContext('2d');
+        let freq = 0;
+        function drawSkinEffect() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const centerX = canvas.width/2, centerY = canvas.height/2;
+            const radius = 80;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, 2*Math.PI);
+            ctx.fillStyle = '#f0b27a';
+            ctx.fill();
+            ctx.strokeStyle = '#aaa';
+            ctx.stroke();
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+            for (let y = 0; y < canvas.height; y++) {
+                for (let x = 0; x < canvas.width; x++) {
+                    const dx = x - centerX;
+                    const dy = y - centerY;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist <= radius) {
+                        let intensity = 255 - (dist/radius)*255;
+                        const freqFactor = Math.sin(freq * 0.05) * 0.5 + 0.5;
+                        if (dist > radius * 0.7) intensity = 255;
+                        else intensity *= (1 - freqFactor * 0.5);
+                        const idx = (y * canvas.width + x) * 4;
+                        data[idx] = 200; data[idx+1] = 100; data[idx+2] = 50; data[idx+3] = 255;
+                    }
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+            freq += 2;
+            requestAnimationFrame(drawSkinEffect);
+        }
+        drawSkinEffect();
+    </script>
 </body>
 </html>

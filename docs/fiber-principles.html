@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оптические линии | Медь vs Оптика</title>
-    <!-- Скрипт для предотвращения белой вспышки -->
+    <title>Оптические линии связи | Медь vs Оптика</title>
     <script>
         (function() {
             try {
                 const savedTheme = localStorage.getItem('theme') || 'light';
                 document.documentElement.className = savedTheme + '-theme';
+                const savedLang = localStorage.getItem('lang') || 'ru';
+                document.documentElement.setAttribute('data-lang', savedLang);
             } catch (e) {}
         })();
     </script>
@@ -18,424 +19,149 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Верхнее меню -->
     <nav class="top-nav">
         <div class="top-nav-left">
-            <a href="index.html" class="top-nav-logo">
-                <i class="fas fa-network-wired"></i>
-                <span>Медь vs Оптика</span>
-            </a>
+            <a href="index.html" class="top-nav-logo"><i class="fas fa-network-wired"></i><span>Медь vs Оптика</span></a>
             <div class="top-nav-links">
-                <a href="index.html" class="top-nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Главная</span>
-                </a>
-                <a href="copper-principles.html" class="top-nav-link">
-                    <i class="fas fa-bolt"></i>
-                    <span>Медные линии</span>
-                </a>
-                <a href="fiber-principles.html" class="top-nav-link active">
-                    <i class="fa fa-code-fork" aria-hidden="true"></i>
-                    <span>Оптические линии</span>
-                </a>
-                <a href="comparison.html" class="top-nav-link">
-                    <i class="fas fa-balance-scale"></i>
-                    <span>Сравнение</span>
-                </a>
+                <a href="index.html" class="top-nav-link"><i class="fas fa-home"></i><span>Главная</span></a>
+                <a href="copper-principles.html" class="top-nav-link"><i class="fas fa-bolt"></i><span>Медь</span></a>
+                <a href="fiber-principles.html" class="top-nav-link active"><i class="fa fa-code-fork"></i><span>Оптика</span></a>
+                <a href="comparison.html" class="top-nav-link"><i class="fas fa-balance-scale"></i><span>Сравнение</span></a>
+                <a href="wireless.html" class="top-nav-link"><i class="fas fa-wifi"></i><span>Беспроводные</span></a>
+                <a href="other-cables.html" class="top-nav-link"><i class="fas fa-plug"></i><span>Интерфейсы</span></a>
             </div>
         </div>
         <div class="top-nav-right">
-            <button class="top-nav-theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-                <span>Темная тема</span>
-            </button>
-            <button class="top-nav-mobile-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+            <button class="top-nav-theme-toggle" id="themeToggle"><i class="fas fa-moon"></i><span>Темная тема</span></button>
+            <button class="top-nav-mobile-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <!-- Боковое меню -->
     <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Навигация">
-                <i class="fas fa-compass"></i>
-            </div>
-        </div>
+        <div class="sidebar-header"><div class="sidebar-logo" data-tooltip="Навигация"><i class="fas fa-compass"></i></div></div>
         <nav class="sidebar-nav">
             <ul class="nav-links">
-                <li>
-                    <button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'">
-                        <i class="fas fa-bolt"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button active" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'">
-                        <i class="fa fa-code-fork" aria-hidden="true"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'">
-                        <i class="fas fa-balance-scale"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
+                <li><button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'"><i class="fas fa-home"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'"><i class="fas fa-bolt"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button active" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'"><i class="fa fa-code-fork"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'"><i class="fas fa-balance-scale"></i><span class="nav-indicator"></span></button></li>
                 <li class="nav-divider"></li>
-                <li>
-                    <button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')">
-                        <i class="fas fa-atom"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
-                <li>
-                    <button class="nav-button" data-tooltip="Типы" onclick="scrollToSection('types')">
-                        <i class="fas fa-layer-group"></i>
-                        <span class="nav-indicator"></span>
-                    </button>
-                </li>
+                <li><button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')"><i class="fas fa-atom"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="История" onclick="scrollToSection('history')"><i class="fas fa-history"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Типы" onclick="scrollToSection('types')"><i class="fas fa-layer-group"></i><span class="nav-indicator"></span></button></li>
             </ul>
+            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему"><i class="fas fa-palette"></i></button>
         </nav>
-        <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
-            <i class="fas fa-palette"></i>
-        </button>
     </aside>
 
-    <!-- Основное содержимое -->
     <main class="main-content">
         <div class="container">
-            <!-- Заголовок -->
             <div class="page-header">
-                <h1>
-                    <i class="fa fa-code-fork" aria-hidden="true"></i>
-                    Принципы действия оптического волокна
-                </h1>
-                <p class="page-subtitle">Физические основы передачи световых сигналов по стеклянным волноводам</p>
+                <h1><i class="fa fa-code-fork"></i> Оптические линии связи</h1>
+                <p class="page-subtitle">Световые сигналы в стеклянных волноводах</p>
             </div>
 
-            <!-- Введение -->
             <section id="introduction">
                 <h2><i class="fas fa-info-circle"></i> Введение</h2>
-                <p>Оптические линии связи - это современная технология передачи данных с использованием световых импульсов, распространяющихся по стеклянным или пластиковым волокнам. Это фундаментально иной подход к передаче информации, основанный на свойствах света, а не электричества.</p>
-                
-                <div class="analogy">
-                    <h4><i class="fas fa-brain"></i> Простая аналогия</h4>
-                    <p>Представьте аквариум с водой. Если светить фонариком из-под воды под острым углом, луч не выйдет наружу, а полностью отразится от поверхности. Это и есть полное внутреннее отражение — основа работы оптоволокна.</p>
-                </div>
+                <p>Оптические линии связи — современная технология передачи данных с использованием световых импульсов, распространяющихся по стеклянным или пластиковым волокнам. Это фундаментально иной подход, основанный на свойствах света.</p>
+                <div class="analogy"><h4><i class="fas fa-brain"></i> Простая аналогия</h4><p>Представьте аквариум с водой. Если светить фонариком из-под воды под острым углом, луч не выйдет наружу, а полностью отразится от поверхности. Это и есть полное внутреннее отражение — основа работы оптоволокна.</p></div>
             </section>
 
-            <!-- Физика ОВ -->
+            <section id="history">
+                <h2><i class="fas fa-history"></i> Исторический экскурс</h2>
+                <p><strong>1840-е</strong> – Даниэль Кольядов и Жак Бабине демонстрируют направленную передачу света по изогнутым струям воды. <strong>1950-е</strong> – Чарльз Куэнка и его коллеги создают первое волокно с оболочкой. <strong>1970-е</strong> – Корнинг разрабатывает низкозатухающее волокно, начинается коммерческое использование. <strong>1980-е</strong> – появление одномодового волокна и систем WDM. Сегодня оптика — основа интернета, магистральных сетей и центров обработки данных.</p>
+                <p><strong>Ключевые личности:</strong> Джон Тиндаль (эксперименты с водяной струей), Чарльз Куэнка (волокно с оболочкой), Роберт Маурер и коллеги из Corning (первое низкозатухающее волокно), инженеры Bell Labs (развитие одномодовых систем).</p>
+            </section>
+
             <section id="physics">
                 <h2><i class="fas fa-atom"></i> Физика света в волноводе</h2>
-                
-                <div class="physics-card">
-                    <h3><i class="fas fa-lightbulb"></i> Полное внутреннее отражение</h3>
-                    <p>Свет распространяется в сердцевине благодаря разности показателей преломления сердцевины и оболочки волокна.</p>
+                <h3>Полное внутреннее отражение</h3>
+                <p>Свет распространяется в сердцевине благодаря разности показателей преломления сердцевины (n₁) и оболочки (n₂). При угле падения больше критического наступает <span class="glossary-term" data-term="total-internal-reflection">полное внутреннее отражение</span>.</p>
+                <canvas id="reflectionCanvas" width="500" height="200" style="background:#000; border-radius:12px; display:block; margin:1rem auto;"></canvas>
+                <div class="formula-box"><div class="formula">n₁ sin(θ₁) = n₂ sin(θ₂)</div><div class="formula-label">Закон Снеллиуса</div></div>
 
-                    <!-- Диаграмма оптоволокна -->
-                    <div class="optical-diagram">
-                        <div class="diagram-cladding"></div>
-                        <div class="diagram-core"></div>
-                        <div class="diagram-light-ray"></div>
-                    </div>
-
-                    <!-- Формула -->
-                    <div class="formula-box">
-                        <div class="formula">n₁ sin(θ₁) = n₂ sin(θ₂)</div>
-                        <div class="formula-label">Закон Снеллиуса</div>
-                    </div>
-
-                    <!-- Таблица показателей преломления -->
-                    <table class="refraction-table">
-                        <thead>
-                            <tr>
-                                <th>Материал</th>
-                                <th>Показатель преломления (n)</th>
-                                <th>Назначение</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Сердцевина</strong></td>
-                                <td>1.46 - 1.48</td>
-                                <td>Основной световод</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Оболочка</strong></td>
-                                <td>1.45 - 1.47</td>
-                                <td>Отражение света обратно в сердцевину</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Защитное покрытие</strong></td>
-                                <td>≈ 1.5</td>
-                                <td>Механическая защита</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Виды мод -->
-                <h3><i class="fas fa-project-diagram"></i> Моды распространения</h3>
-                <div class="comparison-blocks">
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-circle"></i> Одномодовое волокно</h4>
-                        <ul>
-                            <li>Малый диаметр сердцевины (8-10 мкм)</li>
-                            <li>Только одна мода распространения</li>
-                            <li>Минимальная дисперсия</li>
-                            <li>Большая дальность (до 100+ км)</li>
-                            <li>Высокая скорость передачи</li>
-                        </ul>
-                    </div>
-
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-circle-notch"></i> Многомодовое волокно</h4>
-                        <ul>
-                            <li>Больший диаметр сердцевины (50-62.5 мкм)</li>
-                            <li>Множество мод распространения</li>
-                            <li>Межмодовая дисперсия</li>
-                            <li>Короткие дистанции (до 2 км)</li>
-                            <li>Проще в монтаже</li>
-                        </ul>
-                    </div>
-                </div>
+                <h3>Модовая дисперсия</h3>
+                <p>В многомодовом волокне разные лучи (моды) проходят разные пути, что приводит к уширению импульса и ограничивает дальность. Это явление называется <span class="glossary-term" data-term="modal-dispersion">модовой дисперсией</span>.</p>
+                <canvas id="dispersionCanvas" width="500" height="200" style="background:#000; border-radius:12px; display:block; margin:1rem auto;"></canvas>
             </section>
 
-            <!-- Типы волокон -->
             <section id="types">
                 <h2><i class="fas fa-layer-group"></i> Типы оптических волокон</h2>
-                
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Тип волокна</th>
-                            <th>Диаметр сердцевины</th>
-                            <th>Диаметр оболочки</th>
-                            <th>Длина волны</th>
-                            <th>Применение</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Тип</th><th>Диаметр сердцевины</th><th>Применение</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td><strong>OM1</strong></td>
-                            <td>62.5 мкм</td>
-                            <td>125 мкм</td>
-                            <td>850/1300 нм</td>
-                            <td>Старые сети, до 1 Гбит/с</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OM2</strong></td>
-                            <td>50 мкм</td>
-                            <td>125 мкм</td>
-                            <td>850/1300 нм</td>
-                            <td>Fast/Gigabit Ethernet</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OM3</strong></td>
-                            <td>50 мкм</td>
-                            <td>125 мкм</td>
-                            <td>850/1300 нм</td>
-                            <td>10G Ethernet, ЦОД</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OM4</strong></td>
-                            <td>50 мкм</td>
-                            <td>125 мкм</td>
-                            <td>850/1300 нм</td>
-                            <td>40G/100G Ethernet</td>
-                        </tr>
-                        <tr>
-                            <td><strong>OS1/OS2</strong></td>
-                            <td>9 мкм</td>
-                            <td>125 мкм</td>
-                            <td>1310/1550 нм</td>
-                            <td>Магистральные сети</td>
-                        </tr>
+                        <tr><td>Многомодовое (OM3/OM4)</td><td>50 мкм</td><td>Внутри зданий, ЦОД до 550 м на 10 Гбит/с</td></tr>
+                        <tr><td>Одномодовое (OS2)</td><td>9 мкм</td><td>Магистрали, междугородние линии, сотни км</td></tr>
                     </tbody>
                 </table>
             </section>
 
-            <!-- Преимущества -->
             <section id="advantages">
-                <h2><i class="fas fa-thumbs-up"></i> Преимущества оптических линий</h2>
-                
+                <h2><i class="fas fa-thumbs-up"></i> Преимущества оптики</h2>
                 <div class="cost-comparison">
-                    <div class="cost-item">
-                        <h3><i class="fas fa-tachometer-alt"></i> Скоростные</h3>
-                        <div class="cost-value">⚡</div>
-                        <ul>
-                            <li>Теоретически неограниченная полоса</li>
-                            <li>Терабитные скорости в одном волокне</li>
-                            <li>WDM - до 160 каналов</li>
-                            <li>Низкая латентность</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cost-item">
-                        <h3><i class="fas fa-shield-alt"></i> Защитные</h3>
-                        <div class="cost-value">🛡️</div>
-                        <ul>
-                            <li>Иммунитет к электромагнитным помехам</li>
-                            <li>Защита от перехвата данных</li>
-                            <li>Безопасность в опасных средах</li>
-                            <li>Отсутствие искрообразования</li>
-                        </ul>
-                    </div>
-
-                    <div class="cost-item">
-                        <h3><i class="fas fa-road"></i> Дистанционные</h3>
-                        <div class="cost-value">🏁</div>
-                        <ul>
-                            <li>Минимальное затухание (0.2 дБ/км)</li>
-                            <li>Дальность до 100+ км без усилителей</li>
-                            <li>Стабильность характеристик</li>
-                            <li>Не зависит от погоды</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Ограничения -->
-            <section id="limitations">
-                <h2><i class="fas fa-exclamation-triangle"></i> Ограничения и сложности</h2>
-                
-                <div class="important-note">
-                    <h4><i class="fas fa-info-circle"></i> Ключевые ограничения</h4>
-                    <p>Несмотря на выдающиеся характеристики, оптические технологии имеют свои сложности и ограничения, которые необходимо учитывать при проектировании сетей.</p>
-                </div>
-
-                <h3><i class="fas fa-tools"></i> Технические сложности</h3>
-                <ul>
-                    <li><span class="highlight">Хрупкость</span> - стеклянные волокна требуют аккуратного обращения</li>
-                    <li><span class="highlight">Сложность монтажа</span> - требуется специальное оборудование для сварки</li>
-                    <li><span class="highlight">Радиус изгиба</span> - строгие ограничения на минимальный радиус</li>
-                    <li><span class="highlight">Затухание на соединениях</span> - потери на стыках волокон</li>
-                    <li><span class="highlight">Дисперсия</span> - хроматическая и модовая дисперсия</li>
-                </ul>
-
-                <h3><i class="fas fa-money-bill-wave"></i> Экономические факторы</h3>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <h5>Стоимость кабеля</h5>
-                        <p>В 2-3 раза дороже меди</p>
-                    </div>
-                    <div class="info-item">
-                        <h5>Оборудование</h5>
-                        <p>Дорогие трансиверы и коммутаторы</p>
-                    </div>
-                    <div class="info-item">
-                        <h5>Монтаж</h5>
-                        <p>Требуется квалифицированный персонал</p>
-                    </div>
-                    <div class="info-item">
-                        <h5>Обслуживание</h5>
-                        <p>Сложная диагностика неисправностей</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Будущее -->
-            <section id="future">
-                <h2><i class="fas fa-crystal-ball"></i> Будущее оптических технологий</h2>
-                
-                <h3><i class="fas fa-rocket"></i> Перспективные направления</h3>
-                <div class="comparison-blocks">
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-broadcast-tower"></i> 5G и Beyond</h4>
-                        <p>Оптоволокно - основа инфраструктуры сетей 5G и будущих поколений мобильной связи. Каждая базовая станция требует оптоволоконного подключения.</p>
-                    </div>
-
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-database"></i> ЦОД и облака</h4>
-                        <p>Центры обработки данных переходят на 400G и 800G оптические соединения между стойками и зданиями.</p>
-                    </div>
-
-                    <div class="comparison-block">
-                        <h4><i class="fas fa-home"></i> FTTH/FTTB</h4>
-                        <p>Массовое подключение домов и квартир оптоволокном (Fiber To The Home/Building).</p>
-                    </div>
-                </div>
-
-                <h3><i class="fas fa-microchip"></i> Новые технологии</h3>
-                <ul>
-                    <li><span class="highlight">Когерентная оптика</span> - для сверхдальних магистралей</li>
-                    <li><span class="highlight">SDN в оптических сетях</span> - программно-конфигурируемые сети</li>
-                    <li><span class="highlight">Квантовая коммуникация</span> - передача квантовых состояний</li>
-                    <li><span class="highlight">Пластиковое оптоволокно</span> - для коротких дешевых соединений</li>
-                    <li><span class="highlight">Фотонные интегральные схемы</span> - миниатюризация оптических компонентов</li>
-                </ul>
-
-                <div class="analogy">
-                    <h4><i class="fas fa-brain"></i> Аналогия с информационными магистралями</h4>
-                    <p>Если представить интернет как транспортную систему, то медные линии - это городские улицы, а оптические линии - это скоростные автострады между городами. По улицам ездит много машин (устройств) на короткие расстояния, по автострадам - меньше транспортных средств, но с гораздо большей скоростью и на дальние расстояния.</p>
-                </div>
-            </section>
-
-            <!-- Технологии передачи -->
-            <section id="technologies">
-                <h2><i class="fas fa-satellite-dish"></i> Технологии передачи</h2>
-                
-                <div class="physics-card">
-                    <h3><i class="fas fa-wave-square"></i> WDM - мультиплексирование</h3>
-                    <p>Wavelength Division Multiplexing позволяет передавать несколько сигналов по одному волокну на разных длинах волн.</p>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <h5>CWDM</h5>
-                            <p>Coarse WDM: 8-18 каналов, шаг 20 нм</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>DWDM</h5>
-                            <p>Dense WDM: 40-160 каналов, шаг 0.8 нм</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>LWDM</h5>
-                            <p>LAN WDM: 4-8 каналов для ЦОД</p>
-                        </div>
-                        <div class="info-item">
-                            <h5>O-band</h5>
-                            <p>Original band: 1260-1360 нм</p>
-                        </div>
-                    </div>
+                    <div class="cost-item"><h3>⚡ Скоростные</h3><div class="cost-value">⚡</div><ul><li>Терабитные скорости</li><li>WDM до 160 каналов</li><li>Низкая латентность</li></ul></div>
+                    <div class="cost-item"><h3>🛡️ Защитные</h3><div class="cost-value">🛡️</div><ul><li>Иммунитет к ЭМ-помехам</li><li>Защита от перехвата</li><li>Безопасность в опасных средах</li></ul></div>
+                    <div class="cost-item"><h3>🏁 Дистанционные</h3><div class="cost-value">🏁</div><ul><li>Затухание 0.2 дБ/км</li><li>Дальность 100+ км</li><li>Стабильность</li></ul></div>
                 </div>
             </section>
         </div>
+        <footer>...</footer>
     </main>
-
-    <!-- Кнопка "Наверх" -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Подвал -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Оптические линии связи</h3>
-                <p>Технология передачи световых сигналов</p>
-                
-                <div class="footer-links">
-                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                    <a href="copper-principles.html"><i class="fas fa-bolt"></i> Медь</a>
-                    <a href="fiber-principles.html"><i class="fa fa-code-fork" aria-hidden="true"></i> Оптика</a>
-                    <a href="comparison.html"><i class="fas fa-balance-scale"></i> Сравнение</a>
-                </div>
-                
-                <div class="sources">
-                    <p>© Образовательный проект.</p>
-                    <p>Материалы предназначены для образовательных целей.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
     <script src="script.js"></script>
+    <script>
+        // Анимация полного внутреннего отражения
+        const reflCanvas = document.getElementById('reflectionCanvas');
+        const reflCtx = reflCanvas.getContext('2d');
+        let posX = 10, dir = 1;
+        function drawReflection() {
+            reflCtx.clearRect(0, 0, reflCanvas.width, reflCanvas.height);
+            reflCtx.fillStyle = '#444';
+            reflCtx.fillRect(0, 70, reflCanvas.width, 60);
+            reflCtx.fillStyle = '#ddd';
+            reflCtx.fillRect(10, 80, reflCanvas.width-20, 40);
+            reflCtx.beginPath();
+            reflCtx.moveTo(posX, 100);
+            reflCtx.lineTo(posX + 20, 100 + (dir*15));
+            reflCtx.lineTo(posX + 40, 100);
+            reflCtx.fillStyle = 'yellow';
+            reflCtx.fill();
+            posX += 3;
+            if (posX > reflCanvas.width) posX = 10;
+            requestAnimationFrame(drawReflection);
+        }
+        drawReflection();
+
+        // Анимация модовой дисперсии
+        const dispCanvas = document.getElementById('dispersionCanvas');
+        const dispCtx = dispCanvas.getContext('2d');
+        let t = 0;
+        function drawDispersion() {
+            dispCtx.clearRect(0, 0, dispCanvas.width, dispCanvas.height);
+            dispCtx.fillStyle = '#444';
+            dispCtx.fillRect(0, 70, dispCanvas.width, 60);
+            dispCtx.fillStyle = '#ddd';
+            dispCtx.fillRect(10, 80, dispCanvas.width-20, 40);
+            const startX = 20 + (t % 50);
+            for (let i = 0; i < 3; i++) {
+                const angle = (i * 0.3 + Math.sin(t*0.02)*0.2);
+                const yOffset = (i-1)*10;
+                dispCtx.beginPath();
+                dispCtx.moveTo(startX, 100 + yOffset);
+                dispCtx.lineTo(startX + 50, 100 + yOffset + angle*20);
+                dispCtx.strokeStyle = `hsl(${i*120}, 100%, 50%)`;
+                dispCtx.lineWidth = 2;
+                dispCtx.stroke();
+            }
+            t++;
+            requestAnimationFrame(drawDispersion);
+        }
+        drawDispersion();
+    </script>
 </body>
 </html>

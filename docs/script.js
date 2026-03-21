@@ -1,4 +1,36 @@
-// Функция переключения темы
+// Глобальные переменные
+let currentLang = localStorage.getItem('lang') || 'ru';
+const translations = {};
+
+// =================== ЗАГРУЗКА ПЕРЕВОДОВ ===================
+async function loadLanguage(lang) {
+    try {
+        const res = await fetch(`locales/${lang}.json`);
+        const data = await res.json();
+        translations[lang] = data;
+        applyTranslations();
+    } catch (e) {
+        console.error('Ошибка загрузки языка', e);
+    }
+}
+
+function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang] && translations[currentLang][key]) {
+            el.innerHTML = translations[currentLang][key];
+        }
+    });
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    loadLanguage(lang);
+}
+
+// =================== ПЕРЕКЛЮЧЕНИЕ ТЕМЫ ===================
 function toggleTheme() {
     const htmlElement = document.documentElement;
     const isDark = htmlElement.classList.contains('dark-theme');
@@ -16,7 +48,6 @@ function toggleTheme() {
     }
 }
 
-// Обновление иконок темы
 function updateThemeIcons(theme) {
     const themeButtons = document.querySelectorAll('#themeToggle, #sidebarThemeToggle');
     themeButtons.forEach(button => {
@@ -33,13 +64,11 @@ function updateThemeIcons(theme) {
     });
 }
 
-// Функция для прокрутки к разделу
+// =================== ПРОКРУТКА К РАЗДЕЛУ ===================
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
-        
-        // Добавляем визуальный эффект для активного раздела
         section.style.animation = 'none';
         setTimeout(() => {
             section.style.animation = 'fadeInUp 0.5s ease';
@@ -47,9 +76,10 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Кнопка "Наверх"
+// =================== КНОПКА "НАВЕРХ" ===================
 function initBackToTop() {
     const backToTopButton = document.getElementById('backToTop');
+    if (!backToTopButton) return;
     
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
@@ -64,7 +94,7 @@ function initBackToTop() {
     });
 }
 
-// Мобильное меню
+// =================== МОБИЛЬНОЕ МЕНЮ ===================
 function initMobileMenu() {
     const mobileToggle = document.getElementById('mobileMenuToggle');
     const sidebar = document.getElementById('sidebar');
@@ -72,8 +102,6 @@ function initMobileMenu() {
     if (mobileToggle && sidebar) {
         mobileToggle.addEventListener('click', () => {
             sidebar.classList.toggle('open');
-            
-            // Анимация иконки бургер-меню
             const icon = mobileToggle.querySelector('i');
             if (sidebar.classList.contains('open')) {
                 icon.className = 'fas fa-times';
@@ -82,18 +110,17 @@ function initMobileMenu() {
             }
         });
         
-        // Закрытие меню при клике вне его
         document.addEventListener('click', (event) => {
             if (!sidebar.contains(event.target) && !mobileToggle.contains(event.target)) {
                 sidebar.classList.remove('open');
                 const icon = mobileToggle.querySelector('i');
-                icon.className = 'fas fa-bars';
+                if (icon) icon.className = 'fas fa-bars';
             }
         });
     }
 }
 
-// Инициализация активных кнопок навигации
+// =================== АКТИВНЫЕ КНОПКИ НАВИГАЦИИ ===================
 function initActiveNavButtons() {
     const currentPage = window.location.pathname.split('/').pop();
     const navButtons = document.querySelectorAll('.nav-button');
@@ -109,7 +136,7 @@ function initActiveNavButtons() {
     });
 }
 
-// Анимация при прокрутке
+// =================== АНИМАЦИЯ ПРИ ПРОКРУТКЕ ===================
 function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
@@ -125,7 +152,6 @@ function initScrollAnimations() {
         });
     }, observerOptions);
     
-    // Наблюдаем за всеми секциями
     document.querySelectorAll('section').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
@@ -134,51 +160,43 @@ function initScrollAnimations() {
     });
 }
 
-// Функция для показа уведомления
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Показываем уведомление
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-    
-    // Убираем уведомление через 5 секунд
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 5000);
+// =================== ОБРАБОТЧИКИ ДЛЯ ГЛОССАРИЯ ===================
+function initGlossaryLinks() {
+    document.querySelectorAll('.glossary-term').forEach(term => {
+        term.addEventListener('click', () => {
+            window.location.href = `glossary.html#${term.dataset.term}`;
+        });
+    });
 }
 
-// Инициализация при загрузке страницы
+// =================== ИНИЦИАЛИЗАЦИЯ ===================
 document.addEventListener('DOMContentLoaded', () => {
     // Загрузка сохраненной темы
     const savedTheme = localStorage.getItem('theme') || 'light';
-    // Класс уже установлен скриптом в head, поэтому просто обновляем иконки
     updateThemeIcons(savedTheme);
+    
+    // Загрузка языка
+    loadLanguage(currentLang);
     
     // Инициализация компонентов
     initBackToTop();
     initMobileMenu();
     initActiveNavButtons();
     initScrollAnimations();
+    initGlossaryLinks();
     
-    // Назначение обработчиков событий
+    // Обработчики переключения темы
     const themeToggles = document.querySelectorAll('#themeToggle, #sidebarThemeToggle');
     themeToggles.forEach(toggle => {
         toggle.addEventListener('click', toggleTheme);
     });
     
-    // Добавляем обработчики для кнопок навигации
+    // Обработчики кнопок языка
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+    
+    // Обработчики для кнопок навигации с прокруткой
     document.querySelectorAll('.nav-button[onclick^="scrollToSection"]').forEach(button => {
         button.addEventListener('click', function() {
             const match = this.getAttribute('onclick').match(/scrollToSection\('([^']+)'\)/);
@@ -188,44 +206,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Анимация для таблиц
+    // Анимация таблиц
     document.querySelectorAll('table tr').forEach((row, index) => {
         row.style.animationDelay = `${index * 0.05}s`;
     });
     
-    // Добавляем эффект печати для заголовков (закомментировано, т.к. не используется)
-    // const pageHeader = document.querySelector('.page-header h1');
-    // if (pageHeader) {
-    //     const text = pageHeader.textContent;
-    //     pageHeader.textContent = '';
-    //     
-    //     let i = 0;
-    //     const typeWriter = () => {
-    //         if (i < text.length) {
-    //             pageHeader.textContent += text.charAt(i);
-    //             i++;
-    //             setTimeout(typeWriter, 50);
-    //         }
-    //     };
-    //     
-    // }
-    
-    // Показываем приветственное уведомление на главной странице
+    // Показываем приветствие на главной
     if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
         setTimeout(() => {
-            showNotification('Добро пожаловать в сравнительный анализ медных и оптических линий связи!', 'info');
+            const msg = currentLang === 'ru' ? 'Добро пожаловать!' : (currentLang === 'en' ? 'Welcome!' : '欢迎！');
+            console.log(msg);
         }, 1000);
     }
 });
 
-// Добавляем обработчик для клавиатуры
+// =================== КЛАВИАТУРНЫЕ ОБРАБОТЧИКИ ===================
 document.addEventListener('keydown', (event) => {
-    // Alt + T для переключения темы
     if (event.altKey && event.key === 't') {
         toggleTheme();
     }
-    
-    // Escape для закрытия мобильного меню
     if (event.key === 'Escape') {
         const sidebar = document.getElementById('sidebar');
         if (sidebar && sidebar.classList.contains('open')) {
@@ -233,7 +232,7 @@ document.addEventListener('keydown', (event) => {
             const mobileToggle = document.getElementById('mobileMenuToggle');
             if (mobileToggle) {
                 const icon = mobileToggle.querySelector('i');
-                icon.className = 'fas fa-bars';
+                if (icon) icon.className = 'fas fa-bars';
             }
         }
     }
