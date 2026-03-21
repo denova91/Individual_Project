@@ -1209,3 +1209,23 @@ footer:before {
         font-size: 1.5rem;
     }
 }
+
+/* Кнопка "Начать заново" в дереве решений */
+.btn-decision-reset {
+    padding: 0.8rem 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-decision-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-hover);
+    background: var(--accent-color);
+}
