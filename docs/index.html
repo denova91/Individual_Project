@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Передача информации | Медь vs Оптика</title>
+    <title>Выбор категории | Медь vs Оптика</title>
     <script>
         (function() {
             try {
@@ -27,11 +27,10 @@
             </a>
             <div class="top-nav-links">
                 <a href="index.html" class="top-nav-link active"><i class="fas fa-home"></i><span data-i18n="nav_home">Главная</span></a>
-                <a href="copper-principles.html" class="top-nav-link"><i class="fas fa-bolt"></i><span data-i18n="nav_copper">Медь</span></a>
-                <a href="fiber-principles.html" class="top-nav-link"><i class="fa fa-code-fork"></i><span data-i18n="nav_fiber">Оптика</span></a>
-                <a href="comparison.html" class="top-nav-link"><i class="fas fa-balance-scale"></i><span data-i18n="nav_comparison">Сравнение</span></a>
-                <a href="wireless.html" class="top-nav-link"><i class="fas fa-wifi"></i><span data-i18n="nav_wireless">Беспроводные</span></a>
-                <a href="other-cables.html" class="top-nav-link"><i class="fas fa-plug"></i><span data-i18n="nav_other">Интерфейсы</span></a>
+                <a href="wired.html" class="top-nav-link"><i class="fas fa-network-wired"></i><span data-i18n="nav_wired">Проводные</span></a>
+                <a href="wireless-category.html" class="top-nav-link"><i class="fas fa-wifi"></i><span data-i18n="nav_wireless">Беспроводные</span></a>
+                <a href="interfaces-category.html" class="top-nav-link"><i class="fas fa-plug"></i><span data-i18n="nav_interfaces">Интерфейсы</span></a>
+                <a href="glossary.html" class="top-nav-link"><i class="fas fa-book"></i><span data-i18n="nav_glossary">Глоссарий</span></a>
             </div>
         </div>
         <div class="top-nav-right">
@@ -50,107 +49,34 @@
         </div>
     </nav>
 
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Навигация">
-                <i class="fas fa-compass"></i>
-            </div>
-        </div>
-        <nav class="sidebar-nav">
-            <ul class="nav-links">
-                <li><button class="nav-button active" data-tooltip="Главная" onclick="window.location.href='index.html'"><i class="fas fa-home"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Медь" onclick="window.location.href='copper-principles.html'"><i class="fas fa-bolt"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Оптика" onclick="window.location.href='fiber-principles.html'"><i class="fa fa-code-fork"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'"><i class="fas fa-balance-scale"></i><span class="nav-indicator"></span></button></li>
-                <li class="nav-divider"></li>
-                <li><button class="nav-button" data-tooltip="Введение" onclick="scrollToSection('introduction')"><i class="fas fa-info-circle"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Проводные" onclick="scrollToSection('wired')"><i class="fas fa-network-wired"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Беспроводные" onclick="scrollToSection('wireless')"><i class="fas fa-wifi"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Другие интерфейсы" onclick="scrollToSection('other')"><i class="fas fa-plug"></i><span class="nav-indicator"></span></button></li>
-                <li class="nav-divider"></li>
-                <li><button class="nav-button" data-tooltip="Глоссарий" onclick="window.location.href='glossary.html'"><i class="fas fa-book"></i><span class="nav-indicator"></span></button></li>
-            </ul>
-            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
-                <i class="fas fa-palette"></i>
-            </button>
-        </nav>
-    </aside>
-
     <main class="main-content">
         <div class="container">
             <div class="page-header">
-                <h1 data-i18n="index_title"><i class="fas fa-globe"></i> Передача информации: от проводов до облаков</h1>
-                <p class="page-subtitle" data-i18n="index_subtitle">Современные способы передачи данных: проводные, беспроводные и интерфейсы будущего</p>
+                <h1 data-i18n="index_title"><i class="fas fa-globe"></i> Выберите категорию</h1>
+                <p class="page-subtitle" data-i18n="index_subtitle">Изучите различные способы передачи данных</p>
             </div>
 
-            <section id="introduction">
-                <h2 data-i18n="introduction_title"><i class="fas fa-info-circle"></i> Введение в технологии передачи данных</h2>
-                <p data-i18n="intro_text1">В современном мире информация передаётся с помощью различных физических сред и технологий. Выбор способа передачи зависит от множества факторов: расстояния, скорости, помехозащищённости, бюджета и удобства использования.</p>
-                <p data-i18n="intro_text2">На этом сайте вы найдёте подробное описание ключевых технологий: проводные линии (медь и оптика), беспроводные решения, а также популярные интерфейсы подключения устройств.</p>
-            </section>
+            <div class="comparison-grid" style="margin-top: 2rem;">
+                <div class="comparison-card copper-card" onclick="window.location.href='wired.html'">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3 data-i18n="wired_title">Проводные технологии</h3>
+                    <p data-i18n="wired_desc">Медные линии (витая пара) и оптические волокна для передачи данных на расстояния до сотен километров.</p>
+                    <div class="badge badge-copper">Медь</div>
+                    <div class="badge badge-fiber">Оптика</div>
+                </div>
 
-            <section id="wired">
-                <h2 data-i18n="wired_title"><i class="fas fa-network-wired"></i> Проводные технологии</h2>
-                <div class="comparison-grid">
-                    <div class="comparison-card copper-card">
-                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                        <h3 data-i18n="copper_title">Медные линии (витая пара)</h3>
-                        <p data-i18n="copper_desc">Электрические сигналы по металлическим проводникам. Недорогой и простой способ для локальных сетей на расстояния до 100 метров.</p>
-                        <a href="copper-principles.html" class="btn-card" data-i18n="learn_more">Узнать больше →</a>
-                    </div>
-                    <div class="comparison-card fiber-card">
-                        <div class="card-icon"><i class="fa fa-code-fork"></i></div>
-                        <h3 data-i18n="fiber_title">Оптические линии</h3>
-                        <p data-i18n="fiber_desc">Световые импульсы по стеклянным волокнам. Гигабитные и терабитные скорости на сотни километров.</p>
-                        <a href="fiber-principles.html" class="btn-card" data-i18n="learn_more">Узнать больше →</a>
-                    </div>
+                <div class="comparison-card" onclick="window.location.href='wireless-category.html'">
+                    <div class="card-icon"><i class="fas fa-wifi"></i></div>
+                    <h3 data-i18n="wireless_title">Беспроводные технологии</h3>
+                    <p data-i18n="wireless_desc">Wi-Fi, Bluetooth, 5G, спутниковая связь — свобода перемещения без кабелей.</p>
                 </div>
-            </section>
 
-            <section id="wireless">
-                <h2 data-i18n="wireless_title"><i class="fas fa-wifi"></i> Беспроводные технологии</h2>
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-wifi"></i></div>
-                        <h3>Wi-Fi</h3>
-                        <p data-i18n="wifi_desc">Локальные беспроводные сети. Стандарты 802.11ax (Wi-Fi 6) обеспечивают скорости до 9.6 Гбит/с.</p>
-                    </div>
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-bluetooth-b"></i></div>
-                        <h3>Bluetooth</h3>
-                        <p data-i18n="bt_desc">Связь на коротких расстояниях (до 100 м) для периферийных устройств.</p>
-                    </div>
-                    <div class="comparison-card">
-                        <div class="card-icon"><i class="fas fa-satellite-dish"></i></div>
-                        <h3>5G / Спутник</h3>
-                        <p data-i18n="cellular_desc">Мобильная связь, спутниковый интернет (Starlink). Глобальное покрытие.</p>
-                    </div>
+                <div class="comparison-card" onclick="window.location.href='interfaces-category.html'">
+                    <div class="card-icon"><i class="fas fa-plug"></i></div>
+                    <h3 data-i18n="interfaces_title">Интерфейсы подключения</h3>
+                    <p data-i18n="interfaces_desc">USB, HDMI, Thunderbolt — кабели и разъёмы для подключения устройств.</p>
                 </div>
-                <div class="text-center" style="margin-top: 1.5rem;">
-                    <a href="wireless.html" class="btn-primary" data-i18n="wireless_more">Подробнее о беспроводных технологиях →</a>
-                </div>
-            </section>
-
-            <section id="other">
-                <h2 data-i18n="other_title"><i class="fas fa-plug"></i> Другие интерфейсы подключения</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <h5>USB</h5>
-                        <p data-i18n="usb_desc">Универсальная последовательная шина. Версии: USB 2.0 (480 Мбит/с), USB 3.2 (20 Гбит/с), USB4 (40 Гбит/с). Типы разъёмов: A, B, C.</p>
-                    </div>
-                    <div class="info-item">
-                        <h5>HDMI / DisplayPort</h5>
-                        <p data-i18n="video_desc">Цифровые интерфейсы для передачи видео и звука высокого разрешения.</p>
-                    </div>
-                    <div class="info-item">
-                        <h5>Thunderbolt</h5>
-                        <p data-i18n="thunderbolt_desc">Высокоскоростной интерфейс (до 40 Гбит/с), совместимый с USB-C.</p>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 1.5rem;">
-                    <a href="other-cables.html" class="btn-primary" data-i18n="other_more">Подробнее о кабелях и интерфейсах →</a>
-                </div>
-            </section>
+            </div>
         </div>
 
         <footer>
@@ -158,20 +84,16 @@
                 <p data-i18n="footer_text">© 2025-2026 Передача данных: от меди до оптики. Образовательный проект.</p>
                 <div class="footer-links">
                     <a href="index.html">Главная</a>
-                    <a href="copper-principles.html">Медь</a>
-                    <a href="fiber-principles.html">Оптика</a>
-                    <a href="comparison.html">Сравнение</a>
-                    <a href="wireless.html">Беспроводные</a>
-                    <a href="other-cables.html">Интерфейсы</a>
+                    <a href="wired.html">Проводные</a>
+                    <a href="wireless-category.html">Беспроводные</a>
+                    <a href="interfaces-category.html">Интерфейсы</a>
                     <a href="glossary.html">Глоссарий</a>
                 </div>
             </div>
         </footer>
     </main>
 
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
 </body>

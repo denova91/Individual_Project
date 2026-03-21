@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проводные технологии | Медь vs Оптика</title>
+    <script>
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.className = savedTheme + '-theme';
+                const savedLang = localStorage.getItem('lang') || 'ru';
+                document.documentElement.setAttribute('data-lang', savedLang);
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="top-nav-left">
+            <a href="index.html" class="top-nav-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Медь vs Оптика</span>
+            </a>
+            <div class="top-nav-links">
+                <a href="index.html" class="top-nav-link"><i class="fas fa-home"></i><span data-i18n="nav_home">Главная</span></a>
+                <a href="wired.html" class="top-nav-link active"><i class="fas fa-network-wired"></i><span data-i18n="nav_wired">Проводные</span></a>
+                <a href="wireless-category.html" class="top-nav-link"><i class="fas fa-wifi"></i><span data-i18n="nav_wireless">Беспроводные</span></a>
+                <a href="interfaces-category.html" class="top-nav-link"><i class="fas fa-plug"></i><span data-i18n="nav_interfaces">Интерфейсы</span></a>
+                <a href="glossary.html" class="top-nav-link"><i class="fas fa-book"></i><span data-i18n="nav_glossary">Глоссарий</span></a>
+            </div>
+        </div>
+        <div class="top-nav-right">
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="ru">🇷🇺 RU</button>
+                <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+            </div>
+            <button class="top-nav-theme-toggle" id="themeToggle"><i class="fas fa-moon"></i><span data-i18n="theme_btn">Темная тема</span></button>
+            <button class="top-nav-mobile-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo" data-tooltip="Проводные технологии">
+                <i class="fas fa-network-wired"></i>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-links">
+                <li><button class="nav-button" data-tooltip="Главная" onclick="window.location.href='index.html'"><i class="fas fa-home"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'"><i class="fas fa-bolt"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'"><i class="fa fa-code-fork"></i><span class="nav-indicator"></span></button></li>
+                <li><button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'"><i class="fas fa-balance-scale"></i><span class="nav-indicator"></span></button></li>
+            </ul>
+            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему"><i class="fas fa-palette"></i></button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1><i class="fas fa-network-wired"></i> Проводные технологии</h1>
+                <p class="page-subtitle">Медные и оптические линии связи</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card copper-card" onclick="window.location.href='copper-principles.html'">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Медные линии (витая пара)</h3>
+                    <p>Электрические сигналы по металлическим проводникам. Недорогой и простой способ для локальных сетей на расстояния до 100 метров.</p>
+                </div>
+                <div class="comparison-card fiber-card" onclick="window.location.href='fiber-principles.html'">
+                    <div class="card-icon"><i class="fa fa-code-fork"></i></div>
+                    <h3>Оптические линии</h3>
+                    <p>Световые импульсы по стеклянным волокнам. Гигабитные и терабитные скорости на сотни километров.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="comparison.html" class="btn-primary">Сравнить медь и оптику →</a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container footer-content">
+                <p data-i18n="footer_text">© 2025-2026 Передача данных: от меди до оптики. Образовательный проект.</p>
+                <div class="footer-links">
+                    <a href="index.html">Главная</a>
+                    <a href="wired.html">Проводные</a>
+                    <a href="wireless-category.html">Беспроводные</a>
+                    <a href="interfaces-category.html">Интерфейсы</a>
+                    <a href="glossary.html">Глоссарий</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

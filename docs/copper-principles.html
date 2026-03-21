@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Медные линии связи | Медь vs Оптика</title>
+    <title>Медные линии | Медь vs Оптика</title>
     <script>
         (function() {
             try {
@@ -21,17 +21,13 @@
 <body>
     <nav class="top-nav">
         <div class="top-nav-left">
-            <a href="index.html" class="top-nav-logo">
-                <i class="fas fa-network-wired"></i>
-                <span>Медь vs Оптика</span>
-            </a>
+            <a href="index.html" class="top-nav-logo"><i class="fas fa-network-wired"></i><span>Медь vs Оптика</span></a>
             <div class="top-nav-links">
                 <a href="index.html" class="top-nav-link"><i class="fas fa-home"></i><span>Главная</span></a>
-                <a href="copper-principles.html" class="top-nav-link active"><i class="fas fa-bolt"></i><span>Медь</span></a>
-                <a href="fiber-principles.html" class="top-nav-link"><i class="fa fa-code-fork"></i><span>Оптика</span></a>
-                <a href="comparison.html" class="top-nav-link"><i class="fas fa-balance-scale"></i><span>Сравнение</span></a>
-                <a href="wireless.html" class="top-nav-link"><i class="fas fa-wifi"></i><span>Беспроводные</span></a>
-                <a href="other-cables.html" class="top-nav-link"><i class="fas fa-plug"></i><span>Интерфейсы</span></a>
+                <a href="wired.html" class="top-nav-link"><i class="fas fa-network-wired"></i><span>Проводные</span></a>
+                <a href="wireless-category.html" class="top-nav-link"><i class="fas fa-wifi"></i><span>Беспроводные</span></a>
+                <a href="interfaces-category.html" class="top-nav-link"><i class="fas fa-plug"></i><span>Интерфейсы</span></a>
+                <a href="glossary.html" class="top-nav-link"><i class="fas fa-book"></i><span>Глоссарий</span></a>
             </div>
         </div>
         <div class="top-nav-right">
@@ -40,20 +36,15 @@
                 <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
                 <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
             </div>
-            <button class="top-nav-theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-                <span>Темная тема</span>
-            </button>
-            <button class="top-nav-mobile-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="top-nav-theme-toggle" id="themeToggle"><i class="fas fa-moon"></i><span>Темная тема</span></button>
+            <button class="top-nav-mobile-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo" data-tooltip="Навигация">
-                <i class="fas fa-compass"></i>
+            <div class="sidebar-logo" data-tooltip="Проводные технологии">
+                <i class="fas fa-network-wired"></i>
             </div>
         </div>
         <nav class="sidebar-nav">
@@ -62,14 +53,8 @@
                 <li><button class="nav-button active" data-tooltip="Медные линии" onclick="window.location.href='copper-principles.html'"><i class="fas fa-bolt"></i><span class="nav-indicator"></span></button></li>
                 <li><button class="nav-button" data-tooltip="Оптические линии" onclick="window.location.href='fiber-principles.html'"><i class="fa fa-code-fork"></i><span class="nav-indicator"></span></button></li>
                 <li><button class="nav-button" data-tooltip="Сравнение" onclick="window.location.href='comparison.html'"><i class="fas fa-balance-scale"></i><span class="nav-indicator"></span></button></li>
-                <li class="nav-divider"></li>
-                <li><button class="nav-button" data-tooltip="Физика" onclick="scrollToSection('physics')"><i class="fas fa-atom"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="История" onclick="scrollToSection('history')"><i class="fas fa-history"></i><span class="nav-indicator"></span></button></li>
-                <li><button class="nav-button" data-tooltip="Стандарты" onclick="scrollToSection('standards')"><i class="fas fa-cogs"></i><span class="nav-indicator"></span></button></li>
             </ul>
-            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему">
-                <i class="fas fa-palette"></i>
-            </button>
+            <button class="sidebar-theme" id="sidebarThemeToggle" data-tooltip="Сменить тему"><i class="fas fa-palette"></i></button>
         </nav>
     </aside>
 
@@ -91,24 +76,22 @@
 
             <section id="history">
                 <h2><i class="fas fa-history"></i> Исторический экскурс</h2>
-                <p><strong>1837 год</strong> – Сэмюэл Морзе демонстрирует электрический телеграф, положив начало эре электрической связи. <strong>1876 год</strong> – Александр Белл патентует телефон, использующий непрерывный электрический сигнал. <strong>1881 год</strong> – появляется витая пара, которая эффективно снижает электромагнитные наводки. <strong>1973 год</strong> – Роберт Меткалф изобретает Ethernet (изначально на коаксиальном кабеле). Позже витая пара становится стандартом для локальных сетей. Сегодня медь остаётся доминирующей на «последней миле» благодаря простоте и низкой стоимости.</p>
-                <p><strong>Ключевые личности:</strong> Сэмюэл Морзе (телеграф), Александр Белл (телефон), Роберт Меткалф (Ethernet), а также инженеры, разработавшие категории кабелей (Cat5, Cat6 и т.д.).</p>
+                <p><strong>1837 год</strong> – Сэмюэл Морзе демонстрирует электрический телеграф. <strong>1876 год</strong> – Александр Белл патентует телефон. <strong>1881 год</strong> – появляется витая пара, которая эффективно снижает электромагнитные наводки. <strong>1973 год</strong> – Роберт Меткалф изобретает Ethernet. Сегодня медь остаётся доминирующей на «последней миле» благодаря простоте и низкой стоимости.</p>
+                <p><strong>Ключевые личности:</strong> Сэмюэл Морзе, Александр Белл, Роберт Меткалф, а также инженеры, разработавшие категории кабелей (Cat5, Cat6 и т.д.).</p>
             </section>
 
             <section id="physics">
                 <h2><i class="fas fa-atom"></i> Физические принципы</h2>
                 <h3>Скин-эффект</h3>
-                <p>С ростом частоты передаваемого сигнала электрический ток перестает равномерно распределяться по сечению проводника и вытесняется к его поверхности. Это приводит к эффективному уменьшению площади поперечного сечения, доступной для тока, что резко увеличивает сопротивление и, как следствие, затухание сигнала. Именно <span class="glossary-term" data-term="skin-effect">скин-эффект</span> является главным барьером, ограничивающим максимальную частоту, а значит и скорость передачи данных, а также дистанцию для медных кабелей.</p>
+                <p>С ростом частоты сигнала электрический ток вытесняется к поверхности проводника. Это увеличивает сопротивление и ограничивает дальность передачи. Наглядная анимация:</p>
                 <canvas id="skinEffectCanvas" width="500" height="250" style="background: #111; border-radius: 12px; display: block; margin: 1rem auto;"></canvas>
-                <p><em>Анимация показывает концентрацию тока у поверхности проводника при высоких частотах.</em></p>
+                <p>Подробнее о <span class="glossary-term" data-term="skin-effect">скин-эффекте</span> вы можете прочитать в <a href="glossary.html#skin-effect">глоссарии</a>.</p>
             </section>
 
             <section id="standards">
                 <h2><i class="fas fa-cogs"></i> Стандарты и категории</h2>
                 <table>
-                    <thead>
-                        <tr><th>Категория</th><th>Скорость передачи</th><th>Максимальная частота</th><th>Особенности</th></tr>
-                    </thead>
+                    <thead><tr><th>Категория</th><th>Скорость передачи</th><th>Максимальная частота</th><th>Особенности</th></tr></thead>
                     <tbody>
                         <tr><td><strong>Cat5e</strong></td><td>до 1 Гбит/с</td><td>100 МГц</td><td>Базовый стандарт для гигабитных сетей</td></tr>
                         <tr><td><strong>Cat6</strong></td><td>до 10 Гбит/с на 55 м</td><td>250 МГц</td><td>Улучшенная защита от помех</td></tr>
@@ -139,10 +122,13 @@
         </div>
         <footer>
             <div class="container footer-content">
-                <p>© 2025 Передача данных: от меди до оптики. Образовательный проект.</p>
+                <p data-i18n="footer_text">© 2025-2026 Передача данных: от меди до оптики. Образовательный проект.</p>
                 <div class="footer-links">
-                    <a href="index.html">Главная</a> <a href="copper-principles.html">Медь</a> <a href="fiber-principles.html">Оптика</a>
-                    <a href="comparison.html">Сравнение</a> <a href="wireless.html">Беспроводные</a> <a href="other-cables.html">Интерфейсы</a> <a href="glossary.html">Глоссарий</a>
+                    <a href="index.html">Главная</a>
+                    <a href="wired.html">Проводные</a>
+                    <a href="wireless-category.html">Беспроводные</a>
+                    <a href="interfaces-category.html">Интерфейсы</a>
+                    <a href="glossary.html">Глоссарий</a>
                 </div>
             </div>
         </footer>
