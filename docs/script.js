@@ -19,6 +19,8 @@ function applyTranslations() {
             el.innerHTML = translations[currentLang][key];
         }
     });
+    // После применения переводов обновляем текст кнопки темы
+    updateThemeIcons();
 }
 
 function setLanguage(lang) {
